@@ -5,11 +5,11 @@
  * @author Bence Ladoczki (hikari.code@gmail.com)
  */
 class DatabaseConnector {
-    private $username = "animefil_betufront";
+    private $username = "animefil_admin";
     private $password = "Animefil1990";
     private $dbhost   = "127.0.0.1";
     private $dbport = 3306;
-    private $dbname = "animefil_amf";
+    private $dbname = "animefil_betufront";
     private $charset = 'utf8' ;
     public $conn;
     public $db;
