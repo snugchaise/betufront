@@ -472,12 +472,54 @@ function get_page_nav(){
      echo '                        </div><!-- end row -->'.PHP_EOL;
 }
 function get_foot(){
+
+$width_data = "max-width: 90px";
+$width_data_2 = "min-width: 704px";
+$width_data_3 = "min-width: 992px";
+$height_data = "height: 500px;";
+if(is_mobile_browser()){
+$width_data = "width: 100%";
+$width_data_2 = "min-width: 100%";
+$width_data_3 = "width: 100%";
+$height_data = "height: 670px;";
+}
+     echo '<section style="clear: both; width: 100%; border-top: solid 1px #666; background-color: #313c53; padding-top: 20px; padding-bottom: 30px; font-size: 120%; bottom: 0;">'.PHP_EOL;
+     echo '    <div class="footermenu" style="width: 100%;">'.PHP_EOL;
+     echo '      <div style="    background-color: #313c53; padding: 30px 0; overflow: hidden; width: 1100px; margin: 0 auto;">'.PHP_EOL;
+     echo '  <div style="clear:both"></div>'.PHP_EOL;
+     echo '        <div style="width: 220px; float: left; overflow: hidden; margin: 35px 0 35px 40px;">'.PHP_EOL;
+     echo '          <p style="display: block; padding: 0 0 5px; font-size: 14px; color: #FFFFFF; font-weight: bold; border-bottom: solid 1px #FFFFFF; margin-bottom: 15px;">Az oldalról</p>'.PHP_EOL;
+     echo '          <ul style="width: 220px; list-style: none;line-height: 2em;">'.PHP_EOL;
+     echo '            <li><a href="/philosophy">Filozófia</a></li>'.PHP_EOL;
+     echo '            <li><a href="/sources">Források</a></li>'.PHP_EOL;
+     echo '            <li><a href="/terms-and-conditions">Feltételek</a></li>'.PHP_EOL;
+     echo '            <li><a href="/cookie-policy">Sütik</a></li>'.PHP_EOL;
+     echo '          </ul>'.PHP_EOL;
+     echo '        </div>'.PHP_EOL;
+     echo '        <div style="width: 220px; float: left; overflow: hidden; margin: 35px 0 35px 40px;">'.PHP_EOL;
+     echo '          <p style="display: block; padding: 0 0 5px; font-size: 14px; color: #FFFFFF; font-weight: bold; border-bottom: solid 1px #FFFFFF; margin-bottom: 15px;">Együttműködés</p>'.PHP_EOL;
+     echo '          <ul style="width: 220px; list-style: none; line-height: 2em;" >'.PHP_EOL;
+     echo '            <li><a href="/advertisement">Hirdetések</a></li>'.PHP_EOL;
+     echo '            <li><a href="/partners">Partnerek</a></li>'.PHP_EOL;
+     echo '            <li><a href="/social-media">Közösségi média</a></li>'.PHP_EOL;
+     echo '            <li><a href="/contact-us">Kapcsolat</a></li>'.PHP_EOL;
+     echo '          </ul>'.PHP_EOL;
+     echo '        </div>'.PHP_EOL;
+     echo '<div style="width: 44%; margin-left: 80px; margin-top: 39px;" class="fb-page" data-href="https://www.facebook.com/Betufront-101826948360331" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Betufront-101826948360331" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Betufront-101826948360331">Betufront</a></blockquote></div>'.PHP_EOL;
+     echo '        <div style="text-align: left; font-size: 12px; color: #fff; clear: left; margin-left: 50px;">'.PHP_EOL;
+     echo '          <p>© 2020 BETUFRONT | Használt könyvek piactere. Ingyenes hirdetésfeladás. Használt könyvek eladása. | Minden jog fenntartva.</p>'.PHP_EOL;
+     echo '        </div>'.PHP_EOL;
+     echo '        <!-- /#footerIn --></div>'.PHP_EOL;
+     echo '      <!-- /#footer1 --></div>'.PHP_EOL;
+     echo '  </section>'.PHP_EOL;
+     echo ''.PHP_EOL;
      echo '<script>'.PHP_EOL;
      echo 'function send_message(){'.PHP_EOL;
      echo 'var jsondata = { '.PHP_EOL;
      echo '        "email_address": document.getElementById("email_address").value, '.PHP_EOL;
      echo '        "user_message": document.getElementById("user_message").value, '.PHP_EOL;
-     echo '        "user_name": document.getElementById("user_name").value '.PHP_EOL;
+     echo '        "user_name": document.getElementById("user_name").value, '.PHP_EOL;
+     echo '        "data_type_from_site": 1 '.PHP_EOL;
      echo '    };   '.PHP_EOL;
      echo '    $.ajax({ '.PHP_EOL;
      echo '        url: "/send-message-from-site/", '.PHP_EOL;
@@ -493,44 +535,6 @@ function get_foot(){
      echo '    }); '.PHP_EOL;
      echo ' };'.PHP_EOL;
      echo '</script>'.PHP_EOL;
-
-$width_data = "max-width: 90px";
-$width_data_2 = "min-width: 704px";
-$width_data_3 = "min-width: 992px";
-$height_data = "height: 500px;";
-if(is_mobile_browser()){
-$width_data = "width: 100%";
-$width_data_2 = "min-width: 100%";
-$width_data_3 = "width: 100%";
-$height_data = "height: 670px;";
-}
-echo ' <footer style="'.$height_data.' padding: 30px 0 75px;background: url(\'/background.jpg\') round;">'.PHP_EOL;
-echo ' <div style="'.$width_data_3.'; color: #7a7a7a; ">'.PHP_EOL;
-echo ' <div style="color: #fff; box-sizing: border-box;">'.PHP_EOL;
-echo '     <div style="padding-right: 14px; '.$width_data_2.'; '.$width_data.'; padding-left: 20px; padding-right: calc(20px - .5rem); margin: 0 auto; box-sizing: border-box;">'.PHP_EOL;
-
-     echo '<div style="width: 40%; margin-left: 40px; float: left" class="copyright">';
-     echo '<a style="color: white; text-decoration: none!important;" href="/">Kezdőlap</a><br><br>';
-     echo '<a style="color: white; text-decoration: none!important;" href="/operation">Működés</a><br><br>';
-     echo '<a style="color: white; text-decoration: none!important;" href="/cookie-policy">Sütik</a>';
-     echo '</div>';
-     echo '<div style="width: 10%; float: left" class="copyright">';
-     echo '<a style="color: white; text-decoration: none!important;" href="/contact-us">Kapcsolat</a><br><br>';
-     echo '<a style="color: white; text-decoration: none!important;" href="/terms-and-conditions">Feltételek</a>';
-     echo '</div>';
-     echo '<div style="clear:both"></div>'.PHP_EOL;
-
-     echo '<div style="text-align: center;line-height: 42px;">'.PHP_EOL;
-     echo '<img width="80px" height="50px" src="/spain.jpg"/>'.PHP_EOL;
-     echo '<a href="https://www.facebook.com/Spanyoltanul%C3%A1scom-110031217438374"><img width="80px" height="50px" src="/fb.png"/></a><br>'.PHP_EOL;
-     echo 'A '.$GLOBALS['project_name'].'.com egy olyan dinamikusan fejlődő portál, amely a 2020-as évektől kezdve a magyar diákoknak ingyenes spanyol nyelvleckéket szolgáltat. Ha szeretnél pénztárcádat kímélve online spanyolul tanulni, akkor ez az oldal neked való!'.PHP_EOL;
-     echo '<p style="color: white; font-size: 0.9em" >Figyelem! Az oldalon található információ nem feltétlenül tükrözik a valóságot. Az estleges károkért az oldal tulajdonosa semmilyen felelősséget nem vállal. Az oldal használhatóságának javítása céljából Google Analytics-et használunk. Az oldal látogatásával a felhasználó automatikusan elfogadod a <a style="color: white; text-decoration: underline!important;" href="/cookie-policy">sütikről szóló szabályzatot</a> és a <a style="color: white; text-decoration: underline!important;" href="/terms-and-conditions">használat feltételeit</a>.</p>';
-     echo '© 2020 '.$GLOBALS['project_name'].'.com - Terv: <a style="color: white; text-decoration: underline!important;" href="https://templated.co/">TEMPLATED</a>. Illusztrációk <a style="color: white; text-decoration: underline!important;" href="https://unsplash.com/">Unsplash</a>'.PHP_EOL;
-     echo '</div>'.PHP_EOL;
-     echo '</div>'.PHP_EOL;
-     echo '</div>'.PHP_EOL;
-     echo '</div>'.PHP_EOL;
-     echo ' </footer>'.PHP_EOL;
 
 
 
@@ -1940,58 +1944,6 @@ switch ($request) {
      echo '</div>'.PHP_EOL;
      echo ''.PHP_EOL;
      echo ''.PHP_EOL;
-     echo '<section style="clear: both; width: 100%; border-top: solid 1px #666; background-color: #313c53; padding-top: 20px; padding-bottom: 30px; font-size: 120%; bottom: 0;">'.PHP_EOL;
-     echo '    <div class="footermenu" style="width: 100%;">'.PHP_EOL;
-     echo '      <div style="    background-color: #313c53; padding: 30px 0; overflow: hidden; width: 1100px; margin: 0 auto;">'.PHP_EOL;
-     echo '  <div style="clear:both"></div>'.PHP_EOL;
-     echo '        <div style="width: 220px; float: left; overflow: hidden; margin: 35px 0 35px 40px;">'.PHP_EOL;
-     echo '          <p style="display: block; padding: 0 0 5px; font-size: 14px; color: #FFFFFF; font-weight: bold; border-bottom: solid 1px #FFFFFF; margin-bottom: 15px;">Az oldalról</p>'.PHP_EOL;
-     echo '          <ul style="width: 220px; list-style: none;line-height: 2em;">'.PHP_EOL;
-     echo '            <li><a href="/philosophy">Filozófia</a></li>'.PHP_EOL;
-     echo '            <li><a href="/sources">Források</a></li>'.PHP_EOL;
-     echo '            <li><a href="/terms-and-conditions">Feltételek</a></li>'.PHP_EOL;
-     echo '            <li><a href="/cookie-policy">Sütik</a></li>'.PHP_EOL;
-     echo '          </ul>'.PHP_EOL;
-     echo '        </div>'.PHP_EOL;
-     echo '        <div style="width: 220px; float: left; overflow: hidden; margin: 35px 0 35px 40px;">'.PHP_EOL;
-     echo '          <p style="display: block; padding: 0 0 5px; font-size: 14px; color: #FFFFFF; font-weight: bold; border-bottom: solid 1px #FFFFFF; margin-bottom: 15px;">Együttműködés</p>'.PHP_EOL;
-     echo '          <ul style="width: 220px; list-style: none; line-height: 2em;" >'.PHP_EOL;
-     echo '            <li><a href="/advertisement">Hirdetések</a></li>'.PHP_EOL;
-     echo '            <li><a href="/partners">Partnerek</a></li>'.PHP_EOL;
-     echo '            <li><a href="/social-media">Közösségi média</a></li>'.PHP_EOL;
-     echo '            <li><a href="/contact-us">Kapcsolat</a></li>'.PHP_EOL;
-     echo '          </ul>'.PHP_EOL;
-     echo '        </div>'.PHP_EOL;
-     echo '<div style="width: 44%; margin-left: 80px; margin-top: 39px;" class="fb-page" data-href="https://www.facebook.com/Betufront-101826948360331" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Betufront-101826948360331" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Betufront-101826948360331">Betufront</a></blockquote></div>'.PHP_EOL;
-     echo '        <div style="text-align: left; font-size: 12px; color: #fff; clear: left; margin-left: 50px;">'.PHP_EOL;
-     echo '          <p>© 2020 BETUFRONT | Használt könyvek piactere. Ingyenes hirdetésfeladás. Használt könyvek eladása. | Minden jog fenntartva.</p>'.PHP_EOL;
-     echo '        </div>'.PHP_EOL;
-     echo '        <!-- /#footerIn --></div>'.PHP_EOL;
-     echo '      <!-- /#footer1 --></div>'.PHP_EOL;
-     echo '  </section>'.PHP_EOL;
-     echo ''.PHP_EOL;
-     echo '<script>'.PHP_EOL;
-     echo 'function send_message(){'.PHP_EOL;
-     echo 'var jsondata = { '.PHP_EOL;
-     echo '        "email_address": document.getElementById("email_address").value, '.PHP_EOL;
-     echo '        "user_message": document.getElementById("user_message").value, '.PHP_EOL;
-     echo '        "user_name": document.getElementById("user_name").value, '.PHP_EOL;
-     echo '        "data_type_from_site": 1 '.PHP_EOL;
-     echo '    };   '.PHP_EOL;
-     echo '    $.ajax({ '.PHP_EOL;
-     echo '        url: "/send-message-from-site/", '.PHP_EOL;
-     echo '        method: "POST",'.PHP_EOL;
-     echo '        data: JSON.stringify({ Data: jsondata }), '.PHP_EOL;
-     echo '        contentType: "json", '.PHP_EOL;
-     echo '        success: function(data){ '.PHP_EOL;
-     echo '         document.getElementById("message_from_user").innerHTML = "<span style=\'color: green\' >Elküldve... Hamarosan választ kapsz.</span>"; '.PHP_EOL;
-     echo '        }, '.PHP_EOL;
-     echo '        error: function(errMsg) { '.PHP_EOL;
-     echo '         document.getElementById("message_from_user").innerHTML = "<span style=\'color: green\' >Elküldve... Hamarosan választ kapsz.</span>"; '.PHP_EOL;
-     echo '        } '.PHP_EOL;
-     echo '    }); '.PHP_EOL;
-     echo ' };'.PHP_EOL;
-     echo '</script>'.PHP_EOL;
      echo '</body>'.PHP_EOL;
      echo '</html>'.PHP_EOL;
      break;
