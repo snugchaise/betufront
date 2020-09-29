@@ -2,8 +2,7 @@
 include_once("DatabaseHandler.php");
 include_once("DatabaseConnector.php");
 $handler = new DatabaseHandler;
-$imulat_handler = new DatabaseHandler;
-$imulat_handler->connect_to_database("imulat_database");
+
 
 $GLOBALS['project_name'] = "betufront";
 $GLOBALS['page_title'] = ucwords($GLOBALS['project_name']).'.hu - Használt könyvek eladása. Ingyenes piactér használt könyveid eladására.'.PHP_EOL;
@@ -12,8 +11,8 @@ function get_bottom_part(){
 
 $handler = new DatabaseHandler;
 $handler->connect_to_database("spanyoltanulas_database");
-$imulat_handler = new DatabaseHandler;
-$imulat_handler->connect_to_database("imulat_database");
+
+
 ###### Spanyolimádóknak #################
         echo '<div class="article_bottom" style="padding: 0 !important;margin-left: -15px;">'.PHP_EOL;
         echo '<div style="text-align: left;font-family: ProximaNova-Bold, helvetica, Arial, sans-serif;font-size: 22px;">'.PHP_EOL;
