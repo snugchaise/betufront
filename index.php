@@ -6178,7 +6178,7 @@ echo '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">'.PHP_EOL;
 echo '<div class="page-wrapper">'.PHP_EOL;
 echo '<div class="blog-list clearfix">'.PHP_EOL;
 echo '<h3>Kapcsolat</h3>'.PHP_EOL;
-echo '<div>Természetesen van <a href="https://www.facebook.com/Betufront-101826948360331https://www.facebook.com/Betufront-101826948360331/" style="color: black; text-decoration: underline!important;">Facebook oldalunk</a> is, de a legegyszerűbben online veheted fel a kapcsolatot velünk. Ha fel szeretnéd velünk venni a kapcsolatot használd a következő kapcsolattartási mezőket és küldj nekünk üzenetet.</div><br>'.PHP_EOL;
+echo '<div>Természetesen van <a href="https://www.facebook.com/Betufront-101826948360331" style="color: black; text-decoration: underline!important;">Facebook oldalunk</a> is, de a legegyszerűbben online veheted fel a kapcsolatot velünk. Ha fel szeretnéd velünk venni a kapcsolatot használd a következő kapcsolattartási mezőket és küldj nekünk üzenetet.</div><br>'.PHP_EOL;
 echo '<div style="float: right" >2020. szeptember - Az üzemeltető</div><br>'.PHP_EOL;
 echo '<h3>Kapcsolat</h3>'.PHP_EOL;
 echo '<div id="message_from_user">'.PHP_EOL;
