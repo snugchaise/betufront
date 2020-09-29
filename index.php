@@ -1942,8 +1942,9 @@ switch ($request) {
      echo '<div id="messages" style="white-space:pre;"></div>'.PHP_EOL;
      echo ''.PHP_EOL;
      echo '</div>'.PHP_EOL;
-     echo ''.PHP_EOL;
-     echo ''.PHP_EOL;
+ 
+     get_foot();
+
      echo '</body>'.PHP_EOL;
      echo '</html>'.PHP_EOL;
      break;
