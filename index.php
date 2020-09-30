@@ -3721,6 +3721,15 @@ $updates = array("ad_text" => $titleForUrl);
 $handler->update_in_table("books_for_sale",$updates,"id",$id);
 return;
 }
+if(preg_match('/edit-book-price/', $request)){
+$handler = new DatabaseHandler;
+$json = json_decode(file_get_contents("php://input"));
+$titleForUrl = $json->Data->titleForUrl;
+$id = $json->Data->id;
+$updates = array("book_price" => $titleForUrl);
+$handler->update_in_table("books_for_sale",$updates,"id",$id);
+return;
+}
 if(preg_match('/edit-book-page-number/', $request)){
 $handler = new DatabaseHandler;
 $json = json_decode(file_get_contents("php://input"));
@@ -4070,7 +4079,7 @@ if(preg_match('/edit-book-for-sale\//', $request)){
 
      echo '<textarea id="book_summary_box" onchange="set_book_summary();" style="width: 100%;" >'.$bfs['book_summary'].'</textarea>';
 
-     echo '<textarea id="book_price_box" onchange="set_title_for_url();" style="width: 100%;height: 4em;" >'.$bfs['book_price'].'</textarea>';
+     echo '<textarea id="book_price_box" onchange="set_book_price();" style="width: 100%;height: 4em;" >'.$bfs['book_price'].'</textarea>';
 
      echo '<textarea id="book_page_number_box" onchange="set_book_page_number();" style="width: 100%;height: 4em;" >'.$bfs['book_page_number'].'</textarea>';
 
@@ -4229,6 +4238,25 @@ if(preg_match('/edit-book-for-sale\//', $request)){
      echo ' };'.PHP_EOL;
      echo '</script>'.PHP_EOL;
 
+     echo '<script>'.PHP_EOL;
+     echo 'function set_book_price(){'.PHP_EOL;
+     echo 'var jsondata = { '.PHP_EOL;
+     echo '        "id": '.$bfs['id'].', '.PHP_EOL;
+     echo '        "titleForUrl": document.getElementById("book_price_box").value '.PHP_EOL;
+     echo '    };   '.PHP_EOL;
+     echo '    $.ajax({ '.PHP_EOL;
+     echo '        url: "/edit-book-price/", '.PHP_EOL;
+     echo '        method: "POST",         '.PHP_EOL;
+     echo '        data: JSON.stringify({ Data: jsondata }), '.PHP_EOL;
+     echo '        contentType: "json", '.PHP_EOL;
+     echo '        success: function(data){ '.PHP_EOL;
+     echo '        }, '.PHP_EOL;
+     echo '        error: function(errMsg) { '.PHP_EOL;
+     echo '            alert(errMsg);'.PHP_EOL;
+     echo '        } '.PHP_EOL;
+     echo '    }); '.PHP_EOL;
+     echo ' };'.PHP_EOL;
+     echo '</script>'.PHP_EOL;
      echo '<script>'.PHP_EOL;
      echo 'function set_book_page_number(){'.PHP_EOL;
      echo 'var jsondata = { '.PHP_EOL;
