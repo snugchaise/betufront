@@ -2198,6 +2198,10 @@ if(preg_match('/hasznalt-konyv/', $request)){
      }
      $handler = new DatabaseHandler;
      $bfs = $handler->conditional_select_from("books_for_sale",array("titleForUrl" => $titleForUrl))[0];
+
+     $updates = array("view_count" => $bfs['view_count'] + 1);
+     $handler->update_in_table("books_for_sale",$updates,"book_unique_hash",$bfs['book_unique_hash']);
+
 #     get_head(False,$logged_in,array(),$meta_content);
 
      $useragent=$_SERVER['HTTP_USER_AGENT'];
