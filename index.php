@@ -2280,7 +2280,7 @@ $results_array   = array("book_unique_hash" , "book_image_name" );
 
 $handler->insert_into_table("books_for_sale_images",$results_array ,$results_content);
 
-echo $newFileName;
+echo $id."/".$newFileName;
 }
 
 if(preg_match('/handle_additional_image_upload/', $request)){
@@ -4310,6 +4310,7 @@ echo '<button style="margin-top: 10px; margin-bottom: 10px;float: right" type="s
 echo '<button type="submit" class="btn btn-primary" onclick="document.getElementById(\'advert_image\').click();" >Kép feltöltése</button>'.PHP_EOL;
 
 echo '<div id="advert_image_loader"></div>'.PHP_EOL;
+echo '<div id="advert_image_image"></div>'.PHP_EOL;
 
 echo '<form method="post" id="advert_image_form" enctype="multipart/form-data">'.PHP_EOL;
 echo '<input type="file" id="advert_image" name="advert_image_form[]" class="form-control" style="display: none;" multiple/>'.PHP_EOL;
@@ -4779,7 +4780,7 @@ echo '    $.ajax({ '.PHP_EOL;
         echo '    {'.PHP_EOL;
         echo '        data = $.trim(data);'.PHP_EOL;
         echo '        $(\'#advert_image_loader\').html(\'<p style="color: green;">Success</p>\');'.PHP_EOL;
-        echo '        $(\'#advert_image_image\').after(\'<div class="uploaded_image"><img width="150px" height="150px" src="/images/properties/\'+data+\'"/></div>\');'.PHP_EOL;
+        echo '        $(\'#advert_image_image\').after(\'<div class="uploaded_image"><img width="150px" height="150px" src="/images/books/\'+data+\'"/></div>\');'.PHP_EOL;
         echo '    }'.PHP_EOL;
         echo '});'.PHP_EOL;
         echo '});'.PHP_EOL;
