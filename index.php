@@ -165,7 +165,7 @@ function send_service_mail($content){
 
 date_default_timezone_set('Europe/Budapest');
 
-$subject = 'Email a spanyoltanulás.com-ról [ekkor: '.date('l jS \of F Y h:i:s A').']';
+$subject = 'Email a betufront.hu-ról [ekkor: '.date('l jS \of F Y h:i:s A').']';
 
 $headers = "From: " . strip_tags('info@betufront.hu') . "\r\n";
 $headers .= "Reply-To: ". strip_tags('info@betufront.hu') . "\r\n";
