@@ -4319,6 +4319,20 @@ echo '<input  type="hidden" name="book_unique_hash" value="'.$bfs['book_unique_h
 echo '</form>'.PHP_EOL;
 echo "</div>".PHP_EOL;
 
+$images = $handler->conditional_select_from("books_for_sale_images",array("book_unique_hash" => $bfs['book_unique_hash'] ))[0];
+
+echo '<table>'.PHP_EOL;
+
+foreach( $images as $image ){
+echo '<tr>'.PHP_EOL;
+echo '<td>'.PHP_EOL;
+echo '<img width="150px" height="150px" src="/images/books/'.$bfs['id'].'/'.$image['book_image_name'].'"/>'.PHP_EOL;
+echo '</td>'.PHP_EOL;
+echo '</tr>'.PHP_EOL;
+}
+
+echo '</table>'.PHP_EOL;
+
 	 
 echo '<script>'.PHP_EOL;
 echo 'function set_initial(){'.PHP_EOL;
