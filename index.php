@@ -490,8 +490,6 @@ $height_data = "height: 670px;";
      echo '        <div style="width: 220px; float: left; overflow: hidden; margin: 35px 0 35px 40px;">'.PHP_EOL;
      echo '          <p style="display: block; padding: 0 0 5px; font-size: 14px; color: #FFFFFF; font-weight: bold; border-bottom: solid 1px #FFFFFF; margin-bottom: 15px;">Az oldalról</p>'.PHP_EOL;
      echo '          <ul style="width: 220px; list-style: none;line-height: 2em;">'.PHP_EOL;
-     echo '            <li><a href="/philosophy">Filozófia</a></li>'.PHP_EOL;
-     echo '            <li><a href="/sources">Források</a></li>'.PHP_EOL;
      echo '            <li><a href="/terms-and-conditions">Feltételek</a></li>'.PHP_EOL;
      echo '            <li><a href="/cookie-policy">Sütik</a></li>'.PHP_EOL;
      echo '          </ul>'.PHP_EOL;
