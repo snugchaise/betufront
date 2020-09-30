@@ -2208,7 +2208,7 @@ if(preg_match('/remove-book-image/', $request)){
 
      $table_name = "books_for_sale";
      $field = "book_image_name";
-     $value = $book_image_name;
+     $value = array("book_image_name" => $book_image_name);
 
      $bfs = $handler->delete_entry_from_table($table_name,$field,$value);
      header("HTTP/1.1 200 OK");
