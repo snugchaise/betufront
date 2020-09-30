@@ -2268,7 +2268,7 @@ echo '</table>'.PHP_EOL;
      echo '   <ul style="list-style: none; padding: 0; line-height: 2em;">'.PHP_EOL;
      echo '    <li style="color: #da1919"> '.$bfs['book_price'].' Forint</li>'.PHP_EOL;
      echo '    <li> Átvehető: '.$bfs['delivery_place'].'</li>'.PHP_EOL;
-     echo '    <li> Feltöltve: '.full_date($bfs['created']).'</li>'.PHP_EOL;
+     echo '    <li style="font-size: 0.75em"> Feltöltve: '.full_date($bfs['created']).'</li>'.PHP_EOL;
      echo '   </ul>'.PHP_EOL;
      echo '   <div style="background: #f7f7f5">'.PHP_EOL;
      echo '    <div style="text-align: center">'.PHP_EOL;
