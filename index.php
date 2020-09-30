@@ -2065,6 +2065,10 @@ switch ($request) {
      echo '<div style="display: block; background: #ffffff; color: black; width: 100%; margin: 0 0 15px 0; padding: 10px 25px 0 25px;  box-shadow: none; box-sizing: border-box; font-size: 1.3rem; text-align: left;" >'.PHP_EOL;
      foreach( $bfs_array as $bfs ){
   
+      $image = $handler->conditional_select_from("books_for_sale_images",array("book_unique_hash" => $bfs['book_unique_hash'] ))[0];
+
+      echo ' <img width="150px" height="150px" src="/images/books/'.$bfs['id'].'/'.$image['book_image_name'].'"/>'.PHP_EOL;
+
       echo '<div>'.PHP_EOL;
       echo '<h3>'.$bfs['book_author'].'</h3>'.PHP_EOL;
       echo '<h4>'.$bfs['book_title'].'</h4>'.PHP_EOL;
