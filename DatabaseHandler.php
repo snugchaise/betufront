@@ -130,7 +130,7 @@ class DatabaseHandler {
         try{
         $stmt = $this->connector->db->prepare("DELETE FROM `".$table_name."` WHERE ".$field." = ?");
         $stmt->execute(array($value));
-        return True;
+        return "OK";
         }
         catch(PDOException $e)
         {
