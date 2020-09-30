@@ -4652,7 +4652,7 @@ echo "</div>".PHP_EOL;
 echo '<script>'.PHP_EOL;
 echo 'function delete_book_image(book_image_name){'.PHP_EOL;
 echo 'var jsondata = { '.PHP_EOL;
-echo '        "book_unique_hash": '.$bfs['book_unique_hash'].', '.PHP_EOL;
+echo '        "book_unique_hash": "'.$bfs['book_unique_hash'].'", '.PHP_EOL;
 echo '        "book_image_name": book_image_name '.PHP_EOL;
 echo '    };   '.PHP_EOL;
 echo ' '.PHP_EOL;
