@@ -2151,6 +2151,22 @@ echo  "</ul>".PHP_EOL;
 echo '</div>'.PHP_EOL;
 get_foot();
 }
+if(preg_match('/advertisement/', $request)){
+$logged_in = False;
+$meta_content = '';
+$meta_content = $meta_content.' <meta name="viewport" content="width=device-width, initial-scale=1.0">'.PHP_EOL;
+get_head(False,$logged_in,array(),$meta_content);
+ echo '<h3>Hirdetések elhelyezése</h3>';
+ echo '<div>Ha az oldalon hirdetést szeretne elhelyezni van rá lehetőség. Ilyen esetben lépjen kapcsolatba az oldal fejlesztőjével a következő mezők kitöltésével:</div><br>';
+ echo '<h3>Kapcsolat</h3>';
+ echo '<div id="message_from_user">';
+ echo '<input type="text" style="margin-bottom: 10px" class="form-control" id="email_address" placeholder="E-mail cím">';
+ echo '<input type="text" style="margin-bottom: 10px" class="form-control" id="user_name" placeholder="Név">';
+ echo '<textarea style="margin-bottom: 10px; resize: none;" rows=4 class="form-control" id="user_message" placeholder="Üzenet"></textarea>';
+ echo '<button style="float: right" type="submit" class="btn btn-primary" onclick="send_message()">Elküldöm <i class="fa fa-envelope-open-o"></i></button>';
+ echo '</div>';
+ get_foot();
+}
 if(preg_match('/hasznalt-konyv/', $request)){
 
      $titleForUrl  = explode("/",$request)[2];
