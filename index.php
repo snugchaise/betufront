@@ -2106,43 +2106,43 @@ echo '<div>';
 echo  "<ul style='line-height: 3em; list-style: none'>".PHP_EOL;
 
 echo  "<li>".PHP_EOL;
-echo  "<a href='https://imulat.com/'>".PHP_EOL;
+echo  "<a style='color: blue' href='https://imulat.com/'>".PHP_EOL;
 echo "imulat.com".PHP_EOL;
 echo  "</a>".PHP_EOL;
 echo  "</li>".PHP_EOL;
 
 echo  "<li>".PHP_EOL;
-echo  "<a href='http://bookingport.hu/'>".PHP_EOL;
+echo  "<a style='color: blue' href='http://bookingport.hu/'>".PHP_EOL;
 echo "bookingport.hu".PHP_EOL;
 echo  "</a>".PHP_EOL;
 echo  "</li>".PHP_EOL;
 
 echo  "<li>".PHP_EOL;
-echo  "<a href='http://spanyoltanulas.com/'>".PHP_EOL;
+echo  "<a style='color: blue' href='http://spanyoltanulas.com/'>".PHP_EOL;
 echo "spanyoltanulas.com".PHP_EOL;
 echo  "</a>".PHP_EOL;
 echo  "</li>".PHP_EOL;
 
 echo  "<li>".PHP_EOL;
-echo  "<a href='http://sotetoldal.com/'>".PHP_EOL;
+echo  "<a style='color: blue' href='http://sotetoldal.com/'>".PHP_EOL;
 echo "sotetoldal.com".PHP_EOL;
 echo  "</a>".PHP_EOL;
 echo  "</li>".PHP_EOL;
 
 echo  "<li>".PHP_EOL;
-echo  "<a href='http://tobzoska.com/'>".PHP_EOL;
+echo  "<a style='color: blue' href='http://tobzoska.com/'>".PHP_EOL;
 echo "tobzoska.com".PHP_EOL;
 echo  "</a>".PHP_EOL;
 echo  "</li>".PHP_EOL;
 
 echo  "<li>".PHP_EOL;
-echo  "<a href='https://vengriyanakarte.ru/'>".PHP_EOL;
+echo  "<a style='color: blue' href='https://vengriyanakarte.ru/'>".PHP_EOL;
 echo "vengriyanakarte.ru".PHP_EOL;
 echo  "</a>".PHP_EOL;
 echo  "</li>".PHP_EOL;
 
 echo  "<li>".PHP_EOL;
-echo  "<a href='https://zaixiongyali.com/'>".PHP_EOL;
+echo  "<a style='color: blue' href='https://zaixiongyali.com/'>".PHP_EOL;
 echo "zaixiongyali.com".PHP_EOL;
 echo  "</a>".PHP_EOL;
 echo  "</li>".PHP_EOL;
