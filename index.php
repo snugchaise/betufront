@@ -2039,9 +2039,11 @@ function get_head($has_section,$logged_in,$articles,$meta_content){
      echo '<!-- head end --!>'.PHP_EOL;
 }
 
+###############################################################
+#############  INDEX ENDPOINT #################################
+###############################################################
 switch ($request) {
     case '/' :
-     $articles = array_reverse($handler->conditional_select_from("article",array("active_article" => 1)));
 
      $auth  = explode("/",$request)[3];
      $logged_in = False;
@@ -2049,7 +2051,6 @@ switch ($request) {
       $logged_in = True;
      }
      $handler = new DatabaseHandler;
-     $articles = array_reverse($handler->conditional_select_from("article",array("active_article" => 1)));
 #     get_head(False,$logged_in,array(),$meta_content);
 
      $useragent=$_SERVER['HTTP_USER_AGENT'];
@@ -2058,66 +2059,17 @@ switch ($request) {
      get_head(False,$logged_in,array(),$meta_content);
 
      echo '<div style="width: 1080px; padding: 0;position: relative; max-width: 1080px; margin: 0 auto; box-sizing: border-box;">'.PHP_EOL;
-     echo '<!-- news start -->'.PHP_EOL;
-     echo ' <div style="margin-top: 2%; width: 54%; float: left">'.PHP_EOL;
-     echo '  <div style="display: block; background: #ffffff; color: black; width: 100%; margin: 0 0 15px 0; padding: 10px 25px 0 25px;  box-shadow: none; box-sizing: border-box; font-size: 1.3rem; text-align: left;"><p style="color: black; background-color: #286ABE; height: 0px; font-weight: 600; text-align: left;padding-left: 20px;"></p>'.PHP_EOL;
-     echo '   <img src="maria.jpg" alt="Használt könyvek piactere" title="" height="350px" width="550px" height="auto">'.PHP_EOL;
-     echo ''.PHP_EOL;
-     echo '   <div >'.PHP_EOL;
-     echo '    <h2 style="margin: 0; border-bottom: 3px dashed #ff4436">Adatok</h2>'.PHP_EOL;
-     echo '   <ul style="list-style: none; color: black;padding: 0; line-height: 2em;">'.PHP_EOL;
-     echo '    <li> <span style="text-decoration: underline">Nyelv:</span> magyar</li>'.PHP_EOL;
-     echo '    <li> <span style="text-decoration: underline">Állapot:</span> vacak</li>'.PHP_EOL;
-     echo '    <li> <span style="text-decoration: underline">Kiadó:</span> Magvető Könyvkiadó</li>'.PHP_EOL;
-     echo '    <li> <span style="text-decoration: underline">Oldalak száma:</span> 354</li>'.PHP_EOL;
-     echo '    <li> <span style="text-decoration: underline">Kiadás éve:</span> 2015</li>'.PHP_EOL;
-     echo '    <li> <span style="text-decoration: underline">ISBN:</span> 432 56 657 56</li>'.PHP_EOL;
-     echo '   </ul>'.PHP_EOL;
-     echo '   </div>'.PHP_EOL;
-     echo '   <div>'.PHP_EOL;
-     echo '    <h2 style="margin: 0; border-bottom: 3px dashed #ff4436"> Összefoglaló</h2>'.PHP_EOL;
-     echo '    <p>'.PHP_EOL;
-     echo 'A Száz év magány Gabriel García Márquez kolumbiai író 1967-ben kiadott nagy sikerű regénye, mely az addig elhanyagolt latin-amerikai irodalom felé irányította a világ érdeklődését. A regény a mágikus realizmus stílusának egyik kiemelkedő alkotása, 35 nyelven, összesen több mint 30 millió példányban jelent meg világszerte. '.PHP_EOL;
-     echo '    <p>'.PHP_EOL;
-     echo '   </div>'.PHP_EOL;
-     echo '   <div>'.PHP_EOL;
-     echo '    <h2 style="margin: 0; border-bottom: 3px dashed #ff4436">Hirdetés szövege</h2>'.PHP_EOL;
-     echo '    <p>'.PHP_EOL;
-     echo '     Eladnám könyvemet!'.PHP_EOL;
-     echo '    <p>'.PHP_EOL;
-     echo '   </div>'.PHP_EOL;
-     echo ''.PHP_EOL;
-     echo '  </div>'.PHP_EOL;
-     echo ' </div>'.PHP_EOL;
-     echo ' <div style="margin-top: 2%; width: 45%; float: left">'.PHP_EOL;
-     echo '  <div style="display: block; background: #ffffff; color: black; width: 100%; margin: 0 0 15px 0; padding: 10px 25px 0 25px;  box-shadow: none; box-sizing: border-box; font-size: 1.3rem; text-align: left;">'.PHP_EOL;
-     echo '   <h3>Gabriel García Márquez - Száz év magány</h3>'.PHP_EOL;
-     echo '   <h4>Használt</h4>'.PHP_EOL;
-     echo '   <ul style="list-style: none; padding: 0; line-height: 2em;">'.PHP_EOL;
-     echo '    <li style="color: #da1919"> 1500 Forint</li>'.PHP_EOL;
-     echo '    <li> Átvehető: Budapest, V. kerület</li>'.PHP_EOL;
-     echo '   </ul>'.PHP_EOL;
-     echo '   <div style="background: #f7f7f5">'.PHP_EOL;
-     echo '    <div style="text-align: center">'.PHP_EOL;
-     echo '    <h4 style="margin-bottom: 5px;padding-top: 15px;">Hirdető</h4>'.PHP_EOL;
-     echo '     <div style="text-align: center;">'.PHP_EOL;
-     echo '     <img src="no_image.png" alt="Felhasználó" title="" height="60px" width="90px" height="auto">'.PHP_EOL;
-     echo '     </div>'.PHP_EOL;
-     echo '    </div>'.PHP_EOL;
-     echo '    <div>'.PHP_EOL;
-     echo '     <img src="phone" alt="Használt könyvek piactere" title="" height="20px" width="30px" height="auto">'.PHP_EOL;
-     echo '     +36(30)831-69-72 '.PHP_EOL;
-     echo '    </div>'.PHP_EOL;
-     echo '    <div style="text-align: center;">'.PHP_EOL;
-     echo '<a class="atc-button atc-button--primary  split-btn split-btn-tertiary" href="">Kapcsolat</a>'.PHP_EOL;
-     echo '    </div>'.PHP_EOL;
-     echo '   </div>'.PHP_EOL;
-     echo '  </div>'.PHP_EOL;
-     echo ' </div>'.PHP_EOL;
-     echo '</div>'.PHP_EOL;
-     echo '<!-- news end -->'.PHP_EOL;
-     echo '<div id="messages" style="white-space:pre;"></div>'.PHP_EOL;
-     echo ''.PHP_EOL;
+      
+     $bfs_array = array_reverse($handler->conditional_select_from("books_for_sale",array("active_book" => 1)));
+
+     foreach( $bfs_array as $bfs ){
+  
+      echo '<div>'.PHP_EOL;
+      echo $bfs['book_title'].PHP_EOL;
+      echo '</div>'.PHP_EOL;
+     }
+
+
      echo '</div>'.PHP_EOL;
  
      get_foot();
@@ -4538,12 +4490,14 @@ echo '<table>'.PHP_EOL;
 
 foreach( $images as $image ){
 echo '<tr>'.PHP_EOL;
+
 echo ' <td>'.PHP_EOL;
 echo ' <img width="150px" height="150px" src="/images/books/'.$bfs['id'].'/'.$image['book_image_name'].'"/>'.PHP_EOL;
 echo ' </td>'.PHP_EOL;
 echo ' <td>'.PHP_EOL;
 echo ' <button type="submit" class="btn-warning" onclick="delete_book_image()">Törlés</button>'.PHP_EOL;
 echo ' </td>'.PHP_EOL;
+
 echo '</tr>'.PHP_EOL;
 }
 
