@@ -4464,27 +4464,41 @@ $bfs = $handler->conditional_select_from("books_for_sale",array("titleForUrl" =>
 echo '<div style="width: 1080px; padding: 0;position: relative; max-width: 1080px; margin: 0 auto; box-sizing: border-box;">'.PHP_EOL;
 
 echo '<h4>A könyved szerzője</h4>'.PHP_EOL;
- echo '<textarea id="book_author_box" onchange="set_book_author();" style="width: 100%;height: 1em;" >'.$bfs['book_author'].'</textarea>';
+echo '<textarea id="book_author_box" onchange="set_book_author();" style="width: 100%;height: 1em;" >'.$bfs['book_author'].'</textarea>';
+
 echo '<h4>Címe</h4>'.PHP_EOL;
- echo '<textarea id="book_title_box" onchange="set_book_title();" style="width: 100%;height: 1em;" >'.$bfs['book_title'].'</textarea>';
+echo '<textarea id="book_title_box" onchange="set_book_title();" style="width: 100%;height: 1em;" >'.$bfs['book_title'].'</textarea>';
+
 echo '<h4>A könyved tartalma</h4>'.PHP_EOL;
- echo '<textarea id="book_summary_box" onchange="set_book_summary();" style="width: 100%;" >'.$bfs['book_summary'].'</textarea>';
+echo '<textarea id="book_summary_box" onchange="set_book_summary();" style="width: 100%;" >'.$bfs['book_summary'].'</textarea>';
+
+echo '<h4>A hirdetés szövege</h4>'.PHP_EOL;
+echo '<textarea id="ad_text_box" onchange="set_ad_text();" style="width: 100%; height: 3em;" >'.$bfs['ad_text'].'</textarea>';
+
 echo '<h4>Mennyiért adod?</h4>'.PHP_EOL;
- echo '<textarea id="book_price_box" onchange="set_book_price();" style="width: 100%;height: 1em;" >'.$bfs['book_price'].'</textarea>';
+echo '<textarea id="book_price_box" onchange="set_book_price();" style="width: 100%;height: 1em;" >'.$bfs['book_price'].'</textarea>';
+
 echo '<h4>Oldalainak száma</h4>'.PHP_EOL;
- echo '<textarea id="book_page_number_box" onchange="set_book_page_number();" style="width: 100%;height: 1em;" >'.$bfs['book_page_numbers'].'</textarea>';
+echo '<textarea id="book_page_number_box" onchange="set_book_page_number();" style="width: 100%;height: 1em;" >'.$bfs['book_page_numbers'].'</textarea>';
+
 echo '<h4>Kiadás éve</h4>'.PHP_EOL;
- echo '<textarea id="book_publish_date_box" onchange="set_publish_date();" style="width: 100%;height: 1em;" >'.$bfs['book_publish_date'].'</textarea>';
+echo '<textarea id="book_publish_date_box" onchange="set_publish_date();" style="width: 100%;height: 1em;" >'.$bfs['book_publish_date'].'</textarea>';
+
 echo '<h4>ISBN száma (ha van)</h4>'.PHP_EOL;
- echo '<textarea id="book_isbn_box" onchange="set_book_isbn();" style="width: 100%;height: 1em;" >'.$bfs['book_isbn'].'</textarea>';
+echo '<textarea id="book_isbn_box" onchange="set_book_isbn();" style="width: 100%;height: 1em;" >'.$bfs['book_isbn'].'</textarea>';
+
 echo '<h4>Milyen nyelven íródott?</h4>'.PHP_EOL;
- echo '<textarea id="book_language_box" onchange="set_book_language();" style="width: 100%;height: 1em;" >'.$bfs['book_language'].'</textarea>';
+echo '<textarea id="book_language_box" onchange="set_book_language();" style="width: 100%;height: 1em;" >'.$bfs['book_language'].'</textarea>';
+
 echo '<h4>A könyved állapota</h4>'.PHP_EOL;
- echo '<textarea id="book_condition_box" onchange="set_book_condition();" style="width: 100%;height: 1em;" >'.$bfs['book_condition'].'</textarea>';
+echo '<textarea id="book_condition_box" onchange="set_book_condition();" style="width: 100%;height: 1em;" >'.$bfs['book_condition'].'</textarea>';
+
 echo '<h4>Kiadója</h4>'.PHP_EOL;
- echo '<textarea id="book_publisher_box" onchange="set_book_publisher();" style="width: 100%;height: 1em;" >'.$bfs['book_publisher'].'</textarea>';
+echo '<textarea id="book_publisher_box" onchange="set_book_publisher();" style="width: 100%;height: 1em;" >'.$bfs['book_publisher'].'</textarea>';
+
 echo '<h4>Hol tudod átadni? (Írj minnél részletesebben)?</h4>'.PHP_EOL;
- echo '<textarea id="delivery_place_box" onchange="set_delivery_place();" style="width: 100%;height: 1em;" >'.$bfs['delivery_place'].'</textarea>';
+echo '<textarea id="delivery_place_box" onchange="set_delivery_place();" style="width: 100%;height: 1em;" >'.$bfs['delivery_place'].'</textarea>';
+
 echo '<button style="margin-top: 10px; margin-bottom: 10px;float: right" type="submit" class="btn btn-primary" onclick="upload_book_advert()">Feltöltöm <i class="fa fa-envelope-open-o"></i></button>'.PHP_EOL;
 
 
