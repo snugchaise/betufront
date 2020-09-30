@@ -4011,7 +4011,7 @@ $updates = array("book_price" => $titleForUrl);
 $handler->update_in_table("books_for_sale",$updates,"id",$id);
 return;
 }
-if(preg_match('/edit-publish-date/', $request)){
+if(preg_match('/edit-book-publish-date/', $request)){
 $handler = new DatabaseHandler;
 $json = json_decode(file_get_contents("php://input"));
 $titleForUrl = $json->Data->titleForUrl;
