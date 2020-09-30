@@ -128,9 +128,10 @@ class DatabaseHandler {
     }
     public function delete_entry_from_table($table_name,$field,$value) {
         try{
-        $stmt = $this->connector->db->prepare("DELETE FROM `".$table_name."` WHERE ".$field." = \"".$value."\" ");
+        $query = "DELETE FROM `".$table_name."` WHERE ".$field." = \"".$value."\" ";
+        $stmt = $this->connector->db->prepare($query);
         $stmt->execute();
-        return "OK";
+        return $query;
         }
         catch(PDOException $e)
         {
