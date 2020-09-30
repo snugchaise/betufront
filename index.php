@@ -4011,6 +4011,15 @@ $updates = array("book_price" => $titleForUrl);
 $handler->update_in_table("books_for_sale",$updates,"id",$id);
 return;
 }
+if(preg_match('/edit-publish-date/', $request)){
+$handler = new DatabaseHandler;
+$json = json_decode(file_get_contents("php://input"));
+$titleForUrl = $json->Data->titleForUrl;
+$id = $json->Data->id;
+$updates = array("book_publish_date" => $titleForUrl);
+$handler->update_in_table("books_for_sale",$updates,"id",$id);
+return;
+}
 if(preg_match('/edit-book-condition/', $request)){
 $handler = new DatabaseHandler;
 $json = json_decode(file_get_contents("php://input"));
@@ -4465,7 +4474,7 @@ echo '<h4>Mennyiért adod?</h4>'.PHP_EOL;
 echo '<h4>Oldalainak száma</h4>'.PHP_EOL;
  echo '<textarea id="book_page_number_box" onchange="set_book_page_number();" style="width: 100%;height: 1em;" >'.$bfs['book_page_numbers'].'</textarea>';
 echo '<h4>Kiadás éve</h4>'.PHP_EOL;
- echo '<textarea id="type_box" onchange="set_type();" style="width: 100%;height: 1em;" >'.$bfs['book_publish_date'].'</textarea>';
+ echo '<textarea id="book_publish_date_box" onchange="set_publish_date();" style="width: 100%;height: 1em;" >'.$bfs['book_publish_date'].'</textarea>';
 echo '<h4>ISBN száma (ha van)</h4>'.PHP_EOL;
  echo '<textarea id="book_isbn_box" onchange="set_book_isbn();" style="width: 100%;height: 1em;" >'.$bfs['book_isbn'].'</textarea>';
 echo '<h4>Milyen nyelven íródott?</h4>'.PHP_EOL;
@@ -4694,6 +4703,27 @@ echo '        } '.PHP_EOL;
 echo '    }); '.PHP_EOL;
 echo ' };'.PHP_EOL;
 echo '</script>'.PHP_EOL;
+
+echo '<script>'.PHP_EOL;
+echo 'function set_publish_date(){'.PHP_EOL;
+echo 'var jsondata = { '.PHP_EOL;
+echo '        "id": '.$bfs['id'].', '.PHP_EOL;
+echo '        "titleForUrl": document.getElementById("book_publish_date_box").value '.PHP_EOL;
+echo '    };   '.PHP_EOL;
+echo '    $.ajax({ '.PHP_EOL;
+echo '        url: "/edit-book-publish-date/", '.PHP_EOL;
+echo '        method: "POST",         '.PHP_EOL;
+echo '        data: JSON.stringify({ Data: jsondata }), '.PHP_EOL;
+echo '        contentType: "json", '.PHP_EOL;
+echo '        success: function(data){ '.PHP_EOL;
+echo '        }, '.PHP_EOL;
+echo '        error: function(errMsg) { '.PHP_EOL;
+echo '            alert(errMsg);'.PHP_EOL;
+echo '        } '.PHP_EOL;
+echo '    }); '.PHP_EOL;
+echo ' };'.PHP_EOL;
+echo '</script>'.PHP_EOL;
+
 echo '<script>'.PHP_EOL;
 echo 'function set_book_page_number(){'.PHP_EOL;
 echo 'var jsondata = { '.PHP_EOL;
@@ -4713,6 +4743,7 @@ echo '        } '.PHP_EOL;
 echo '    }); '.PHP_EOL;
 echo ' };'.PHP_EOL;
 echo '</script>'.PHP_EOL;
+
 echo '<script>'.PHP_EOL;
 echo 'function set_book_isbn(){'.PHP_EOL;
 echo 'var jsondata = { '.PHP_EOL;
