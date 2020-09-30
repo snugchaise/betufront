@@ -2151,6 +2151,28 @@ echo  "</ul>".PHP_EOL;
 echo '</div>'.PHP_EOL;
 get_foot();
 }
+if(preg_match('/social-media/', $request)){
+$logged_in = False;
+$meta_content = '';
+$meta_content = $meta_content.' <meta name="viewport" content="width=device-width, initial-scale=1.0">'.PHP_EOL;
+get_head(False,$logged_in,array(),$meta_content);
+
+echo '<h3>Közösségi média</h3>';
+echo '<div style="margin-bottom: 15px; text-align: center">'.PHP_EOL;
+     echo '<div style="width: 44%; margin-left: 80px; margin-top: 39px;" class="fb-page" data-href="https://www.facebook.com/Betufront-101826948360331" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Betufront-101826948360331" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Betufront-101826948360331">Betufront</a></blockquote></div>'.PHP_EOL;
+echo '</div>'.PHP_EOL;
+
+echo '<div>A legegyszerűbben online veheted fel a kapcsolatot velünk. Ha fel szeretnéd velünk venni a kapcsolatot használd a következő kapcsolattartási mezőket és küldj nekünk üzenetet.</div><br>';
+echo '<div style="float: right" >2020. szeptember - <a href="https://www.linkedin.com/in/bence-lad%C3%B3czki-569299124/">Az üzemeltető</a></div><br>';
+echo '<h3>Kapcsolat</h3>';
+echo '<div id="message_from_user">';
+echo '<input type="text" style="margin-bottom: 10px" class="form-control" id="email_address" placeholder="E-mail cím">';
+echo '<input type="text" style="margin-bottom: 10px" class="form-control" id="user_name" placeholder="Név">';
+echo '<textarea style="margin-bottom: 10px; resize: none;" rows=4 class="form-control" id="user_message" placeholder="Üzenet"></textarea>';
+echo '<button style="float: right" type="submit" class="btn btn-primary" onclick="send_message()">Elküldöm <i class="fa fa-envelope-open-o"></i></button>';
+echo '</div>';
+get_foot();
+}
 if(preg_match('/advertisement/', $request)){
 $logged_in = False;
 $meta_content = '';
