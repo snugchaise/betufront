@@ -4543,7 +4543,7 @@ echo ' <td>'.PHP_EOL;
 echo ' <img width="150px" height="150px" src="/images/books/'.$bfs['id'].'/'.$image['book_image_name'].'"/>'.PHP_EOL;
 echo ' </td>'.PHP_EOL;
 echo ' <td>'.PHP_EOL;
-echo ' <button type="submit" class="btn btn-warning" onclick="delete_book_image()">Törlés</button>'.PHP_EOL;
+echo ' <button type="submit" class="btn-warning" onclick="delete_book_image()">Törlés</button>'.PHP_EOL;
 echo ' </td>'.PHP_EOL;
 echo '</tr>'.PHP_EOL;
 }
