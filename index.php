@@ -2189,6 +2189,7 @@ get_head(False,$logged_in,array(),$meta_content);
 }
 if(preg_match('/remove-book-image/', $request)){
 
+     $json = json_decode(file_get_contents("php://input"));
      $book_image_name  = $json->Data->book_image_name;
      $book_unique_hash  = $json->Data->book_unique_hash;
 
