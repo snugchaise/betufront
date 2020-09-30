@@ -3968,7 +3968,6 @@ if(preg_match('/add-book-for-sale\//', $request)){
 
         $handler->insert_into_table("books_for_sale",array(
 	     "titleForUrl",
-	     "initial",
 	     "book_summary",
 	     "ad_text",
 	     "category",
@@ -3986,11 +3985,10 @@ if(preg_match('/add-book-for-sale\//', $request)){
 	     "book_unique_hash"),
           array(
              "titleForUrl" => $random_title,
-	     "initial" => "",
 	     "book_summary" => "",
 	     "ad_text" => "",
 	     "category" => "",
-	     "active_book" => "",
+	     "active_book" => 0,
 	     "book_language" => "",
 	     "book_condition" => "",
 	     "book_publisher" => "",
