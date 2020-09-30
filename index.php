@@ -4051,7 +4051,7 @@ $bfs = $handler->conditional_select_from("books_for_sale",array("id" => $id ))[0
 $book_title = rtrim(ltrim($bfs['book_title']));
 $book_author = rtrim(ltrim($bfs['book_author']));
 
- $titleForUrl = preg_replace('/\s+/', '-', $book_title.$book_author);
+ $titleForUrl = preg_replace('/\s+/', '-', $book_title." ".$book_author);
 
  $replace = [
      '&lt;' => '', '&gt;' => '', '&#039;' => '', '&amp;' => '',
@@ -4102,6 +4102,7 @@ $book_author = rtrim(ltrim($bfs['book_author']));
  ];
 
 $titleForUrl = str_replace(array_keys($replace), $replace, $titleForUrl);
+$titleForUrl = mb_strtolower($titleForUrl);
 
 $updates = array("titleForUrl" => $titleForUrl);
 $handler->update_in_table("books_for_sale",$updates,"id",$id);
