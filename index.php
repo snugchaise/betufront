@@ -2258,7 +2258,7 @@ $fileTmpPath = $_FILES['advert_image_form']['tmp_name'][0];
 $fileName = $_FILES['advert_image_form']['name'][0];
 $fileSize = $_FILES['advert_image_form']['size'][0];
 $fileType = $_FILES['advert_image_form']['type'][0];
-$uploadFileDir = '/home/qqwwaass/'.$GLOBALS['project_name'].'/images/'.$id.'/';
+$uploadFileDir = '/home/animefil/betufront/images/books/'.$id.'/';
 if(!file_exists($uploadFileDir)){
 mkdir($uploadFileDir);
 }
