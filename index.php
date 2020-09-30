@@ -1762,7 +1762,7 @@ function get_head($has_section,$logged_in,$articles,$meta_content){
      echo '<div style="padding-bottom: 0px; text-align: left; width: 1080px; position: relative; max-width: 1080px; margin: 0 auto; box-sizing: border-box;height: 100px">'.PHP_EOL;
      echo ''.PHP_EOL;
      echo '<div style="display: inline-block; box-sizing: border-box; width: 15%; float: left; margin-top: 15px;">'.PHP_EOL;
-     echo '<a href="/"><img src="logo.png" alt="Használt könyvek piactere" title="" height="65px" width="133px" height="auto"></a>'.PHP_EOL;
+     echo '<a href="/"><img src="/logo.png" alt="Használt könyvek piactere" title="" height="65px" width="133px" height="auto"></a>'.PHP_EOL;
      echo '</div>'.PHP_EOL;
      echo ''.PHP_EOL;
      echo ''.PHP_EOL;
