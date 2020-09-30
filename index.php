@@ -3730,6 +3730,15 @@ $updates = array("book_price" => $titleForUrl);
 $handler->update_in_table("books_for_sale",$updates,"id",$id);
 return;
 }
+if(preg_match('/edit-book-condition/', $request)){
+$handler = new DatabaseHandler;
+$json = json_decode(file_get_contents("php://input"));
+$titleForUrl = $json->Data->titleForUrl;
+$id = $json->Data->id;
+$updates = array("book_condition" => $titleForUrl);
+$handler->update_in_table("books_for_sale",$updates,"id",$id);
+return;
+}
 if(preg_match('/edit-book-language/', $request)){
 $handler = new DatabaseHandler;
 $json = json_decode(file_get_contents("php://input"));
@@ -4096,12 +4105,13 @@ if(preg_match('/edit-book-for-sale\//', $request)){
 
      echo '<textarea id="book_language_box" onchange="set_book_language();" style="width: 100%;height: 4em;" >'.$bfs['book_language'].'</textarea>';
 
+     echo '<textarea id="book_condition_box" onchange="set_book_condition();" style="width: 100%;height: 4em;" >'.$bfs['book_condition'].'</textarea>';
+
      echo '<textarea id="ad_text_box" onchange="set_ad_text();" style="width: 100%;height: 24em;" >'.$bfs['ad_text'].'</textarea>';
      echo '<textarea id="content1_box" onchange="set_content1();" style="width: 100%;height: 24em;" >'.$bfs['book_condition'].'</textarea>';
      echo '<textarea id="content2_box" onchange="set_content2();" style="width: 100%;height: 24em;" >'.$bfs['book_publisher'].'</textarea>';
      echo '<textarea id="type_string_box" onchange="set_type_string();" style="width: 100%;height: 4em;" >'.$bfs['book_page_numbers'].'</textarea>';
      echo '<textarea id="type_box" onchange="set_type();" style="width: 100%;height: 4em;" >'.$bfs['book_publish_date'].'</textarea>';
-     echo '<textarea id="title_for_url_box" onchange="set_title_for_url();" style="width: 100%;height: 4em;" >'.$bfs['book_isbn'].'</textarea>';
      echo '<textarea id="title_for_url_box" onchange="set_title_for_url();" style="width: 100%;height: 4em;" >'.$bfs['delivery_place'].'</textarea>';
 
 
@@ -4275,6 +4285,25 @@ if(preg_match('/edit-book-for-sale\//', $request)){
      echo '    };   '.PHP_EOL;
      echo '    $.ajax({ '.PHP_EOL;
      echo '        url: "/edit-book-language/", '.PHP_EOL;
+     echo '        method: "POST",         '.PHP_EOL;
+     echo '        data: JSON.stringify({ Data: jsondata }), '.PHP_EOL;
+     echo '        contentType: "json", '.PHP_EOL;
+     echo '        success: function(data){ '.PHP_EOL;
+     echo '        }, '.PHP_EOL;
+     echo '        error: function(errMsg) { '.PHP_EOL;
+     echo '            alert(errMsg);'.PHP_EOL;
+     echo '        } '.PHP_EOL;
+     echo '    }); '.PHP_EOL;
+     echo ' };'.PHP_EOL;
+     echo '</script>'.PHP_EOL;
+     echo '<script>'.PHP_EOL;
+     echo 'function set_book_condition(){'.PHP_EOL;
+     echo 'var jsondata = { '.PHP_EOL;
+     echo '        "id": '.$bfs['id'].', '.PHP_EOL;
+     echo '        "titleForUrl": document.getElementById("book_condition_box").value '.PHP_EOL;
+     echo '    };   '.PHP_EOL;
+     echo '    $.ajax({ '.PHP_EOL;
+     echo '        url: "/edit-book-condition/", '.PHP_EOL;
      echo '        method: "POST",         '.PHP_EOL;
      echo '        data: JSON.stringify({ Data: jsondata }), '.PHP_EOL;
      echo '        contentType: "json", '.PHP_EOL;
