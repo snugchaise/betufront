@@ -1463,7 +1463,7 @@ function get_head($has_section,$logged_in,$articles,$meta_content){
      echo '			input[type="radio"] + label:before {'.PHP_EOL;
      echo '				border-radius: 0;'.PHP_EOL;
      echo '				border: solid 1px;'.PHP_EOL;
-     echo '				content: '';'.PHP_EOL;
+     echo '				content: \'\';'.PHP_EOL;
      echo '				display: inline-block;'.PHP_EOL;
      echo '				height: 1.65em;'.PHP_EOL;
      echo '				left: 0;'.PHP_EOL;
