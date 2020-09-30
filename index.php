@@ -3915,25 +3915,32 @@ if(preg_match('/edit-book-for-sale\//', $request)){
         $meta_content = "";
         get_head(False,$logged_in,array(),$meta_content);
         $title = explode("/",$request)[2];
-        $articles = $handler->conditional_select_from("article",array("titleForUrl" => $title ));
-        $this_article = $articles[0];
+        $bfs = $handler->conditional_select_from("add-book-for-sale",array("titleForUrl" => $title ))[0];
     
-     echo '        <section class="section wb">';
-     echo '            <div class="container">';
-     echo '                <div class="row">';
-     echo '                    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">';
-     echo '                        <div class="page-wrapper">';
-     echo '                            <div class="blog-list clearfix">';
-     echo '                                <div class="blog-box row">';
-     echo '                                    <div class="blog-meta big-meta" style="width: 100%; text-align: justify;">';
-     echo '<textarea id="title_box" onchange="set_title();" style="width: 100%;" >'.$this_article['title'].'</textarea>';
-     echo '<textarea id="initial_box" onchange="set_initial();" style="width: 100%;height: 24em;" >'.$this_article['initial'].'</textarea>';
-     echo '<textarea id="content_box" onchange="set_content();" style="width: 100%;height: 24em;" >'.$this_article['content'].'</textarea>';
-     echo '<textarea id="content1_box" onchange="set_content1();" style="width: 100%;height: 24em;" >'.$this_article['content1'].'</textarea>';
-     echo '<textarea id="content2_box" onchange="set_content2();" style="width: 100%;height: 24em;" >'.$this_article['content2'].'</textarea>';
-     echo '<textarea id="type_string_box" onchange="set_type_string();" style="width: 100%;height: 4em;" >'.$this_article['type_string'].'</textarea>';
-     echo '<textarea id="type_box" onchange="set_type();" style="width: 100%;height: 4em;" >'.$this_article['type'].'</textarea>';
-     echo '<textarea id="title_for_url_box" onchange="set_title_for_url();" style="width: 100%;height: 4em;" >'.$this_article['titleForUrl'].'</textarea>';
+     echo '<section class="section wb">';
+     echo '<div class="container">';
+     echo '<div class="row">';
+     echo '<div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">';
+     echo '<div class="page-wrapper">';
+     echo '<div class="blog-list clearfix">';
+     echo '<div class="blog-box row">';
+     echo '<div class="blog-meta big-meta" style="width: 100%; text-align: justify;">';
+
+     echo '<textarea id="title_for_url_box" onchange="set_title_for_url();" style="width: 100%;height: 4em;" >'.$bfs['book_author'].'</textarea>';
+     echo '<textarea id="title_for_url_box" onchange="set_title_for_url();" style="width: 100%;height: 4em;" >'.$bfs['book_title'].'</textarea>';
+
+     echo '<textarea id="title_box" onchange="set_title();" style="width: 100%;" >'.$bfs['book_summary'].'</textarea>';
+
+     echo '<textarea id="title_for_url_box" onchange="set_title_for_url();" style="width: 100%;height: 4em;" >'.$bfs['book_price'].'</textarea>';
+
+     echo '<textarea id="initial_box" onchange="set_initial();" style="width: 100%;height: 24em;" >'.$bfs['ad_text'].'</textarea>';
+     echo '<textarea id="content_box" onchange="set_content();" style="width: 100%;height: 24em;" >'.$bfs['book_language'].'</textarea>';
+     echo '<textarea id="content1_box" onchange="set_content1();" style="width: 100%;height: 24em;" >'.$bfs['book_condition'].'</textarea>';
+     echo '<textarea id="content2_box" onchange="set_content2();" style="width: 100%;height: 24em;" >'.$bfs['book_publisher'].'</textarea>';
+     echo '<textarea id="type_string_box" onchange="set_type_string();" style="width: 100%;height: 4em;" >'.$bfs['book_page_numbers'].'</textarea>';
+     echo '<textarea id="type_box" onchange="set_type();" style="width: 100%;height: 4em;" >'.$bfs['book_publish_date'].'</textarea>';
+     echo '<textarea id="title_for_url_box" onchange="set_title_for_url();" style="width: 100%;height: 4em;" >'.$bfs['book_isbn'].'</textarea>';
+     echo '<textarea id="title_for_url_box" onchange="set_title_for_url();" style="width: 100%;height: 4em;" >'.$bfs['delivery_place'].'</textarea>';
 
 
         $articles = array_reverse($handler->select_all_from("article"));
