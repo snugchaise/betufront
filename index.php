@@ -941,7 +941,7 @@ $height_data = "height: 670px;";
      echo '                urldata= data.trim();'.PHP_EOL;
      echo '                if(urldata.includes("LOGIN_SUCCESS") ){'.PHP_EOL;
      echo '                 document.getElementById("close_button").click();'.PHP_EOL;
-     echo '                 window.location.replace("http://www.'.$GLOBALS['project_name'].'.com/my-profile/");'.PHP_EOL;
+     echo '                 window.location.replace("http://www.'.$GLOBALS['project_name'].'.hu/my-profile/");'.PHP_EOL;
      echo '                }'.PHP_EOL;
      echo '                if(urldata.includes("LOGIN_FAIL") ){'.PHP_EOL;
      echo '                document.getElementById("password_error").style.display="block";';
