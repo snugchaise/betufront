@@ -135,9 +135,9 @@ function check_user_exists($email){
  return False;
 }
 function get_personal_menu(){
-echo '<a href="/personal-data/">Személyes adatok</a> / '.PHP_EOL;
-echo '<a href="/tests/">Tesztek</a> / '.PHP_EOL;
-echo '<a href="/results/">Erdeményeim</a>'.PHP_EOL;
+echo '<a style="color: black" href="/personal-data/">Személyes adatok</a> / '.PHP_EOL;
+echo '<a style="color: black" href="/tests/">Tesztek</a> / '.PHP_EOL;
+echo '<a style="color: black" href="/results/">Erdeményeim</a>'.PHP_EOL;
 }
 function get_ajax_script($function_name, $json_data, $server_endpoint, $success_function, $error_function){
 
