@@ -3401,7 +3401,7 @@ if(preg_match('/dictionary-request/', $request)){
      foreach($hungarian_expressions as $entry){
       $result .= "<li>";
       $address = $entry['titleForUrl'];
-      $element = $entry['book_author'];
+      $element = $entry['book_author']." - ".$entry['book_title'];
       $result .= '<a style="float: left; padding: 0 15px; margin-top: 20px; margin-left: 5px; border: 1px solid #27866e; border-radius: 5px; color: #27866e;" href="/hasznalt-konyv/'.$address.'">'.$element.'</a>'.PHP_EOL;
       $result .= "</li>";
      }
@@ -3409,7 +3409,7 @@ if(preg_match('/dictionary-request/', $request)){
      foreach($english_expressions as $entry){
       $result .= "<li>";
       $address = $entry['titleForUrl'];
-      $element = $entry['book_author'];
+      $element = $entry['book_author']." - ".$entry['book_title'];
       $result .= '<a style="float: left; padding: 0 15px; margin-top: 20px; margin-left: 5px; border: 1px solid #27866e; border-radius: 5px; color: #27866e;" href="/hasznalt-konyv/'.$address.'">'.$element.'</a>'.PHP_EOL;
       $result .= "</li>";
      }
