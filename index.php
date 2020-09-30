@@ -3712,6 +3712,15 @@ $updates = array("active_article" => 0);
 $handler->update_in_table("article",$updates,"id",$id);
 return;
 }
+if(preg_match('/edit-ad-text/', $request)){
+$handler = new DatabaseHandler;
+$json = json_decode(file_get_contents("php://input"));
+$titleForUrl = $json->Data->titleForUrl;
+$id = $json->Data->id;
+$updates = array("ad_text" => $titleForUrl);
+$handler->update_in_table("books_for_sale",$updates,"id",$id);
+return;
+}
 if(preg_match('/edit-book-summary/', $request)){
 $handler = new DatabaseHandler;
 $json = json_decode(file_get_contents("php://input"));
@@ -4045,7 +4054,7 @@ if(preg_match('/edit-book-for-sale\//', $request)){
 
      echo '<textarea id="title_for_url_box" onchange="set_title_for_url();" style="width: 100%;height: 4em;" >'.$bfs['book_price'].'</textarea>';
 
-     echo '<textarea id="initial_box" onchange="set_initial();" style="width: 100%;height: 24em;" >'.$bfs['ad_text'].'</textarea>';
+     echo '<textarea id="ad_text_box" onchange="set_ad_text();" style="width: 100%;height: 24em;" >'.$bfs['ad_text'].'</textarea>';
      echo '<textarea id="content_box" onchange="set_content();" style="width: 100%;height: 24em;" >'.$bfs['book_language'].'</textarea>';
      echo '<textarea id="content1_box" onchange="set_content1();" style="width: 100%;height: 24em;" >'.$bfs['book_condition'].'</textarea>';
      echo '<textarea id="content2_box" onchange="set_content2();" style="width: 100%;height: 24em;" >'.$bfs['book_publisher'].'</textarea>';
@@ -4177,6 +4186,26 @@ if(preg_match('/edit-book-for-sale\//', $request)){
      echo ' };'.PHP_EOL;
      echo '</script>'.PHP_EOL;
 
+     echo '<script>'.PHP_EOL;
+     echo 'function set_ad_text(){'.PHP_EOL;
+     echo 'var jsondata = { '.PHP_EOL;
+     echo '        "id": '.$bfs['id'].', '.PHP_EOL;
+     echo '        "titleForUrl": document.getElementById("ad_text_box").value '.PHP_EOL;
+     echo '    };   '.PHP_EOL;
+     echo ' '.PHP_EOL;
+     echo '    $.ajax({ '.PHP_EOL;
+     echo '        url: "/edit-ad-text/", '.PHP_EOL;
+     echo '        method: "POST",         '.PHP_EOL;
+     echo '        data: JSON.stringify({ Data: jsondata }), '.PHP_EOL;
+     echo '        contentType: "json", '.PHP_EOL;
+     echo '        success: function(data){ '.PHP_EOL;
+     echo '        }, '.PHP_EOL;
+     echo '        error: function(errMsg) { '.PHP_EOL;
+     echo '            alert(errMsg);'.PHP_EOL;
+     echo '        } '.PHP_EOL;
+     echo '    }); '.PHP_EOL;
+     echo ' };'.PHP_EOL;
+     echo '</script>'.PHP_EOL;
      echo '<script>'.PHP_EOL;
      echo 'function set_book_summary(){'.PHP_EOL;
      echo 'var jsondata = { '.PHP_EOL;
