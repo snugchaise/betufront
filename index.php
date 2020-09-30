@@ -2206,7 +2206,7 @@ if(preg_match('/remove-book-image/', $request)){
      $file_to_unlink = '/home/animefil/betufront/images/books/'.$bfs['id'].'/'.$book_image_name;
      unlink($file_to_unlink);
 
-     $table_name = "books_for_sale";
+     $table_name = "books_for_sale_images";
      $field = "book_image_name";
      $value = $book_image_name;
 
