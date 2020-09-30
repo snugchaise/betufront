@@ -2100,8 +2100,7 @@ if(preg_match('/partners/', $request)){
 $logged_in = False;
 $meta_content = '';
 $meta_content = $meta_content.' <meta name="viewport" content="width=device-width, initial-scale=1.0">'.PHP_EOL;
-get_head();
-get_search_bar();
+get_head(False,$logged_in,array(),$meta_content);
 echo '<h3>A következő oldalakkal állunk partnerségben</h3>';
 echo '<div>';
 echo  "<ul style='line-height: 3em; list-style: none'>".PHP_EOL;
