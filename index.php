@@ -2104,6 +2104,12 @@ echo '<div>';
 echo  "<ul style='line-height: 3em; list-style: none'>".PHP_EOL;
 
 echo  "<li>".PHP_EOL;
+echo  "<a style='color: blue' href='http://angolrolmagyarraforditas.hu/'>".PHP_EOL;
+echo "angolrolmagyarraforditas.hu".PHP_EOL;
+echo  "</a>".PHP_EOL;
+echo  "</li>".PHP_EOL;
+
+echo  "<li>".PHP_EOL;
 echo  "<a style='color: blue' href='https://imulat.com/'>".PHP_EOL;
 echo "imulat.com".PHP_EOL;
 echo  "</a>".PHP_EOL;
