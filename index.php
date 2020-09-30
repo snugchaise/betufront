@@ -4627,7 +4627,7 @@ echo '        method: "POST",         '.PHP_EOL;
 echo '        data: JSON.stringify({ Data: jsondata }), '.PHP_EOL;
 echo '        contentType: "json", '.PHP_EOL;
 echo '        success: function(data){ '.PHP_EOL;
-echo '        window.location.replace("http://www.'.$GLOBALS['project_name'].'.hu/hasznalt-konyv/+data");'.PHP_EOL;
+echo '        window.location.replace("http://www.'.$GLOBALS['project_name'].'.hu/hasznalt-konyv/\'+data");'.PHP_EOL;
 echo '        }, '.PHP_EOL;
 echo '        error: function(errMsg) { '.PHP_EOL;
 echo '            alert(errMsg);'.PHP_EOL;
