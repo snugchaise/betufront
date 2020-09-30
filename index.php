@@ -6177,6 +6177,30 @@ if(preg_match('/operation/', $request)){
         echo '</section>'.PHP_EOL;
         get_foot();
 }
+#####################################################
+############ Registered ENDPOINT ##############
+if(preg_match('/registered/', $request)){
+$confirmation_hash = explode("/",$request)[2];
+$updates = array("enabled" => 1);
+$handler->update_in_table("website_user",$updates,"confirmation_hash",$confirmation_hash);
+$logged_in = False;
+$meta_content = ''.PHP_EOL;
+get_head(False,$logged_in,array(),$meta_content);
+echo '<section class="section wb">'.PHP_EOL;
+echo '<div class="container">'.PHP_EOL;
+echo '<div class="row">'.PHP_EOL;
+echo '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">'.PHP_EOL;
+echo '<div class="page-wrapper">'.PHP_EOL;
+echo '<div class="blog-list clearfix">'.PHP_EOL;
+echo '<p>A regisztrációd sikeres. Kérlek ellenőrizd email fiókodat, a spameket beleértve és erősítsd meg regisztrációdat!</p>'.PHP_EOL;
+echo '</div><!-- end blog-list -->'.PHP_EOL;
+echo '</div><!-- end page-wrapper -->'.PHP_EOL;
+echo '</div><!-- end col-lg-12 -->'.PHP_EOL;
+echo '</div><!-- end row -->'.PHP_EOL;
+echo '</div><!-- end container -->'.PHP_EOL;
+echo '</section>'.PHP_EOL;
+get_foot();
+}
 if(preg_match('/terms-and-conditions/', $request)){
 
         $logged_in = False;
