@@ -2022,7 +2022,7 @@ function get_head($has_section,$logged_in,$articles,$meta_content){
      echo '<form id="fm1" name="fm1" action="#" onsubmit="return goF1(\'fm1\')">'.PHP_EOL;
      echo '<input type="text" id="my-text-box" style="width: 110%; font-weight: 700; font-size: 1.8rem; height: 38px; padding: 6px 10px; background-color: #fff; border: 1px solid #C2C2C2; border-radius: 4px; box-shadow: none; box-sizing: border-box;" autocomplete="off" accesskey="e" maxlength="1000" value="" placeholder="Keresd meg könyvedet itt!">'.PHP_EOL;
      echo '<span class="reset_button"></span>'.PHP_EOL;
-     echo '<input type="image" style="position: absolute; bottom: 1px; right: 3px; height: 36px; width: 90px; cursor: pointer;" id="submitMessage" value="" src="search.png">'.PHP_EOL;
+     echo '<input type="image" style="position: absolute; bottom: 1px; right: 3px; height: 36px; width: 90px; cursor: pointer;" id="submitMessage" value="" src="/search.png">'.PHP_EOL;
      echo '<div id="autocomplete" class="autocomplete" style="">'.PHP_EOL;
      echo 'search'.PHP_EOL;
      echo '</div>'.PHP_EOL;
@@ -2031,7 +2031,7 @@ function get_head($has_section,$logged_in,$articles,$meta_content){
      echo '<input name="q" type="hidden" value="">'.PHP_EOL;
      echo '<input name="ie" type="hidden" value="UTF-8">'.PHP_EOL;
      echo '</form>'.PHP_EOL;
-     echo '<a data-toggle="modal" data-target="#exampleModal" href="#">Bejelentkezés</a>'.PHP_EOL;
+#     echo '<a data-toggle="modal" data-target="#exampleModal" href="#">Bejelentkezés</a>'.PHP_EOL;
      echo '</div>'.PHP_EOL;
      echo '</div>'.PHP_EOL;
      echo '</div>'.PHP_EOL;
