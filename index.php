@@ -2189,6 +2189,7 @@ get_head(False,$logged_in,array(),$meta_content);
 }
 if(preg_match('/remove-book-image/', $request)){
 
+     $handler = new DatabaseHandler;
      $json = json_decode(file_get_contents("php://input"));
      $book_image_name  = $json->Data->book_image_name;
      $book_unique_hash  = $json->Data->book_unique_hash;
@@ -2202,10 +2203,9 @@ if(preg_match('/remove-book-image/', $request)){
      }
      $bfs = $handler->conditional_select_from("books_for_sale",array("book_unique_hash" => $book_unique_hash))[0];
 
-     $file_to_unlink = '/images/books/'.$bfs['id'].'/'.$book_image_name;
+     $file_to_unlink = '/home/animefil/betufront/images/books/'.$bfs['id'].'/'.$book_image_name;
      unlink($file_to_unlink);
 
-     $handler = new DatabaseHandler;
      $table_name = "books_for_sale";
      $field = "book_image_name";
      $value = $book_image_name;
