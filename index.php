@@ -1011,7 +1011,7 @@ $height_data = "height: 670px;";
 
      echo '                if(urldata.includes("REGISTRATION_SUCCESS") ){'.PHP_EOL;
      echo '                 document.getElementById("close_button").click();'.PHP_EOL;
-     echo '                 window.location.replace("http://www.'.$GLOBALS['project_name'].'.com/registered/");'.PHP_EOL;
+     echo '                 window.location.replace("http://www.'.$GLOBALS['project_name'].'.hu/registered/");'.PHP_EOL;
      echo '                }'.PHP_EOL;
 
      echo '            }';
