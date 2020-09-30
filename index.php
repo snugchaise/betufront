@@ -2885,6 +2885,7 @@ echo '</div><!-- end row -->'.PHP_EOL;
 echo '</div><!-- end container -->'.PHP_EOL;
 echo '</section>'.PHP_EOL;
 get_foot();
+die();
 }
 #####################################################
 ############ Logout ENDPOINT ##############
