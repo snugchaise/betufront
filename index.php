@@ -2066,8 +2066,8 @@ switch ($request) {
      foreach( $bfs_array as $bfs ){
   
       echo '<div>'.PHP_EOL;
-      echo '<h2>'.$bfs['book_author'].'</h2>'.PHP_EOL;
-      echo '<h3>'.$bfs['book_title'].'</h2>'.PHP_EOL;
+      echo '<h3>'.$bfs['book_author'].'</h3>'.PHP_EOL;
+      echo '<h4>'.$bfs['book_title'].'</h4>'.PHP_EOL;
       echo '</div>'.PHP_EOL;
      }
      echo '</div>'.PHP_EOL;
