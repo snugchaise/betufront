@@ -2497,7 +2497,7 @@ $results_array   = array("book_unique_hash" , "book_image_name" );
 
 $handler->insert_into_table("books_for_sale_images",$results_array ,$results_content);
 
-echo $id."/".$newFileName;
+echo $newFileName;
 }
 
 if(preg_match('/handle_additional_image_upload/', $request)){
@@ -5180,8 +5180,9 @@ echo '    });'.PHP_EOL;
 echo '    function onSaveSuccess(data)'.PHP_EOL;
 echo '    {'.PHP_EOL;
 echo '        data = $.trim(data);'.PHP_EOL;
-echo '        $(\'#advert_image_loader\').html(\'<p style="color: green;">Success</p>\');'.PHP_EOL;
-echo '        $(\'#advert_image_image\').after(\'<div class="uploaded_image"><img width="150px" height="150px" src="/images/books/\'+data+\'"/></div>\');'.PHP_EOL;
+echo '        $(\'#advert_image_loader\').html(\'<p style="color: green;">Siker</p>\');'.PHP_EOL;
+echo '        $(\'#advert_image_image\').after(\'<div class="uploaded_image"><img width="150px" height="150px" src="/images/books/'.$bfs['id'].'\'+data+\'"/><button type="submit" class="btn-warning" onclick="delete_book_image(\'+data+\')">Törlés</button>'.PHP_EOL;
+</div>\');'.PHP_EOL;
 echo '    }'.PHP_EOL;
 echo '});'.PHP_EOL;
 echo '});'.PHP_EOL;
