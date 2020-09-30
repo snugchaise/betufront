@@ -1409,7 +1409,7 @@ function get_head($has_section,$logged_in,$articles,$meta_content){
      echo '		}'.PHP_EOL;
      echo ''.PHP_EOL;
      echo '		.select-wrapper:before {'.PHP_EOL;
-     echo '			content: '\f078';'.PHP_EOL;
+     echo '			content: \'\f078\';'.PHP_EOL;
      echo '			display: block;'.PHP_EOL;
      echo '			height: 2.75em;'.PHP_EOL;
      echo '			line-height: 2.75em;'.PHP_EOL;
