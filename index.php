@@ -3693,6 +3693,99 @@ return;
 
 ########################################################
 
+############### Book endpoints ##################
+if(preg_match('/activate-article/', $request)){
+$handler = new DatabaseHandler;
+$json = json_decode(file_get_contents("php://input"));
+$titleForUrl = $json->Data->titleForUrl;
+$id = $json->Data->id;
+$updates = array("active_article" => 1);
+$handler->update_in_table("article",$updates,"id",$id);
+return;
+}
+if(preg_match('/deactivate-article/', $request)){
+$handler = new DatabaseHandler;
+$json = json_decode(file_get_contents("php://input"));
+$titleForUrl = $json->Data->titleForUrl;
+$id = $json->Data->id;
+$updates = array("active_article" => 0);
+$handler->update_in_table("article",$updates,"id",$id);
+return;
+}
+if(preg_match('/edit-book-author/', $request)){
+$handler = new DatabaseHandler;
+$json = json_decode(file_get_contents("php://input"));
+$titleForUrl = $json->Data->titleForUrl;
+$id = $json->Data->id;
+$updates = array("book_author" => $titleForUrl);
+$handler->update_in_table("books_for_sale",$updates,"id",$id);
+return;
+}
+if(preg_match('/edit-article-type-string/', $request)){
+$handler = new DatabaseHandler;
+$json = json_decode(file_get_contents("php://input"));
+$typeString = $json->Data->typeString;
+$id = $json->Data->id;
+$updates = array("type_string" => $typeString);
+$handler->update_in_table("article",$updates,"id",$id);
+return;
+}
+if(preg_match('/edit-article-type/', $request)){
+$handler = new DatabaseHandler;
+$json = json_decode(file_get_contents("php://input"));
+$type = $json->Data->type;
+$id = $json->Data->id;
+$updates = array("type" => $type);
+$handler->update_in_table("article",$updates,"id",$id);
+return;
+}
+
+if(preg_match('/edit-article-content2/', $request)){
+$handler = new DatabaseHandler;
+$json = json_decode(file_get_contents("php://input"));
+$content2 = $json->Data->content2;
+$id = $json->Data->id;
+$updates = array("content2" => $content2);
+$handler->update_in_table("article",$updates,"id",$id);
+return;
+}
+else if(preg_match('/edit-article-content/', $request)){
+$handler = new DatabaseHandler;
+$json = json_decode(file_get_contents("php://input"));
+$content = $json->Data->content;
+$id = $json->Data->id;
+$updates = array("content" => $content);
+$handler->update_in_table("article",$updates,"id",$id);
+}
+
+if(preg_match('/edit-article-initial/', $request)){
+$handler = new DatabaseHandler;
+$json = json_decode(file_get_contents("php://input"));
+$initial = $json->Data->initial;
+$id = $json->Data->id;
+$updates = array("initial" => $initial);
+$handler->update_in_table("article",$updates,"id",$id);
+}
+
+
+if(preg_match('/edit-article-content1/', $request)){
+$handler = new DatabaseHandler;
+$json = json_decode(file_get_contents("php://input"));
+$content1 = $json->Data->content1;
+$id = $json->Data->id;
+$updates = array("content1" => $content1);
+$handler->update_in_table("article",$updates,"id",$id);
+}
+if(preg_match('/edit-article-title/', $request)){
+$handler = new DatabaseHandler;
+$json = json_decode(file_get_contents("php://input"));
+$title = $json->Data->title;
+$id = $json->Data->id;
+$updates = array("title" => $title);
+$handler->update_in_table("article",$updates,"id",$id);
+}
+########################################################
+
 ############### Article endpoints ##################
 if(preg_match('/activate-article/', $request)){
 $handler = new DatabaseHandler;
@@ -3926,7 +4019,7 @@ if(preg_match('/edit-book-for-sale\//', $request)){
      echo '<div class="blog-box row">';
      echo '<div class="blog-meta big-meta" style="width: 100%; text-align: justify;">';
 
-     echo '<textarea id="title_for_url_box" onchange="set_title_for_url();" style="width: 100%;height: 4em;" >'.$bfs['book_author'].'</textarea>';
+     echo '<textarea id="book_author_box" onchange="set_book_author();" style="width: 100%;height: 4em;" >'.$bfs['book_author'].'</textarea>';
      echo '<textarea id="title_for_url_box" onchange="set_title_for_url();" style="width: 100%;height: 4em;" >'.$bfs['book_title'].'</textarea>';
 
      echo '<textarea id="title_box" onchange="set_title();" style="width: 100%;" >'.$bfs['book_summary'].'</textarea>';
@@ -4044,14 +4137,14 @@ if(preg_match('/edit-book-for-sale\//', $request)){
      echo ' };'.PHP_EOL;
      echo '</script>'.PHP_EOL;
      echo '<script>'.PHP_EOL;
-     echo 'function set_title_for_url(){'.PHP_EOL;
+     echo 'function set_book_author(){'.PHP_EOL;
      echo 'var jsondata = { '.PHP_EOL;
      echo '        "id": '.$bfs['id'].', '.PHP_EOL;
-     echo '        "titleForUrl": document.getElementById("title_for_url_box").value '.PHP_EOL;
+     echo '        "titleForUrl": document.getElementById("book_author_box").value '.PHP_EOL;
      echo '    };   '.PHP_EOL;
      echo ' '.PHP_EOL;
      echo '    $.ajax({ '.PHP_EOL;
-     echo '        url: "/edit-article-title-for-url/", '.PHP_EOL;
+     echo '        url: "/edit-book-author/", '.PHP_EOL;
      echo '        method: "POST",         '.PHP_EOL;
      echo '        data: JSON.stringify({ Data: jsondata }), '.PHP_EOL;
      echo '        contentType: "json", '.PHP_EOL;
