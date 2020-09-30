@@ -2182,7 +2182,7 @@ echo '</table>'.PHP_EOL;
      echo '     </div>'.PHP_EOL;
      echo '    </div>'.PHP_EOL;
      echo '    <div>'.PHP_EOL;
-     echo '     <img src="phone" alt="Használt könyvek piactere" title="" height="20px" width="30px" height="auto">'.PHP_EOL;
+     echo '     <img src="/phone" alt="Használt könyvek piactere" title="" height="20px" width="30px" height="auto">'.PHP_EOL;
      echo '     +36(30)831-69-72 '.PHP_EOL;
      echo '    </div>'.PHP_EOL;
      echo '    <div style="text-align: center;">'.PHP_EOL;
