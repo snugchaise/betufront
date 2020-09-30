@@ -4304,8 +4304,6 @@ echo '</form>'.PHP_EOL;
 echo '<form method="post" id="additional_advert_image_form" enctype="multipart/form-data">'.PHP_EOL;
 echo '<input type="file" id="additional_advert_image" name="additional_advert_image_form[]" class="form-control" style="display: none;" multiple/>'.PHP_EOL;
 echo '<input  type="hidden" name="post_id" value="'.$bfs['id'].'"/>'.PHP_EOL;
-echo '<input  type="text" name="image_id" value="Enter ID"/>'.PHP_EOL;
-echo '<input  type="text" name="image_type" value="jpg"/>'.PHP_EOL;
 echo '</form>'.PHP_EOL;
 echo '</div>'.PHP_EOL;
 	 
