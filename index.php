@@ -2072,7 +2072,7 @@ switch ($request) {
   
       $image = $handler->conditional_select_from("books_for_sale_images",array("book_unique_hash" => $bfs['book_unique_hash'] ))[0];
 
-      echo ' <div style="float: left; padding: 30px"> <a style="color: blue" href="http://www.betufront.hu/hasznalt-konyv/'.$bfs['titleForUrl'].'"><img width="250px" height="350px" src="/images/books/'.$bfs['id'].'/'.$image['book_image_name'].'"/></a></div>'.PHP_EOL;
+      echo ' <div style="float: left; padding: 30px"> <a style="color: blue" href="http://www.betufront.hu/hasznalt-konyv/'.$bfs['titleForUrl'].'"><img width="300px" height="400px" src="/images/books/'.$bfs['id'].'/'.$image['book_image_name'].'"/></a></div>'.PHP_EOL;
 
       echo '<div style="border-bottom: 1px solid #004A1D">'.PHP_EOL;
       echo '<h3>'.$bfs['book_author'].'</h3>'.PHP_EOL;
