@@ -4043,6 +4043,7 @@ $bfs = $handler->conditional_select_from("books_for_sale",array("titleForUrl" =>
     
 echo '<div style="width: 1080px; padding: 0;position: relative; max-width: 1080px; margin: 0 auto; box-sizing: border-box;">'.PHP_EOL;
 
+echo '<h3> A könyved szerzője</h3>'.PHP_EOL;
  echo '<textarea id="book_author_box" onchange="set_book_author();" style="width: 100%;height: 4em;" >'.$bfs['book_author'].'</textarea>';
  echo '<textarea id="book_title_box" onchange="set_book_title();" style="width: 100%;height: 4em;" >'.$bfs['book_title'].'</textarea>';
  echo '<textarea id="book_summary_box" onchange="set_book_summary();" style="width: 100%;" >'.$bfs['book_summary'].'</textarea>';
