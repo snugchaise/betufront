@@ -5181,7 +5181,7 @@ echo '    function onSaveSuccess(data)'.PHP_EOL;
 echo '    {'.PHP_EOL;
 echo '        data = $.trim(data);'.PHP_EOL;
 echo '        $(\'#advert_image_loader\').html(\'<p style="color: green;">Siker</p>\');'.PHP_EOL;
-echo '        $(\'#advert_image_image\').after(\'<div class="uploaded_image"><img width="150px" height="150px" src="/images/books/'.$bfs['id'].'/\'+data+\'"/><button type="submit" class="btn-warning" onclick="delete_book_image("\'+data+\'")">Törlés</button></div>\');'.PHP_EOL;
+echo '        $(\'#advert_image_image\').after(\'<div class="uploaded_image"><img width="150px" height="150px" src="/images/books/'.$bfs['id'].'/\'+data+\'"/><button type="submit" class="btn-warning" onclick="delete_book_image(\'\'+data+\'\')">Törlés</button></div>\');'.PHP_EOL;
 echo '    }'.PHP_EOL;
 echo '});'.PHP_EOL;
 echo '});'.PHP_EOL;
