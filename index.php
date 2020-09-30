@@ -2163,7 +2163,7 @@ echo '<div style="margin-bottom: 15px; text-align: center">'.PHP_EOL;
 echo '</div>'.PHP_EOL;
 
 echo '<div>A legegyszerűbben online veheted fel a kapcsolatot velünk. Ha fel szeretnéd velünk venni a kapcsolatot használd a következő kapcsolattartási mezőket és küldj nekünk üzenetet.</div><br>';
-echo '<div style="float: right" >2020. szeptember - <a href="https://www.linkedin.com/in/bence-lad%C3%B3czki-569299124/">Az üzemeltető</a></div><br>';
+echo '<div style="float: right" >2020. szeptember - <a style="color: blue" href="https://www.linkedin.com/in/bence-lad%C3%B3czki-569299124/">Az üzemeltető</a></div><br>';
 echo '<h3>Kapcsolat</h3>';
 echo '<div id="message_from_user">';
 echo '<input type="text" style="margin-bottom: 10px" class="form-control" id="email_address" placeholder="E-mail cím">';
