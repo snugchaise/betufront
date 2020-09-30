@@ -4043,17 +4043,19 @@ get_head(False,$logged_in,array(),$meta_content);
 $title = explode("/",$request)[2];
 $bfs = $handler->conditional_select_from("books_for_sale",array("titleForUrl" => $title ))[0];
     
-echo '<textarea id="book_author_box" onchange="set_book_author();" style="width: 100%;height: 4em;" >'.$bfs['book_author'].'</textarea>';
-echo '<textarea id="book_title_box" onchange="set_book_title();" style="width: 100%;height: 4em;" >'.$bfs['book_title'].'</textarea>';
-echo '<textarea id="book_summary_box" onchange="set_book_summary();" style="width: 100%;" >'.$bfs['book_summary'].'</textarea>';
-echo '<textarea id="book_price_box" onchange="set_book_price();" style="width: 100%;height: 4em;" >'.$bfs['book_price'].'</textarea>';
-echo '<textarea id="book_page_number_box" onchange="set_book_page_number();" style="width: 100%;height: 4em;" >'.$bfs['book_page_number'].'</textarea>';
-echo '<textarea id="book_isbn_box" onchange="set_book_isbn();" style="width: 100%;height: 4em;" >'.$bfs['book_isbn'].'</textarea>';
-echo '<textarea id="book_language_box" onchange="set_book_language();" style="width: 100%;height: 4em;" >'.$bfs['book_language'].'</textarea>';
-echo '<textarea id="book_condition_box" onchange="set_book_condition();" style="width: 100%;height: 4em;" >'.$bfs['book_condition'].'</textarea>';
-echo '<textarea id="book_publisher_box" onchange="set_book_publisher();" style="width: 100%;height: 4em;" >'.$bfs['book_publisher'].'</textarea>';
-echo '<textarea id="delivery_place_box" onchange="set_delivery_place();" style="width: 100%;height: 4em;" >'.$bfs['delivery_place'].'</textarea>';
-echo '<textarea id="type_box" onchange="set_type();" style="width: 100%;height: 4em;" >'.$bfs['book_publish_date'].'</textarea>';
+echo '<div style="width: 1080px; padding: 0;position: relative; max-width: 1080px; margin: 0 auto; box-sizing: border-box;">'.PHP_EOL;
+
+ echo '<textarea id="book_author_box" onchange="set_book_author();" style="width: 100%;height: 4em;" >'.$bfs['book_author'].'</textarea>';
+ echo '<textarea id="book_title_box" onchange="set_book_title();" style="width: 100%;height: 4em;" >'.$bfs['book_title'].'</textarea>';
+ echo '<textarea id="book_summary_box" onchange="set_book_summary();" style="width: 100%;" >'.$bfs['book_summary'].'</textarea>';
+ echo '<textarea id="book_price_box" onchange="set_book_price();" style="width: 100%;height: 4em;" >'.$bfs['book_price'].'</textarea>';
+ echo '<textarea id="book_page_number_box" onchange="set_book_page_number();" style="width: 100%;height: 4em;" >'.$bfs['book_page_number'].'</textarea>';
+ echo '<textarea id="book_isbn_box" onchange="set_book_isbn();" style="width: 100%;height: 4em;" >'.$bfs['book_isbn'].'</textarea>';
+ echo '<textarea id="book_language_box" onchange="set_book_language();" style="width: 100%;height: 4em;" >'.$bfs['book_language'].'</textarea>';
+ echo '<textarea id="book_condition_box" onchange="set_book_condition();" style="width: 100%;height: 4em;" >'.$bfs['book_condition'].'</textarea>';
+ echo '<textarea id="book_publisher_box" onchange="set_book_publisher();" style="width: 100%;height: 4em;" >'.$bfs['book_publisher'].'</textarea>';
+ echo '<textarea id="delivery_place_box" onchange="set_delivery_place();" style="width: 100%;height: 4em;" >'.$bfs['delivery_place'].'</textarea>';
+ echo '<textarea id="type_box" onchange="set_type();" style="width: 100%;height: 4em;" >'.$bfs['book_publish_date'].'</textarea>';
 
 
 #echo '<br>';
@@ -4076,6 +4078,7 @@ echo '<input  type="hidden" name="post_id" value="'.$bfs['id'].'"/>'.PHP_EOL;
 echo '<input  type="text" name="image_id" value="Enter ID"/>'.PHP_EOL;
 echo '<input  type="text" name="image_type" value="jpg"/>'.PHP_EOL;
 echo '</form>'.PHP_EOL;
+echo '</div>'.PHP_EOL;
 	 
 echo '<script>'.PHP_EOL;
 echo 'function set_initial(){'.PHP_EOL;
