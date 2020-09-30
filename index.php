@@ -3915,7 +3915,7 @@ if(preg_match('/edit-book-for-sale\//', $request)){
         $meta_content = "";
         get_head(False,$logged_in,array(),$meta_content);
         $title = explode("/",$request)[2];
-        $bfs = $handler->conditional_select_from("add-book-for-sale",array("titleForUrl" => $title ))[0];
+        $bfs = $handler->conditional_select_from("books_for_sale",array("titleForUrl" => $title ))[0];
     
      echo '<section class="section wb">';
      echo '<div class="container">';
