@@ -3561,10 +3561,10 @@ if(preg_match('/forgot-password-user/', $request)){
  send_service_mail("<div>".$user['email']." új jelszót igényelt.<div>");
 
 ########## Send password reset email ##################
-$confirmation_link = "http://www.".$GLOBALS['project_name'].".com/password-reset/".$hash;
+$confirmation_link = "http://www.".$GLOBALS['project_name'].".hu/password-reset/".$hash;
 $mail_content = "A betufront.hu örül, hogy a tagjai között tudhat téged!</div><br> <br> <div>A jelszó frissítéséhez kattints a következő linkre: <a href='".$confirmation_link."'>".$confirmation_link."</a></div><div><br> Ha nem működne, közvetlenül másold ki a linket és egy új lapon nyisd meg azt! <br> Jó spanyol tanulást kívánok! <br> Facebook oldalunkat megtalálod a következő linken: <a href='https://bit.ly/2BsKqtJ'>https://bit.ly/2BsKqtJ</a>. <br> Ne felejtsd el az oldalt like-olni! </div>";
 
-$subject = 'Jelszó visszaállító levél a spanyoltanulás.com-ról';
+$subject = 'Jelszó visszaállító levél a spanyoltanulás.hu-ról';
 
 $headers = "From: " . strip_tags('info@betufront.hu') . "\r\n";
 $headers .= "Reply-To: ". strip_tags('info@betufront.hu') . "\r\n";
@@ -3634,7 +3634,7 @@ if(!check_user_exists($email)){
  $confirmation_link = "http://www.".$GLOBALS['project_name'].".hu/confirm-registration/".$confirmation_hash;
  $mail_content = "<h1>Üdvözlünk!</h1><div>Kedves ".$name.", <br><br> Köszönöm a regisztrációt!<br> A betufront.hu örül, hogy a tagjai között tudhat téged!</div><br> <div>A regisztrációd megerősítéséhez kattints a következő linkre: <a href='".$confirmation_link."'>".$confirmation_link."</a></div><div><br> Ha nem működne, közvetlenül másold ki a linket és egy új lapon nyisd meg azt! <br> Jó könyv kereskedést kívánok! <br> Facebook oldalunkat megtalálod a következő linken: <a href='https://bit.ly/3kZaldt'>https://bit.ly/3kZaldt</a>. <br> Ne felejtsd el az oldalt like-olni! </div>";
  
- $subject = 'Megerősítő email a '.$GLOBALS['project_name'].'.com-ról [felhasználónév: '.$username.']';
+ $subject = 'Megerősítő email a '.$GLOBALS['project_name'].'.hu-ról [felhasználónév: '.$username.']';
  
  $headers = "From: " . strip_tags('info@betufront.hu') . "\r\n";
  $headers .= "Reply-To: ". strip_tags('info@betufront.hu') . "\r\n";
@@ -4511,7 +4511,7 @@ $user_message = $json->Data->user_message;
 $user_name = $json->Data->user_name;
 $data_type_from_site = $json->Data->data_type_from_site;
 if($data_type_from_site == 0){
- $subject = 'Hozzászólás a Spanyoltanulás.com-ról';
+ $subject = 'Hozzászólás a Spanyoltanulás.hu-ról';
  $handler = new DatabaseHandler;
  $comment_article_id = $json->Data->comment_article_id;
 # CREATE TABLE IF NOT EXISTS `article_comments` (created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,  `comment_key` INT AUTO_INCREMENT , `comment_email` TEXT NOT NULL, `comment_name` TEXT NOT NULL, `comment_content` TEXT NOT NULL, `comment_article_id` INT NOT NULL ,`active_flag` INT NOT NULL , PRIMARY KEY (`comment_key`) ) ENGINE = InnoDB; 
@@ -4519,7 +4519,7 @@ if($data_type_from_site == 0){
 
 }
 if($data_type_from_site == 1){
- $subject = 'Érdeklődés a Spanyoltanulás.com-ról:';
+ $subject = 'Érdeklődés a Spanyoltanulás.hu-ról:';
 }
 
 
@@ -4611,7 +4611,7 @@ if(preg_match('/add-article\//', $request)){
         }
         $random_title = md5(microtime());
         $handler->insert_into_table("article",array("title","titleForUrl","active_article"),array("title" => $random_title, "titleForUrl" => $random_title,"active_article" => 0));
-        $redirect_route = "Location: http://".$GLOBALS['project_name'].".com/edit/".$random_title."/057a39a1cf79eb4625c16c51eadd3283";
+        $redirect_route = "Location: http://".$GLOBALS['project_name'].".hu/edit/".$random_title."/057a39a1cf79eb4625c16c51eadd3283";
         header($redirect_route);
 
 }
@@ -5766,7 +5766,7 @@ if($logged_in){
 if(!$logged_in){
  echo '<h1>'.$online_tests[0]['title'].'</h1>';
 }
-echo '<div class="fb-share-button" data-href="http://'.$GLOBALS['project_name'].'.com/article/'.$title.'" data-layout="button_count" data-size="large"><a target="_blank" href="http://'.$GLOBALS['project_name'].'.com/article/'.$title.'" class="fb-xfbml-parse-ignore">Megosztás</a></div>';
+echo '<div class="fb-share-button" data-href="http://'.$GLOBALS['project_name'].'.hu/article/'.$title.'" data-layout="button_count" data-size="large"><a target="_blank" href="http://'.$GLOBALS['project_name'].'.hu/article/'.$title.'" class="fb-xfbml-parse-ignore">Megosztás</a></div>';
 echo '<br><p>';
 echo "Hozzáadva: ".full_date($online_tests[0]['created'])." <italic>Megtekintve:</italic> ".$online_tests[0]['view_count'];
 echo '</p>';
