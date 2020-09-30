@@ -2283,7 +2283,7 @@ $fileName = $_FILES['additional_advert_image_form']['name'][0];
 $fileSize = $_FILES['additional_advert_image_form']['size'][0];
 $fileType = $_FILES['additional_advert_image_form']['type'][0];
 
-$uploadFileDir = '/home/qqwwaass/'.$GLOBALS['project_name'].'/images/'.$id.'/';
+$uploadFileDir = '/home/animefil/betufront/images/books/'.$id.'/';
 if(!file_exists($uploadFileDir)){
 mkdir($uploadFileDir);
 }
@@ -4293,7 +4293,7 @@ echo '<button style="margin-top: 10px; margin-bottom: 10px;float: right" type="s
 #echo '<button type="submit" class="btn btn-primary" onclick="add_url_address()">URL cím</button>'.PHP_EOL;
 #echo '<button type="submit" class="btn btn-primary" onclick="deactivate()">Deactivate</button>'.PHP_EOL;
 #echo '<button type="submit" class="btn btn-primary" onclick="activate()">Activate</button>'.PHP_EOL;
-#echo '<button type="submit" class="btn btn-primary" onclick="document.getElementById(\'advert_image\').click();" >Főkép feltöltése </button>'.PHP_EOL;
+echo '<button type="submit" class="btn btn-primary" onclick="document.getElementById(\'advert_image\').click();" >Főkép feltöltése </button>'.PHP_EOL;
 echo '<button type="submit" class="btn btn-primary" onclick="document.getElementById(\'additional_advert_image\').click();" >Továbbiak feltöltése</button>'.PHP_EOL;
 
 echo '<div id="advert_image_loader"></div>'.PHP_EOL;
