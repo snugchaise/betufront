@@ -1907,7 +1907,6 @@ function get_head($has_section,$logged_in,$articles,$meta_content){
      echo '    padding: 0.8rem 2rem;'.PHP_EOL;
      echo '    text-transform: none;'.PHP_EOL;
      echo '	color:#ffffff !important;'.PHP_EOL;
-     echo '	background-color: #74a044 !important;'.PHP_EOL;
      echo '	border-color: #74a044 !important;'.PHP_EOL;
      echo '}'.PHP_EOL;
 
