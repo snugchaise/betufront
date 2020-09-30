@@ -2096,6 +2096,62 @@ switch ($request) {
      break;
 }
 
+if(preg_match('/partners/', $request)){
+$logged_in = False;
+$meta_content = '';
+$meta_content = $meta_content.' <meta name="viewport" content="width=device-width, initial-scale=1.0">'.PHP_EOL;
+get_head();
+get_search_bar();
+echo '<h3>A következő oldalakkal állunk partnerségben</h3>';
+echo '<div>';
+echo  "<ul style='line-height: 3em; list-style: none'>".PHP_EOL;
+
+echo  "<li>".PHP_EOL;
+echo  "<a href='https://imulat.com/'>".PHP_EOL;
+echo "imulat.com".PHP_EOL;
+echo  "</a>".PHP_EOL;
+echo  "</li>".PHP_EOL;
+
+echo  "<li>".PHP_EOL;
+echo  "<a href='http://bookingport.hu/'>".PHP_EOL;
+echo "bookingport.hu".PHP_EOL;
+echo  "</a>".PHP_EOL;
+echo  "</li>".PHP_EOL;
+
+echo  "<li>".PHP_EOL;
+echo  "<a href='http://spanyoltanulas.com/'>".PHP_EOL;
+echo "spanyoltanulas.com".PHP_EOL;
+echo  "</a>".PHP_EOL;
+echo  "</li>".PHP_EOL;
+
+echo  "<li>".PHP_EOL;
+echo  "<a href='http://sotetoldal.com/'>".PHP_EOL;
+echo "sotetoldal.com".PHP_EOL;
+echo  "</a>".PHP_EOL;
+echo  "</li>".PHP_EOL;
+
+echo  "<li>".PHP_EOL;
+echo  "<a href='http://tobzoska.com/'>".PHP_EOL;
+echo "tobzoska.com".PHP_EOL;
+echo  "</a>".PHP_EOL;
+echo  "</li>".PHP_EOL;
+
+echo  "<li>".PHP_EOL;
+echo  "<a href='https://vengriyanakarte.ru/'>".PHP_EOL;
+echo "vengriyanakarte.ru".PHP_EOL;
+echo  "</a>".PHP_EOL;
+echo  "</li>".PHP_EOL;
+
+echo  "<li>".PHP_EOL;
+echo  "<a href='https://zaixiongyali.com/'>".PHP_EOL;
+echo "zaixiongyali.com".PHP_EOL;
+echo  "</a>".PHP_EOL;
+echo  "</li>".PHP_EOL;
+
+echo  "</ul>".PHP_EOL;
+echo '</div>'.PHP_EOL;
+get_foot();
+}
 if(preg_match('/hasznalt-konyv/', $request)){
 
      $titleForUrl  = explode("/",$request)[2];
