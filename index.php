@@ -2033,7 +2033,7 @@ function get_head($has_section,$logged_in,$articles,$meta_content){
      echo '<input name="q" type="hidden" value="">'.PHP_EOL;
      echo '<input name="ie" type="hidden" value="UTF-8">'.PHP_EOL;
      echo '</form>'.PHP_EOL;
-#     echo '<a data-toggle="modal" data-target="#exampleModal" href="#">Bejelentkezés</a>'.PHP_EOL;
+     echo '<a data-toggle="modal" data-target="#exampleModal" href="#">Bejelentkezés</a>'.PHP_EOL;
      echo '</div>'.PHP_EOL;
      echo '</div>'.PHP_EOL;
      echo '</div>'.PHP_EOL;
