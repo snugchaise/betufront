@@ -2154,7 +2154,7 @@ echo '</table>'.PHP_EOL;
 
 
 
-     echo '<span><a href="http://betufront.hu/edit-book-for-sale/'.$bfs['titleForUrl'].'/057a39a1cf79eb4625c16c51eadd3283">Szerkesztés</a></span>'.PHP_EOL;
+     echo '<span><a style="color: blue;text-decoration: underline " href="http://betufront.hu/edit-book-for-sale/'.$bfs['titleForUrl'].'/057a39a1cf79eb4625c16c51eadd3283">Szerkesztés</a></span>'.PHP_EOL;
      echo '   <div >'.PHP_EOL;
      echo '    <h2 style="margin: 0; border-bottom: 3px dashed #ff4436">Adatok</h2>'.PHP_EOL;
      echo '   <ul style="list-style: none; color: black;padding: 0; line-height: 2em;">'.PHP_EOL;
