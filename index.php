@@ -2062,12 +2062,14 @@ switch ($request) {
       
      $bfs_array = array_reverse($handler->conditional_select_from("books_for_sale",array("active_book" => 1)));
 
+     echo '<div style="display: block; background: #ffffff; color: black; width: 100%; margin: 0 0 15px 0; padding: 10px 25px 0 25px;  box-shadow: none; box-sizing: border-box; font-size: 1.3rem; text-align: left;" >'.PHP_EOL;
      foreach( $bfs_array as $bfs ){
   
       echo '<div>'.PHP_EOL;
       echo $bfs['book_title'].PHP_EOL;
       echo '</div>'.PHP_EOL;
      }
+     echo '</div>'.PHP_EOL;
 
 
      echo '</div>'.PHP_EOL;
