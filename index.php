@@ -3382,6 +3382,44 @@ echo '</section>'.PHP_EOL;
 get_foot();
 }
 #####################################################
+if(preg_match('/dictionary-request/', $request)){
+     $handler = new DatabaseHandler;
+
+     $json = json_decode(file_get_contents("php://input"));
+     $like_string = $json->Data->keyword;
+
+     $field = "book_author";
+     $english_expressions   = array_slice($handler->select_with_like("books_for_sale",$field,$like_string),0,10);
+
+     $field = "book_title";
+     $hungarian_expressions = array_slice($handler->select_with_like("books_for_sale",$field,$like_string),0,10);
+
+     $result = "<div style='margin-bottom: 15px;' >";
+
+     $result .= "<ul style='width: 220px; list-style: none'>";
+
+     foreach($hungarian_expressions as $entry){
+      $result .= "<li>";
+      $address = $entry['titleForUrl'];
+      $element = $entry['book_author'];
+      $result .= '<a style="float: left; padding: 0 15px; margin-top: 20px; margin-left: 5px; border: 1px solid #27866e; border-radius: 5px; color: #27866e;" href="/hasznalt-konyv/'.$address.'">'.$element.'</a>'.PHP_EOL;
+      $result .= "</li>";
+     }
+
+     foreach($english_expressions as $entry){
+      $result .= "<li>";
+      $address = $entry['titleForUrl'];
+      $element = $entry['book_author'];
+      $result .= '<a style="float: left; padding: 0 15px; margin-top: 20px; margin-left: 5px; border: 1px solid #27866e; border-radius: 5px; color: #27866e;" href="/hasznalt-konyv/'.$address.'">'.$element.'</a>'.PHP_EOL;
+      $result .= "</li>";
+     }
+
+     $result .= "</ul>";
+     $result .= "</div><br>";
+     header("HTTP/1.1 200 OK");
+
+     echo $result;
+}
 ############ Tests ENDPOINT ##############
 if(preg_match('/tests/', $request)){
 $logged_in = False;
