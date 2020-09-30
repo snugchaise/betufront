@@ -4327,6 +4327,9 @@ echo '<tr>'.PHP_EOL;
 echo '<td>'.PHP_EOL;
 echo '<img width="150px" height="150px" src="/images/books/'.$bfs['id'].'/'.$image['book_image_name'].'"/>'.PHP_EOL;
 echo '</td>'.PHP_EOL;
+echo '<td>'.PHP_EOL;
+echo '<a style="color: red" href="">Törlés</a>'.PHP_EOL;
+echo '</td>'.PHP_EOL;
 echo '</tr>'.PHP_EOL;
 }
 
