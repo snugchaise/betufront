@@ -3946,7 +3946,7 @@ if(preg_match('/edit-book-for-sale\//', $request)){
         $articles = array_reverse($handler->select_all_from("article"));
 
         echo '<br>';
-        echo '<span style="color: black" >Feltöltés: scp jpg qqwwaass@107.180.50.188:/home/qqwwaass/'.$GLOBALS['project_name'].'/images/'.$this_article['id'].'/1.jpg </span>';
+        echo '<span style="color: black" >Feltöltés: scp jpg qqwwaass@107.180.50.188:/home/qqwwaass/'.$GLOBALS['project_name'].'/images/'.$bfs['id'].'/1.jpg </span>';
         echo '<br>';
         echo '<label for="reference_article_1">Referencia 1:</label>'.PHP_EOL;
         echo '<select name="cars" id="reference_article_1">'.PHP_EOL;
@@ -3999,12 +3999,12 @@ if(preg_match('/edit-book-for-sale\//', $request)){
         echo '<div id="advert_image_loader"></div>'.PHP_EOL;
         echo '<form method="post" id="advert_image_form" enctype="multipart/form-data">'.PHP_EOL;
         echo '<input type="file" id="advert_image" name="advert_image_form[]" class="form-control" style="display: none;" multiple/>'.PHP_EOL;
-        echo '<input  type="hidden" name="post_id" value="'.$this_article['id'].'"/>'.PHP_EOL;
+        echo '<input  type="hidden" name="post_id" value="'.$bfs['id'].'"/>'.PHP_EOL;
         echo '</form>'.PHP_EOL;
 
         echo '<form method="post" id="additional_advert_image_form" enctype="multipart/form-data">'.PHP_EOL;
         echo '<input type="file" id="additional_advert_image" name="additional_advert_image_form[]" class="form-control" style="display: none;" multiple/>'.PHP_EOL;
-        echo '<input  type="hidden" name="post_id" value="'.$this_article['id'].'"/>'.PHP_EOL;
+        echo '<input  type="hidden" name="post_id" value="'.$bfs['id'].'"/>'.PHP_EOL;
         echo '<input  type="text" name="image_id" value="Enter ID"/>'.PHP_EOL;
         echo '<input  type="text" name="image_type" value="jpg"/>'.PHP_EOL;
         echo '</form>'.PHP_EOL;
@@ -4026,7 +4026,7 @@ if(preg_match('/edit-book-for-sale\//', $request)){
      echo '<script>'.PHP_EOL;
      echo 'function set_initial(){'.PHP_EOL;
      echo 'var jsondata = { '.PHP_EOL;
-     echo '        "id": '.$this_article['id'].', '.PHP_EOL;
+     echo '        "id": '.$bfs['id'].', '.PHP_EOL;
      echo '        "initial": document.getElementById("initial_box").value '.PHP_EOL;
      echo '    };   '.PHP_EOL;
      echo ' '.PHP_EOL;
@@ -4046,7 +4046,7 @@ if(preg_match('/edit-book-for-sale\//', $request)){
      echo '<script>'.PHP_EOL;
      echo 'function set_title_for_url(){'.PHP_EOL;
      echo 'var jsondata = { '.PHP_EOL;
-     echo '        "id": '.$this_article['id'].', '.PHP_EOL;
+     echo '        "id": '.$bfs['id'].', '.PHP_EOL;
      echo '        "titleForUrl": document.getElementById("title_for_url_box").value '.PHP_EOL;
      echo '    };   '.PHP_EOL;
      echo ' '.PHP_EOL;
@@ -4066,7 +4066,7 @@ if(preg_match('/edit-book-for-sale\//', $request)){
      echo '<script>'.PHP_EOL;
      echo 'function set_type_string(){'.PHP_EOL;
      echo 'var jsondata = { '.PHP_EOL;
-     echo '        "id": '.$this_article['id'].', '.PHP_EOL;
+     echo '        "id": '.$bfs['id'].', '.PHP_EOL;
      echo '        "typeString": document.getElementById("type_string_box").value '.PHP_EOL;
      echo '    };   '.PHP_EOL;
      echo ' '.PHP_EOL;
@@ -4087,7 +4087,7 @@ if(preg_match('/edit-book-for-sale\//', $request)){
      echo '<script>'.PHP_EOL;
      echo 'function set_type(){'.PHP_EOL;
      echo 'var jsondata = { '.PHP_EOL;
-     echo '        "id": '.$this_article['id'].', '.PHP_EOL;
+     echo '        "id": '.$bfs['id'].', '.PHP_EOL;
      echo '        "type": document.getElementById("type_box").value '.PHP_EOL;
      echo '    };   '.PHP_EOL;
      echo ' '.PHP_EOL;
@@ -4109,7 +4109,7 @@ if(preg_match('/edit-book-for-sale\//', $request)){
      echo '<script>'.PHP_EOL;
      echo 'function set_content2(){'.PHP_EOL;
      echo 'var jsondata = { '.PHP_EOL;
-     echo '        "id": '.$this_article['id'].', '.PHP_EOL;
+     echo '        "id": '.$bfs['id'].', '.PHP_EOL;
      echo '        "content2": document.getElementById("content2_box").value '.PHP_EOL;
      echo '    };   '.PHP_EOL;
      echo ' '.PHP_EOL;
@@ -4131,7 +4131,7 @@ if(preg_match('/edit-book-for-sale\//', $request)){
      echo '<script>'.PHP_EOL;
      echo 'function set_content1(){'.PHP_EOL;
      echo 'var jsondata = { '.PHP_EOL;
-     echo '        "id": '.$this_article['id'].', '.PHP_EOL;
+     echo '        "id": '.$bfs['id'].', '.PHP_EOL;
      echo '        "content1": document.getElementById("content1_box").value '.PHP_EOL;
      echo '    };   '.PHP_EOL;
      echo ' '.PHP_EOL;
@@ -4152,7 +4152,7 @@ if(preg_match('/edit-book-for-sale\//', $request)){
      echo '<script>'.PHP_EOL;
      echo 'function set_content(){'.PHP_EOL;
      echo 'var jsondata = { '.PHP_EOL;
-     echo '        "id": '.$this_article['id'].', '.PHP_EOL;
+     echo '        "id": '.$bfs['id'].', '.PHP_EOL;
      echo '        "content": document.getElementById("content_box").value '.PHP_EOL;
      echo '    };   '.PHP_EOL;
      echo ' '.PHP_EOL;
@@ -4174,7 +4174,7 @@ if(preg_match('/edit-book-for-sale\//', $request)){
 
      echo 'function set_title(){'.PHP_EOL;
      echo 'var jsondata = { '.PHP_EOL;
-     echo '        "id": '.$this_article['id'].', '.PHP_EOL;
+     echo '        "id": '.$bfs['id'].', '.PHP_EOL;
      echo '        "title": document.getElementById("title_box").value '.PHP_EOL;
      echo '    };   '.PHP_EOL;
      echo ' '.PHP_EOL;
@@ -4220,7 +4220,7 @@ if(preg_match('/edit-book-for-sale\//', $request)){
         echo '<script>'.PHP_EOL;
         echo 'function deactivate(){'.PHP_EOL;
         echo 'var jsondata = { '.PHP_EOL;
-        echo '        "id": '.$this_article['id'].', '.PHP_EOL;
+        echo '        "id": '.$bfs['id'].', '.PHP_EOL;
         echo '        "title": document.getElementById("title_box").value '.PHP_EOL;
         echo '    };   '.PHP_EOL;
         echo ' '.PHP_EOL;
@@ -4240,7 +4240,7 @@ if(preg_match('/edit-book-for-sale\//', $request)){
         echo '<script>'.PHP_EOL;
         echo 'function activate(){'.PHP_EOL;
         echo 'var jsondata = { '.PHP_EOL;
-        echo '        "id": '.$this_article['id'].', '.PHP_EOL;
+        echo '        "id": '.$bfs['id'].', '.PHP_EOL;
         echo '        "title": document.getElementById("title_box").value '.PHP_EOL;
         echo '    };   '.PHP_EOL;
         echo ' '.PHP_EOL;
