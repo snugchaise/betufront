@@ -4294,9 +4294,10 @@ echo '<button style="margin-top: 10px; margin-bottom: 10px;float: right" type="s
 #echo '<button type="submit" class="btn btn-primary" onclick="deactivate()">Deactivate</button>'.PHP_EOL;
 #echo '<button type="submit" class="btn btn-primary" onclick="activate()">Activate</button>'.PHP_EOL;
 #echo '<button type="submit" class="btn btn-primary" onclick="document.getElementById(\'advert_image\').click();" >Főkép feltöltése </button>'.PHP_EOL;
-#echo '<button type="submit" class="btn btn-primary" onclick="document.getElementById(\'additional_advert_image\').click();" >Továbbiak feltöltése</button>'.PHP_EOL;
+echo '<button type="submit" class="btn btn-primary" onclick="document.getElementById(\'additional_advert_image\').click();" >Továbbiak feltöltése</button>'.PHP_EOL;
 
 echo '<div id="advert_image_loader"></div>'.PHP_EOL;
+
 echo '<form method="post" id="advert_image_form" enctype="multipart/form-data">'.PHP_EOL;
 echo '<input type="file" id="advert_image" name="advert_image_form[]" class="form-control" style="display: none;" multiple/>'.PHP_EOL;
 echo '<input  type="hidden" name="post_id" value="'.$bfs['id'].'"/>'.PHP_EOL;
