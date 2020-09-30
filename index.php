@@ -2074,7 +2074,7 @@ switch ($request) {
 
       echo ' <div style="float: left;  padding: 30px"> <a style="color: blue" href="http://www.betufront.hu/hasznalt-konyv/'.$bfs['titleForUrl'].'"><img width="300px" height="400px" src="/images/books/'.$bfs['id'].'/'.$image['book_image_name'].'"/></a></div>'.PHP_EOL;
 
-      echo '<div style="border-bottom: 1px solid #004A1D">'.PHP_EOL;
+      echo '<div style="border-bottom: 1px solid #004A1D;min-height: 470px;">'.PHP_EOL;
       echo '<h3>'.$bfs['book_author'].'</h3>'.PHP_EOL;
       echo '<h4>'.$bfs['book_title'].' <a style="color: blue" href="http://www.betufront.hu/hasznalt-konyv/'.$bfs['titleForUrl'].'">Megtekintem</a></h4>'.PHP_EOL;
       echo '<h5>'.$bfs['book_publisher'].' '.'['.$bfs['book_publish_date'].']</h5>'.PHP_EOL;
