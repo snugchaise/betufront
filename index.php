@@ -3840,7 +3840,7 @@ if(preg_match('/add-book-for-sale\//', $request)){
 
         $random_title = md5(microtime());
 
-        $handler->insert_into_table("article",array(
+        $handler->insert_into_table("books_for_sale",array(
 	     "titleForUrl",
 	     "initial",
 	     "book_summary",
