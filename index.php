@@ -4319,7 +4319,7 @@ echo '<input  type="hidden" name="book_unique_hash" value="'.$bfs['book_unique_h
 echo '</form>'.PHP_EOL;
 echo "</div>".PHP_EOL;
 
-$images = $handler->conditional_select_from("books_for_sale_images",array("book_unique_hash" => $bfs['book_unique_hash'] ))[0];
+$images = $handler->conditional_select_from("books_for_sale_images",array("book_unique_hash" => $bfs['book_unique_hash'] ));
 
 echo '<table>'.PHP_EOL;
 
