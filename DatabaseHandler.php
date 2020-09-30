@@ -127,8 +127,17 @@ class DatabaseHandler {
         die("Unknown type in alter_table_add_column, exciting...");
     }
     public function delete_entry_from_table($table_name,$field,$value) {
+        try{
         $stmt = $this->connector->db->prepare("DELETE FROM `".$table_name."` WHERE ".$field." = ?");
         $stmt->execute(array($value));
+        }
+        catch(PDOException $e)
+        {
+            echo "Error: " . $e->getMessage();
+            error_log(print_r($e->getMessage(),true));
+            return $e->getMessage();
+
+        }
         return True;
     }
     public function drop_table($table_name) {
