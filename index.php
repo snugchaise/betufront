@@ -2113,6 +2113,110 @@ switch ($request) {
      break;
 }
 
+if(preg_match('/hasznalt-konyv/', $request)){
+
+     $titleForUrl  = explode("/",$request)[2];
+
+     $auth  = explode("/",$request)[3];
+     $logged_in = False;
+     if(strcmp($auth, "057a39a1cf79eb4625c16c51eadd3283") == 0){
+      $logged_in = True;
+     }
+     $handler = new DatabaseHandler;
+     $bfs = $handler->conditional_select_from("books_for_sale",array("titleForUrl" => $titleForUrl))[0];
+#     get_head(False,$logged_in,array(),$meta_content);
+
+     $useragent=$_SERVER['HTTP_USER_AGENT'];
+
+     $meta_content = ''.PHP_EOL;
+     get_head(False,$logged_in,array(),$meta_content);
+
+     echo '<div style="width: 1080px; padding: 0;position: relative; max-width: 1080px; margin: 0 auto; box-sizing: border-box;">'.PHP_EOL;
+     echo '<!-- news start -->'.PHP_EOL;
+     echo ' <div style="margin-top: 2%; width: 54%; float: left">'.PHP_EOL;
+     echo '  <div style="display: block; background: #ffffff; color: black; width: 100%; margin: 0 0 15px 0; padding: 10px 25px 0 25px;  box-shadow: none; box-sizing: border-box; font-size: 1.3rem; text-align: left;"><p style="color: black; background-color: #286ABE; height: 0px; font-weight: 600; text-align: left;padding-left: 20px;"></p>'.PHP_EOL;
+
+$images = $handler->conditional_select_from("books_for_sale_images",array("book_unique_hash" => $bfs['book_unique_hash'] ));
+
+echo '<table>'.PHP_EOL;
+
+foreach( $images as $image ){
+echo '<tr>'.PHP_EOL;
+echo ' <td>'.PHP_EOL;
+echo ' <img width="150px" height="150px" src="/images/books/'.$bfs['id'].'/'.$image['book_image_name'].'"/>'.PHP_EOL;
+echo ' </td>'.PHP_EOL;
+echo ' <td>'.PHP_EOL;
+echo ' </td>'.PHP_EOL;
+echo '</tr>'.PHP_EOL;
+}
+
+echo '</table>'.PHP_EOL;
+
+
+
+     echo '<span><a href="http://betufront.hu/edit-book-for-sale/'.$bfs['book_unique_hash'].'/057a39a1cf79eb4625c16c51eadd3283">Szerkesztés</a></span>'.PHP_EOL;
+     echo '   <div >'.PHP_EOL;
+     echo '    <h2 style="margin: 0; border-bottom: 3px dashed #ff4436">Adatok</h2>'.PHP_EOL;
+     echo '   <ul style="list-style: none; color: black;padding: 0; line-height: 2em;">'.PHP_EOL;
+     echo '    <li> <span style="text-decoration: underline">Nyelv:</span> '.$bfs['book_language'].'</li>'.PHP_EOL;
+     echo '    <li> <span style="text-decoration: underline">Állapot:</span> '.$bfs['book_condition'].'</li>'.PHP_EOL;
+     echo '    <li> <span style="text-decoration: underline">Kiadó:</span> '.$bfs['book_publisher'].'</li>'.PHP_EOL;
+     echo '    <li> <span style="text-decoration: underline">Oldalak száma:</span> '.$bfs['book_page_numbers'].'</li>'.PHP_EOL;
+     echo '    <li> <span style="text-decoration: underline">Kiadás éve:</span> '.$bfs['book_publish_date'].'</li>'.PHP_EOL;
+     echo '    <li> <span style="text-decoration: underline">ISBN:</span> '.$bfs['book_isbn'].'</li>'.PHP_EOL;
+     echo '   </ul>'.PHP_EOL;
+     echo '   </div>'.PHP_EOL;
+     echo '   <div>'.PHP_EOL;
+     echo '    <h2 style="margin: 0; border-bottom: 3px dashed #ff4436"> Összefoglaló</h2>'.PHP_EOL;
+     echo '    <p>'.PHP_EOL;
+     echo ''.$bfs['book_summary'].''.PHP_EOL;
+     echo '    <p>'.PHP_EOL;
+     echo '   </div>'.PHP_EOL;
+     echo '   <div>'.PHP_EOL;
+     echo '    <h2 style="margin: 0; border-bottom: 3px dashed #ff4436">Hirdetés szövege</h2>'.PHP_EOL;
+     echo '    <p>'.PHP_EOL;
+     echo '     '.$bfs['ad_text'].''.PHP_EOL;
+     echo '    <p>'.PHP_EOL;
+     echo '   </div>'.PHP_EOL;
+     echo ''.PHP_EOL;
+     echo '  </div>'.PHP_EOL;
+     echo ' </div>'.PHP_EOL;
+     echo ' <div style="margin-top: 2%; width: 45%; float: left">'.PHP_EOL;
+     echo '  <div style="display: block; background: #ffffff; color: black; width: 100%; margin: 0 0 15px 0; padding: 10px 25px 0 25px;  box-shadow: none; box-sizing: border-box; font-size: 1.3rem; text-align: left;">'.PHP_EOL;
+     echo '   <h3>'.$bfs['book_title'].' - '.$bfs['book_author'].'</h3>'.PHP_EOL;
+     echo '   <h4>Használt</h4>'.PHP_EOL;
+     echo '   <ul style="list-style: none; padding: 0; line-height: 2em;">'.PHP_EOL;
+     echo '    <li style="color: #da1919"> '.$bfs['book_price'].' Forint</li>'.PHP_EOL;
+     echo '    <li> Átvehető: '.$bfs['delivery_place'].'</li>'.PHP_EOL;
+     echo '   </ul>'.PHP_EOL;
+     echo '   <div style="background: #f7f7f5">'.PHP_EOL;
+     echo '    <div style="text-align: center">'.PHP_EOL;
+     echo '    <h4 style="margin-bottom: 5px;padding-top: 15px;">Hirdető</h4>'.PHP_EOL;
+     echo '     <div style="text-align: center;">'.PHP_EOL;
+     echo '     <img src="no_image.png" alt="Felhasználó" title="" height="60px" width="90px" height="auto">'.PHP_EOL;
+     echo '     </div>'.PHP_EOL;
+     echo '    </div>'.PHP_EOL;
+     echo '    <div>'.PHP_EOL;
+     echo '     <img src="phone" alt="Használt könyvek piactere" title="" height="20px" width="30px" height="auto">'.PHP_EOL;
+     echo '     +36(30)831-69-72 '.PHP_EOL;
+     echo '    </div>'.PHP_EOL;
+     echo '    <div style="text-align: center;">'.PHP_EOL;
+     echo '<a class="atc-button atc-button--primary  split-btn split-btn-tertiary" href="">Kapcsolat</a>'.PHP_EOL;
+     echo '    </div>'.PHP_EOL;
+     echo '   </div>'.PHP_EOL;
+     echo '  </div>'.PHP_EOL;
+     echo ' </div>'.PHP_EOL;
+     echo '</div>'.PHP_EOL;
+     echo '<!-- news end -->'.PHP_EOL;
+     echo '<div id="messages" style="white-space:pre;"></div>'.PHP_EOL;
+     echo ''.PHP_EOL;
+     echo '</div>'.PHP_EOL;
+ 
+     get_foot();
+
+     echo '</body>'.PHP_EOL;
+     echo '</html>'.PHP_EOL;
+}
 if(preg_match('/cookie-policy/', $request)){
 
         $logged_in = False;
@@ -3934,6 +4038,78 @@ $updates = array("book_publisher" => $titleForUrl);
 $handler->update_in_table("books_for_sale",$updates,"id",$id);
 return;
 }
+if(preg_match('/upload-book-advert-endpoint/', $request)){
+
+$handler = new DatabaseHandler;
+
+$json = json_decode(file_get_contents("php://input"));
+
+$id = $json->Data->id;
+
+$bfs = $handler->conditional_select_from("books_for_sale",array("id" => $id ))[0];
+
+$book_title = rtrim(ltrim($bfs['book_title'])):
+$book_author = rtrim(ltrim($bfs['book_author'])):
+
+ $titleForUrl = preg_replace('/\s+/', '-', $book_title + $book_author);
+
+ $replace = [
+     '&lt;' => '', '&gt;' => '', '&#039;' => '', '&amp;' => '',
+     '&quot;' => '', 'À' => 'A', 'Á' => 'A', 'Â' => 'A', 'Ã' => 'A', 'Ä' => 'Ae',
+     '&Auml;' => 'A', 'Å' => 'A', 'Ā' => 'A', 'Ą' => 'A', 'Ă' => 'A', 'Æ' => 'Ae',
+     'Ç' => 'C', 'Ć' => 'C', 'Č' => 'C', 'Ĉ' => 'C', 'Ċ' => 'C', 'Ď' => 'D', 'Đ' => 'D',
+     'Ð' => 'D', 'È' => 'E', 'É' => 'E', 'Ê' => 'E', 'Ë' => 'E', 'Ē' => 'E',
+     'Ę' => 'E', 'Ě' => 'E', 'Ĕ' => 'E', 'Ė' => 'E', 'Ĝ' => 'G', 'Ğ' => 'G',
+     'Ġ' => 'G', 'Ģ' => 'G', 'Ĥ' => 'H', 'Ħ' => 'H', 'Ì' => 'I', 'Í' => 'I',
+     'Î' => 'I', 'Ï' => 'I', 'Ī' => 'I', 'Ĩ' => 'I', 'Ĭ' => 'I', 'Į' => 'I',
+     'İ' => 'I', 'Ĳ' => 'IJ', 'Ĵ' => 'J', 'Ķ' => 'K', 'Ł' => 'K', 'Ľ' => 'K',
+     'Ĺ' => 'K', 'Ļ' => 'K', 'Ŀ' => 'K', 'Ñ' => 'N', 'Ń' => 'N', 'Ň' => 'N',
+     'Ņ' => 'N', 'Ŋ' => 'N', 'Ò' => 'O', 'Ó' => 'O', 'Ô' => 'O', 'Õ' => 'O',
+     'Ö' => 'Oe', '&Ouml;' => 'Oe', 'Ø' => 'O', 'Ō' => 'O', 'Ő' => 'O', 'Ŏ' => 'O',
+     'Œ' => 'OE', 'Ŕ' => 'R', 'Ř' => 'R', 'Ŗ' => 'R', 'Ś' => 'S', 'Š' => 'S',
+     'Ş' => 'S', 'Ŝ' => 'S', 'Ș' => 'S', 'Ť' => 'T', 'Ţ' => 'T', 'Ŧ' => 'T',
+     'Ț' => 'T', 'Ù' => 'U', 'Ú' => 'U', 'Û' => 'U', 'Ü' => 'Ue', 'Ū' => 'U',
+     '&Uuml;' => 'Ue', 'Ů' => 'U', 'Ű' => 'U', 'Ŭ' => 'U', 'Ũ' => 'U', 'Ų' => 'U',
+     'Ŵ' => 'W', 'Ý' => 'Y', 'Ŷ' => 'Y', 'Ÿ' => 'Y', 'Ź' => 'Z', 'Ž' => 'Z',
+     'Ż' => 'Z', 'Þ' => 'T', 'à' => 'a', 'á' => 'a', 'â' => 'a', 'ã' => 'a',
+     'ä' => 'ae', '&auml;' => 'ae', 'å' => 'a', 'ā' => 'a', 'ą' => 'a', 'ă' => 'a',
+     'æ' => 'ae', 'ç' => 'c', 'ć' => 'c', 'č' => 'c', 'ĉ' => 'c', 'ċ' => 'c',
+     'ď' => 'd', 'đ' => 'd', 'ð' => 'd', 'è' => 'e', 'é' => 'e', 'ê' => 'e',
+     'ë' => 'e', 'ē' => 'e', 'ę' => 'e', 'ě' => 'e', 'ĕ' => 'e', 'ė' => 'e',
+     'ƒ' => 'f', 'ĝ' => 'g', 'ğ' => 'g', 'ġ' => 'g', 'ģ' => 'g', 'ĥ' => 'h',
+     'ħ' => 'h', 'ì' => 'i', 'í' => 'i', 'î' => 'i', 'ï' => 'i', 'ī' => 'i',
+     'ĩ' => 'i', 'ĭ' => 'i', 'į' => 'i', 'ı' => 'i', 'ĳ' => 'ij', 'ĵ' => 'j',
+     'ķ' => 'k', 'ĸ' => 'k', 'ł' => 'l', 'ľ' => 'l', 'ĺ' => 'l', 'ļ' => 'l',
+     'ŀ' => 'l', 'ñ' => 'n', 'ń' => 'n', 'ň' => 'n', 'ņ' => 'n', 'ŉ' => 'n',
+     'ŋ' => 'n', 'ò' => 'o', 'ó' => 'o', 'ô' => 'o', 'õ' => 'o', 'ö' => 'oe',
+     '&ouml;' => 'oe', 'ø' => 'o', 'ō' => 'o', 'ő' => 'o', 'ŏ' => 'o', 'œ' => 'oe',
+     'ŕ' => 'r', 'ř' => 'r', 'ŗ' => 'r', 'š' => 's', 'ù' => 'u', 'ú' => 'u',
+     'û' => 'u', 'ü' => 'ue', 'ū' => 'u', '&uuml;' => 'ue', 'ů' => 'u', 'ű' => 'u',
+     'ŭ' => 'u', 'ũ' => 'u', 'ų' => 'u', 'ŵ' => 'w', 'ý' => 'y', 'ÿ' => 'y',
+     'ŷ' => 'y', 'ž' => 'z', 'ż' => 'z', 'ź' => 'z', 'þ' => 't', 'ß' => 'ss',
+     'ſ' => 'ss', 'ый' => 'iy', 'А' => 'A', 'Б' => 'B', 'В' => 'V', 'Г' => 'G',
+     'Д' => 'D', 'Е' => 'E', 'Ё' => 'YO', 'Ж' => 'ZH', 'З' => 'Z', 'И' => 'I',
+     'Й' => 'Y', 'К' => 'K', 'Л' => 'L', 'М' => 'M', 'Н' => 'N', 'О' => 'O',
+     'П' => 'P', 'Р' => 'R', 'С' => 'S', 'Т' => 'T', 'У' => 'U', 'Ф' => 'F',
+     'Х' => 'H', 'Ц' => 'C', 'Ч' => 'CH', 'Ш' => 'SH', 'Щ' => 'SCH', 'Ъ' => '',
+     'Ы' => 'Y', 'Ь' => '', 'Э' => 'E', 'Ю' => 'YU', 'Я' => 'YA', 'а' => 'a',
+     'б' => 'b', 'в' => 'v', 'г' => 'g', 'д' => 'd', 'е' => 'e', 'ё' => 'yo',
+     'ж' => 'zh', 'з' => 'z', 'и' => 'i', 'й' => 'y', 'к' => 'k', 'л' => 'l',
+     'м' => 'm', 'н' => 'n', 'о' => 'o', 'п' => 'p', 'р' => 'r', 'с' => 's',
+     'т' => 't', 'у' => 'u', 'ф' => 'f', 'х' => 'h', 'ц' => 'c', 'ч' => 'ch',
+     'ш' => 'sh', 'щ' => 'sch', 'ъ' => '', 'ы' => 'y', 'ь' => '', 'э' => 'e',
+     'ю' => 'yu', 'я' => 'ya'
+ ];
+
+$titleForUrl = str_replace(array_keys($replace), $replace, $titleForUrl);
+
+$updates = array("titleForUrl" => $titleForUrl);
+$handler->update_in_table("books_for_sale",$updates,"id",$id);
+
+echo $titleForUrl;
+
+return;
+}
 if(preg_match('/edit-book-language/', $request)){
 $handler = new DatabaseHandler;
 $json = json_decode(file_get_contents("php://input"));
@@ -3975,7 +4151,7 @@ $handler = new DatabaseHandler;
 $json = json_decode(file_get_contents("php://input"));
 $titleForUrl = $json->Data->titleForUrl;
 $id = $json->Data->id;
-$updates = array("book_author" => $titleForUrl);
+$updates = array("book_author" => rtrim(ltrim($titleForUrl)));
 $handler->update_in_table("books_for_sale",$updates,"id",$id);
 return;
 }
@@ -3984,7 +4160,7 @@ $handler = new DatabaseHandler;
 $json = json_decode(file_get_contents("php://input"));
 $titleForUrl = $json->Data->titleForUrl;
 $id = $json->Data->id;
-$updates = array("book_title" => $titleForUrl);
+$updates = array("book_title" => rtrim(ltrim($titleForUrl)));
 $handler->update_in_table("books_for_sale",$updates,"id",$id);
 return;
 }
@@ -4324,12 +4500,12 @@ echo '<table>'.PHP_EOL;
 
 foreach( $images as $image ){
 echo '<tr>'.PHP_EOL;
-echo '<td>'.PHP_EOL;
-echo '<img width="150px" height="150px" src="/images/books/'.$bfs['id'].'/'.$image['book_image_name'].'"/>'.PHP_EOL;
-echo '</td>'.PHP_EOL;
-echo '<td>'.PHP_EOL;
-echo '<button type="submit" class="btn btn-warning" onclick="delete_book_image()">Törlés</button>'.PHP_EOL;
-echo '</td>'.PHP_EOL;
+echo ' <td>'.PHP_EOL;
+echo ' <img width="150px" height="150px" src="/images/books/'.$bfs['id'].'/'.$image['book_image_name'].'"/>'.PHP_EOL;
+echo ' </td>'.PHP_EOL;
+echo ' <td>'.PHP_EOL;
+echo ' <button type="submit" class="btn btn-warning" onclick="delete_book_image()">Törlés</button>'.PHP_EOL;
+echo ' </td>'.PHP_EOL;
 echo '</tr>'.PHP_EOL;
 }
 
@@ -4438,6 +4614,28 @@ echo '        } '.PHP_EOL;
 echo '    }); '.PHP_EOL;
 echo ' };'.PHP_EOL;
 echo '</script>'.PHP_EOL;
+
+echo '<script>'.PHP_EOL;
+echo 'function upload_book_advert(){'.PHP_EOL;
+echo 'var jsondata = { '.PHP_EOL;
+echo '        "id": '.$bfs['id'].', '.PHP_EOL;
+echo '        "titleForUrl": document.getElementById("delivery_place_box").value '.PHP_EOL;
+echo '    };   '.PHP_EOL;
+echo '    $.ajax({ '.PHP_EOL;
+echo '        url: "/upload-book-advert-endpoint/", '.PHP_EOL;
+echo '        method: "POST",         '.PHP_EOL;
+echo '        data: JSON.stringify({ Data: jsondata }), '.PHP_EOL;
+echo '        contentType: "json", '.PHP_EOL;
+echo '        success: function(data){ '.PHP_EOL;
+echo '        window.location.replace("http://www.'.$GLOBALS['project_name'].'.hu/hasznalt-konyv/\'+data+\'");'.PHP_EOL;
+echo '        }, '.PHP_EOL;
+echo '        error: function(errMsg) { '.PHP_EOL;
+echo '            alert(errMsg);'.PHP_EOL;
+echo '        } '.PHP_EOL;
+echo '    }); '.PHP_EOL;
+echo ' };'.PHP_EOL;
+echo '</script>'.PHP_EOL;
+
 echo '<script>'.PHP_EOL;
 echo 'function set_delivery_place(){'.PHP_EOL;
 echo 'var jsondata = { '.PHP_EOL;
