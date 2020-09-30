@@ -4285,6 +4285,7 @@ echo '<h4>Kiadója</h4>'.PHP_EOL;
  echo '<textarea id="book_publisher_box" onchange="set_book_publisher();" style="width: 100%;height: 4em;" >'.$bfs['book_publisher'].'</textarea>';
 echo '<h4>Hol tudod átadni? (Írj minnél részletesebben)?</h4>'.PHP_EOL;
  echo '<textarea id="delivery_place_box" onchange="set_delivery_place();" style="width: 100%;height: 4em;" >'.$bfs['delivery_place'].'</textarea>';
+echo '<button style="float: right" type="submit" class="btn btn-primary" onclick="upload_book_advert()">Feltöltöm <i class="fa fa-envelope-open-o"></i></button>'.PHP_EOL;
 
 
 #echo '<br>';
