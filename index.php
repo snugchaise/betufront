@@ -4028,317 +4028,238 @@ if(preg_match('/add-article\//', $request)){
 }
 if(preg_match('/edit-book-for-sale\//', $request)){
 
-        $auth  = explode("/",$request)[3];
+$auth  = explode("/",$request)[3];
 
-        $logged_in = False;
-        if(strcmp($auth, "057a39a1cf79eb4625c16c51eadd3283") == 0){
-         $logged_in = True;
-        }
-        if(!$logged_in){
-         die("Unauthorized!");
-        }
+$logged_in = False;
+if(strcmp($auth, "057a39a1cf79eb4625c16c51eadd3283") == 0){
+$logged_in = True;
+}
+if(!$logged_in){
+die("Unauthorized!");
+}
 
-        $meta_content = "";
-        get_head(False,$logged_in,array(),$meta_content);
-        $title = explode("/",$request)[2];
-        $bfs = $handler->conditional_select_from("books_for_sale",array("titleForUrl" => $title ))[0];
+$meta_content = "";
+get_head(False,$logged_in,array(),$meta_content);
+$title = explode("/",$request)[2];
+$bfs = $handler->conditional_select_from("books_for_sale",array("titleForUrl" => $title ))[0];
     
-     echo '<section class="section wb">';
-     echo '<div class="container">';
-     echo '<div class="row">';
-     echo '<div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">';
-     echo '<div class="page-wrapper">';
-     echo '<div class="blog-list clearfix">';
-     echo '<div class="blog-box row">';
-     echo '<div class="blog-meta big-meta" style="width: 100%; text-align: justify;">';
-
-     echo '<textarea id="book_author_box" onchange="set_book_author();" style="width: 100%;height: 4em;" >'.$bfs['book_author'].'</textarea>';
-
-     echo '<textarea id="book_title_box" onchange="set_book_title();" style="width: 100%;height: 4em;" >'.$bfs['book_title'].'</textarea>';
-
-     echo '<textarea id="book_summary_box" onchange="set_book_summary();" style="width: 100%;" >'.$bfs['book_summary'].'</textarea>';
-
-     echo '<textarea id="book_price_box" onchange="set_book_price();" style="width: 100%;height: 4em;" >'.$bfs['book_price'].'</textarea>';
-
-     echo '<textarea id="book_page_number_box" onchange="set_book_page_number();" style="width: 100%;height: 4em;" >'.$bfs['book_page_number'].'</textarea>';
-
-     echo '<textarea id="book_isbn_box" onchange="set_book_isbn();" style="width: 100%;height: 4em;" >'.$bfs['book_isbn'].'</textarea>';
-
-     echo '<textarea id="book_language_box" onchange="set_book_language();" style="width: 100%;height: 4em;" >'.$bfs['book_language'].'</textarea>';
-
-     echo '<textarea id="book_condition_box" onchange="set_book_condition();" style="width: 100%;height: 4em;" >'.$bfs['book_condition'].'</textarea>';
-
-     echo '<textarea id="book_publisher_box" onchange="set_book_publisher();" style="width: 100%;height: 4em;" >'.$bfs['book_publisher'].'</textarea>';
-
-     echo '<textarea id="delivery_place_box" onchange="set_delivery_place();" style="width: 100%;height: 4em;" >'.$bfs['delivery_place'].'</textarea>';
-
-     echo '<textarea id="type_box" onchange="set_type();" style="width: 100%;height: 4em;" >'.$bfs['book_publish_date'].'</textarea>';
+echo '<textarea id="book_author_box" onchange="set_book_author();" style="width: 100%;height: 4em;" >'.$bfs['book_author'].'</textarea>';
+echo '<textarea id="book_title_box" onchange="set_book_title();" style="width: 100%;height: 4em;" >'.$bfs['book_title'].'</textarea>';
+echo '<textarea id="book_summary_box" onchange="set_book_summary();" style="width: 100%;" >'.$bfs['book_summary'].'</textarea>';
+echo '<textarea id="book_price_box" onchange="set_book_price();" style="width: 100%;height: 4em;" >'.$bfs['book_price'].'</textarea>';
+echo '<textarea id="book_page_number_box" onchange="set_book_page_number();" style="width: 100%;height: 4em;" >'.$bfs['book_page_number'].'</textarea>';
+echo '<textarea id="book_isbn_box" onchange="set_book_isbn();" style="width: 100%;height: 4em;" >'.$bfs['book_isbn'].'</textarea>';
+echo '<textarea id="book_language_box" onchange="set_book_language();" style="width: 100%;height: 4em;" >'.$bfs['book_language'].'</textarea>';
+echo '<textarea id="book_condition_box" onchange="set_book_condition();" style="width: 100%;height: 4em;" >'.$bfs['book_condition'].'</textarea>';
+echo '<textarea id="book_publisher_box" onchange="set_book_publisher();" style="width: 100%;height: 4em;" >'.$bfs['book_publisher'].'</textarea>';
+echo '<textarea id="delivery_place_box" onchange="set_delivery_place();" style="width: 100%;height: 4em;" >'.$bfs['delivery_place'].'</textarea>';
+echo '<textarea id="type_box" onchange="set_type();" style="width: 100%;height: 4em;" >'.$bfs['book_publish_date'].'</textarea>';
 
 
-        $articles = array_reverse($handler->select_all_from("article"));
+#echo '<br>';
+#echo '<button type="submit" class="btn btn-primary" onclick="add_references()">Hozzáadom</button>'.PHP_EOL;
+#echo '<button type="submit" class="btn btn-primary" onclick="add_url_address()">URL cím</button>'.PHP_EOL;
+#echo '<button type="submit" class="btn btn-primary" onclick="deactivate()">Deactivate</button>'.PHP_EOL;
+#echo '<button type="submit" class="btn btn-primary" onclick="activate()">Activate</button>'.PHP_EOL;
+#echo '<button type="submit" class="btn btn-primary" onclick="document.getElementById(\'advert_image\').click();" >Főkép feltöltése </button>'.PHP_EOL;
+#echo '<button type="submit" class="btn btn-primary" onclick="document.getElementById(\'additional_advert_image\').click();" >Továbbiak feltöltése</button>'.PHP_EOL;
 
-        echo '<br>';
-        echo '<span style="color: black" >Feltöltés: scp jpg qqwwaass@107.180.50.188:/home/qqwwaass/'.$GLOBALS['project_name'].'/images/'.$bfs['id'].'/1.jpg </span>';
-        echo '<br>';
-        echo '<label for="reference_article_1">Referencia 1:</label>'.PHP_EOL;
-        echo '<select name="cars" id="reference_article_1">'.PHP_EOL;
-        foreach( $articles as $article ){
-         echo '  <option value="'.$article['titleForUrl'].'">'.$article['title'].'</option>'.PHP_EOL;
-        }
-        echo '</select>'.PHP_EOL;
+echo '<div id="advert_image_loader"></div>'.PHP_EOL;
+echo '<form method="post" id="advert_image_form" enctype="multipart/form-data">'.PHP_EOL;
+echo '<input type="file" id="advert_image" name="advert_image_form[]" class="form-control" style="display: none;" multiple/>'.PHP_EOL;
+echo '<input  type="hidden" name="post_id" value="'.$bfs['id'].'"/>'.PHP_EOL;
+echo '</form>'.PHP_EOL;
 
-        echo '<br>';
-        echo '<label for="reference_article_2">Referencia 2:</label>'.PHP_EOL;
-        echo '<select name="cars" id="reference_article_2">'.PHP_EOL;
-        foreach( $articles as $article ){
-         echo '  <option value="'.$article['titleForUrl'].'">'.$article['title'].'</option>'.PHP_EOL;
-        }
-        echo '</select>'.PHP_EOL;
-
-        echo '<br>';
-        echo '<label for="reference_article_3">Referencia 3:</label>'.PHP_EOL;
-        echo '<select name="cars" id="reference_article_3">'.PHP_EOL;
-        foreach( $articles as $article ){
-         echo '  <option value="'.$article['titleForUrl'].'">'.$article['title'].'</option>'.PHP_EOL;
-        }
-        echo '</select>'.PHP_EOL;
-
-        echo '<br>';
-        echo '<label for="reference_article_4">Referencia 4:</label>'.PHP_EOL;
-        echo '<select name="cars" id="reference_article_4">'.PHP_EOL;
-        foreach( $articles as $article ){
-         echo '  <option value="'.$article['titleForUrl'].'">'.$article['title'].'</option>'.PHP_EOL;
-        }
-        echo '</select>'.PHP_EOL;
-
-        echo '<br>';
-        echo '<label for="reference_article_5">Referencia 5:</label>'.PHP_EOL;
-        echo '<select name="cars" id="reference_article_5">'.PHP_EOL;
-        foreach( $articles as $article ){
-         echo '  <option value="'.$article['titleForUrl'].'">'.$article['title'].'</option>'.PHP_EOL;
-        }
-        echo '</select>'.PHP_EOL;
-        echo '<br>';
-        echo '  <button type="submit" class="btn btn-primary" onclick="add_references()">Hozzáadom</button>'.PHP_EOL;
-        echo '  <button type="submit" class="btn btn-primary" onclick="add_url_address()">URL cím</button>'.PHP_EOL;
-         echo '  <button type="submit" class="btn btn-primary" onclick="deactivate()">Deactivate</button>'.PHP_EOL;
-         echo '  <button type="submit" class="btn btn-primary" onclick="activate()">Activate</button>'.PHP_EOL;
-
-
-        echo '<button type="submit" class="btn btn-primary" onclick="document.getElementById(\'advert_image\').click();" >Főkép feltöltése </button>'.PHP_EOL;
-        echo '<button type="submit" class="btn btn-primary" onclick="document.getElementById(\'additional_advert_image\').click();" >Továbbiak feltöltése</button>'.PHP_EOL;
-
-        echo '<div id="advert_image_loader"></div>'.PHP_EOL;
-        echo '<form method="post" id="advert_image_form" enctype="multipart/form-data">'.PHP_EOL;
-        echo '<input type="file" id="advert_image" name="advert_image_form[]" class="form-control" style="display: none;" multiple/>'.PHP_EOL;
-        echo '<input  type="hidden" name="post_id" value="'.$bfs['id'].'"/>'.PHP_EOL;
-        echo '</form>'.PHP_EOL;
-
-        echo '<form method="post" id="additional_advert_image_form" enctype="multipart/form-data">'.PHP_EOL;
-        echo '<input type="file" id="additional_advert_image" name="additional_advert_image_form[]" class="form-control" style="display: none;" multiple/>'.PHP_EOL;
-        echo '<input  type="hidden" name="post_id" value="'.$bfs['id'].'"/>'.PHP_EOL;
-        echo '<input  type="text" name="image_id" value="Enter ID"/>'.PHP_EOL;
-        echo '<input  type="text" name="image_type" value="jpg"/>'.PHP_EOL;
-        echo '</form>'.PHP_EOL;
+echo '<form method="post" id="additional_advert_image_form" enctype="multipart/form-data">'.PHP_EOL;
+echo '<input type="file" id="additional_advert_image" name="additional_advert_image_form[]" class="form-control" style="display: none;" multiple/>'.PHP_EOL;
+echo '<input  type="hidden" name="post_id" value="'.$bfs['id'].'"/>'.PHP_EOL;
+echo '<input  type="text" name="image_id" value="Enter ID"/>'.PHP_EOL;
+echo '<input  type="text" name="image_type" value="jpg"/>'.PHP_EOL;
+echo '</form>'.PHP_EOL;
 	 
-     echo '                                    </div><!-- end meta -->'.PHP_EOL;
-     echo '                                </div><!-- end blog-box -->'.PHP_EOL;
-     echo ''.PHP_EOL;
-     echo '                                <hr class="invis">'.PHP_EOL;
-     echo ''.PHP_EOL;
-     echo '                            </div><!-- end blog-list -->'.PHP_EOL;
-     echo '                        </div><!-- end page-wrapper -->'.PHP_EOL;
-     echo ''.PHP_EOL;
-     echo '                        <hr class="invis">'.PHP_EOL;
-     echo '                    </div><!-- end col -->'.PHP_EOL;
-     echo '                    </div><!-- end col -->'.PHP_EOL;
-     echo '                </div><!-- end row -->'.PHP_EOL;
-     echo '            </div><!-- end container -->'.PHP_EOL;
-     echo '        </section>'.PHP_EOL;
-     echo '<script>'.PHP_EOL;
-     echo 'function set_initial(){'.PHP_EOL;
-     echo 'var jsondata = { '.PHP_EOL;
-     echo '        "id": '.$bfs['id'].', '.PHP_EOL;
-     echo '        "initial": document.getElementById("initial_box").value '.PHP_EOL;
-     echo '    };   '.PHP_EOL;
-     echo ' '.PHP_EOL;
-     echo '    $.ajax({ '.PHP_EOL;
-     echo '        url: "/edit-article-initial/", '.PHP_EOL;
-     echo '        method: "POST",         '.PHP_EOL;
-     echo '        data: JSON.stringify({ Data: jsondata }), '.PHP_EOL;
-     echo '        contentType: "json", '.PHP_EOL;
-     echo '        success: function(data){ '.PHP_EOL;
-     echo '        }, '.PHP_EOL;
-     echo '        error: function(errMsg) { '.PHP_EOL;
-     echo '            alert(errMsg);'.PHP_EOL;
-     echo '        } '.PHP_EOL;
-     echo '    }); '.PHP_EOL;
-     echo ' };'.PHP_EOL;
-     echo '</script>'.PHP_EOL;
+echo '<script>'.PHP_EOL;
+echo 'function set_initial(){'.PHP_EOL;
+echo 'var jsondata = { '.PHP_EOL;
+echo '        "id": '.$bfs['id'].', '.PHP_EOL;
+echo '        "initial": document.getElementById("initial_box").value '.PHP_EOL;
+echo '    };   '.PHP_EOL;
+echo ' '.PHP_EOL;
+echo '    $.ajax({ '.PHP_EOL;
+echo '        url: "/edit-article-initial/", '.PHP_EOL;
+echo '        method: "POST",         '.PHP_EOL;
+echo '        data: JSON.stringify({ Data: jsondata }), '.PHP_EOL;
+echo '        contentType: "json", '.PHP_EOL;
+echo '        success: function(data){ '.PHP_EOL;
+echo '        }, '.PHP_EOL;
+echo '        error: function(errMsg) { '.PHP_EOL;
+echo '            alert(errMsg);'.PHP_EOL;
+echo '        } '.PHP_EOL;
+echo '    }); '.PHP_EOL;
+echo ' };'.PHP_EOL;
+echo '</script>'.PHP_EOL;
 
-     echo '<script>'.PHP_EOL;
-     echo 'function set_book_author(){'.PHP_EOL;
-     echo 'var jsondata = { '.PHP_EOL;
-     echo '        "id": '.$bfs['id'].', '.PHP_EOL;
-     echo '        "titleForUrl": document.getElementById("book_author_box").value '.PHP_EOL;
-     echo '    };   '.PHP_EOL;
-     echo ' '.PHP_EOL;
-     echo '    $.ajax({ '.PHP_EOL;
-     echo '        url: "/edit-book-author/", '.PHP_EOL;
-     echo '        method: "POST",         '.PHP_EOL;
-     echo '        data: JSON.stringify({ Data: jsondata }), '.PHP_EOL;
-     echo '        contentType: "json", '.PHP_EOL;
-     echo '        success: function(data){ '.PHP_EOL;
-     echo '        }, '.PHP_EOL;
-     echo '        error: function(errMsg) { '.PHP_EOL;
-     echo '            alert(errMsg);'.PHP_EOL;
-     echo '        } '.PHP_EOL;
-     echo '    }); '.PHP_EOL;
-     echo ' };'.PHP_EOL;
-     echo '</script>'.PHP_EOL;
+echo '<script>'.PHP_EOL;
+echo 'function set_book_author(){'.PHP_EOL;
+echo 'var jsondata = { '.PHP_EOL;
+echo '        "id": '.$bfs['id'].', '.PHP_EOL;
+echo '        "titleForUrl": document.getElementById("book_author_box").value '.PHP_EOL;
+echo '    };   '.PHP_EOL;
+echo ' '.PHP_EOL;
+echo '    $.ajax({ '.PHP_EOL;
+echo '        url: "/edit-book-author/", '.PHP_EOL;
+echo '        method: "POST",         '.PHP_EOL;
+echo '        data: JSON.stringify({ Data: jsondata }), '.PHP_EOL;
+echo '        contentType: "json", '.PHP_EOL;
+echo '        success: function(data){ '.PHP_EOL;
+echo '        }, '.PHP_EOL;
+echo '        error: function(errMsg) { '.PHP_EOL;
+echo '            alert(errMsg);'.PHP_EOL;
+echo '        } '.PHP_EOL;
+echo '    }); '.PHP_EOL;
+echo ' };'.PHP_EOL;
+echo '</script>'.PHP_EOL;
 
-     echo '<script>'.PHP_EOL;
-     echo 'function set_ad_text(){'.PHP_EOL;
-     echo 'var jsondata = { '.PHP_EOL;
-     echo '        "id": '.$bfs['id'].', '.PHP_EOL;
-     echo '        "titleForUrl": document.getElementById("ad_text_box").value '.PHP_EOL;
-     echo '    };   '.PHP_EOL;
-     echo ' '.PHP_EOL;
-     echo '    $.ajax({ '.PHP_EOL;
-     echo '        url: "/edit-ad-text/", '.PHP_EOL;
-     echo '        method: "POST",         '.PHP_EOL;
-     echo '        data: JSON.stringify({ Data: jsondata }), '.PHP_EOL;
-     echo '        contentType: "json", '.PHP_EOL;
-     echo '        success: function(data){ '.PHP_EOL;
-     echo '        }, '.PHP_EOL;
-     echo '        error: function(errMsg) { '.PHP_EOL;
-     echo '            alert(errMsg);'.PHP_EOL;
-     echo '        } '.PHP_EOL;
-     echo '    }); '.PHP_EOL;
-     echo ' };'.PHP_EOL;
-     echo '</script>'.PHP_EOL;
-
-     echo '<script>'.PHP_EOL;
-     echo 'function set_book_price(){'.PHP_EOL;
-     echo 'var jsondata = { '.PHP_EOL;
-     echo '        "id": '.$bfs['id'].', '.PHP_EOL;
-     echo '        "titleForUrl": document.getElementById("book_price_box").value '.PHP_EOL;
-     echo '    };   '.PHP_EOL;
-     echo '    $.ajax({ '.PHP_EOL;
-     echo '        url: "/edit-book-price/", '.PHP_EOL;
-     echo '        method: "POST",         '.PHP_EOL;
-     echo '        data: JSON.stringify({ Data: jsondata }), '.PHP_EOL;
-     echo '        contentType: "json", '.PHP_EOL;
-     echo '        success: function(data){ '.PHP_EOL;
-     echo '        }, '.PHP_EOL;
-     echo '        error: function(errMsg) { '.PHP_EOL;
-     echo '            alert(errMsg);'.PHP_EOL;
-     echo '        } '.PHP_EOL;
-     echo '    }); '.PHP_EOL;
-     echo ' };'.PHP_EOL;
-     echo '</script>'.PHP_EOL;
-     echo '<script>'.PHP_EOL;
-     echo 'function set_book_language(){'.PHP_EOL;
-     echo 'var jsondata = { '.PHP_EOL;
-     echo '        "id": '.$bfs['id'].', '.PHP_EOL;
-     echo '        "titleForUrl": document.getElementById("book_language_box").value '.PHP_EOL;
-     echo '    };   '.PHP_EOL;
-     echo '    $.ajax({ '.PHP_EOL;
-     echo '        url: "/edit-book-language/", '.PHP_EOL;
-     echo '        method: "POST",         '.PHP_EOL;
-     echo '        data: JSON.stringify({ Data: jsondata }), '.PHP_EOL;
-     echo '        contentType: "json", '.PHP_EOL;
-     echo '        success: function(data){ '.PHP_EOL;
-     echo '        }, '.PHP_EOL;
-     echo '        error: function(errMsg) { '.PHP_EOL;
-     echo '            alert(errMsg);'.PHP_EOL;
-     echo '        } '.PHP_EOL;
-     echo '    }); '.PHP_EOL;
-     echo ' };'.PHP_EOL;
-     echo '</script>'.PHP_EOL;
-     echo '<script>'.PHP_EOL;
-     echo 'function set_delivery_place(){'.PHP_EOL;
-     echo 'var jsondata = { '.PHP_EOL;
-     echo '        "id": '.$bfs['id'].', '.PHP_EOL;
-     echo '        "titleForUrl": document.getElementById("delivery_place_box").value '.PHP_EOL;
-     echo '    };   '.PHP_EOL;
-     echo '    $.ajax({ '.PHP_EOL;
-     echo '        url: "/edit-delivery-place/", '.PHP_EOL;
-     echo '        method: "POST",         '.PHP_EOL;
-     echo '        data: JSON.stringify({ Data: jsondata }), '.PHP_EOL;
-     echo '        contentType: "json", '.PHP_EOL;
-     echo '        success: function(data){ '.PHP_EOL;
-     echo '        }, '.PHP_EOL;
-     echo '        error: function(errMsg) { '.PHP_EOL;
-     echo '            alert(errMsg);'.PHP_EOL;
-     echo '        } '.PHP_EOL;
-     echo '    }); '.PHP_EOL;
-     echo ' };'.PHP_EOL;
-     echo '</script>'.PHP_EOL;
-     echo '<script>'.PHP_EOL;
-     echo 'function set_book_publisher(){'.PHP_EOL;
-     echo 'var jsondata = { '.PHP_EOL;
-     echo '        "id": '.$bfs['id'].', '.PHP_EOL;
-     echo '        "titleForUrl": document.getElementById("book_publisher_box").value '.PHP_EOL;
-     echo '    };   '.PHP_EOL;
-     echo '    $.ajax({ '.PHP_EOL;
-     echo '        url: "/edit-book-publisher/", '.PHP_EOL;
-     echo '        method: "POST",         '.PHP_EOL;
-     echo '        data: JSON.stringify({ Data: jsondata }), '.PHP_EOL;
-     echo '        contentType: "json", '.PHP_EOL;
-     echo '        success: function(data){ '.PHP_EOL;
-     echo '        }, '.PHP_EOL;
-     echo '        error: function(errMsg) { '.PHP_EOL;
-     echo '            alert(errMsg);'.PHP_EOL;
-     echo '        } '.PHP_EOL;
-     echo '    }); '.PHP_EOL;
-     echo ' };'.PHP_EOL;
-     echo '</script>'.PHP_EOL;
-     echo '<script>'.PHP_EOL;
-     echo 'function set_book_condition(){'.PHP_EOL;
-     echo 'var jsondata = { '.PHP_EOL;
-     echo '        "id": '.$bfs['id'].', '.PHP_EOL;
-     echo '        "titleForUrl": document.getElementById("book_condition_box").value '.PHP_EOL;
-     echo '    };   '.PHP_EOL;
-     echo '    $.ajax({ '.PHP_EOL;
-     echo '        url: "/edit-book-condition/", '.PHP_EOL;
-     echo '        method: "POST",         '.PHP_EOL;
-     echo '        data: JSON.stringify({ Data: jsondata }), '.PHP_EOL;
-     echo '        contentType: "json", '.PHP_EOL;
-     echo '        success: function(data){ '.PHP_EOL;
-     echo '        }, '.PHP_EOL;
-     echo '        error: function(errMsg) { '.PHP_EOL;
-     echo '            alert(errMsg);'.PHP_EOL;
-     echo '        } '.PHP_EOL;
-     echo '    }); '.PHP_EOL;
-     echo ' };'.PHP_EOL;
-     echo '</script>'.PHP_EOL;
-     echo '<script>'.PHP_EOL;
-     echo 'function set_book_page_number(){'.PHP_EOL;
-     echo 'var jsondata = { '.PHP_EOL;
-     echo '        "id": '.$bfs['id'].', '.PHP_EOL;
-     echo '        "titleForUrl": document.getElementById("book_page_number_box").value '.PHP_EOL;
-     echo '    };   '.PHP_EOL;
-     echo '    $.ajax({ '.PHP_EOL;
-     echo '        url: "/edit-book-page-number/", '.PHP_EOL;
-     echo '        method: "POST",         '.PHP_EOL;
-     echo '        data: JSON.stringify({ Data: jsondata }), '.PHP_EOL;
-     echo '        contentType: "json", '.PHP_EOL;
-     echo '        success: function(data){ '.PHP_EOL;
-     echo '        }, '.PHP_EOL;
-     echo '        error: function(errMsg) { '.PHP_EOL;
-     echo '            alert(errMsg);'.PHP_EOL;
-     echo '        } '.PHP_EOL;
-     echo '    }); '.PHP_EOL;
-     echo ' };'.PHP_EOL;
-     echo '</script>'.PHP_EOL;
-     echo '<script>'.PHP_EOL;
-     echo 'function set_book_isbn(){'.PHP_EOL;
-     echo 'var jsondata = { '.PHP_EOL;
-     echo '        "id": '.$bfs['id'].', '.PHP_EOL;
-     echo '        "titleForUrl": document.getElementById("book_isbn_box").value '.PHP_EOL;
-     echo '    };   '.PHP_EOL;
-     echo '    $.ajax({ '.PHP_EOL;
+echo '<script>'.PHP_EOL;
+echo 'function set_ad_text(){'.PHP_EOL;
+echo 'var jsondata = { '.PHP_EOL;
+echo '        "id": '.$bfs['id'].', '.PHP_EOL;
+echo '        "titleForUrl": document.getElementById("ad_text_box").value '.PHP_EOL;
+echo '    };   '.PHP_EOL;
+echo ' '.PHP_EOL;
+echo '    $.ajax({ '.PHP_EOL;
+echo '        url: "/edit-ad-text/", '.PHP_EOL;
+echo '        method: "POST",         '.PHP_EOL;
+echo '        data: JSON.stringify({ Data: jsondata }), '.PHP_EOL;
+echo '        contentType: "json", '.PHP_EOL;
+echo '        success: function(data){ '.PHP_EOL;
+echo '        }, '.PHP_EOL;
+echo '        error: function(errMsg) { '.PHP_EOL;
+echo '            alert(errMsg);'.PHP_EOL;
+echo '        } '.PHP_EOL;
+echo '    }); '.PHP_EOL;
+echo ' };'.PHP_EOL;
+echo '</script>'.PHP_EOL;
+echo '<script>'.PHP_EOL;
+echo 'function set_book_price(){'.PHP_EOL;
+echo 'var jsondata = { '.PHP_EOL;
+echo '        "id": '.$bfs['id'].', '.PHP_EOL;
+echo '        "titleForUrl": document.getElementById("book_price_box").value '.PHP_EOL;
+echo '    };   '.PHP_EOL;
+echo '    $.ajax({ '.PHP_EOL;
+echo '        url: "/edit-book-price/", '.PHP_EOL;
+echo '        method: "POST",         '.PHP_EOL;
+echo '        data: JSON.stringify({ Data: jsondata }), '.PHP_EOL;
+echo '        contentType: "json", '.PHP_EOL;
+echo '        success: function(data){ '.PHP_EOL;
+echo '        }, '.PHP_EOL;
+echo '        error: function(errMsg) { '.PHP_EOL;
+echo '            alert(errMsg);'.PHP_EOL;
+echo '        } '.PHP_EOL;
+echo '    }); '.PHP_EOL;
+echo ' };'.PHP_EOL;
+echo '</script>'.PHP_EOL;
+echo '<script>'.PHP_EOL;
+echo 'function set_book_language(){'.PHP_EOL;
+echo 'var jsondata = { '.PHP_EOL;
+echo '        "id": '.$bfs['id'].', '.PHP_EOL;
+echo '        "titleForUrl": document.getElementById("book_language_box").value '.PHP_EOL;
+echo '    };   '.PHP_EOL;
+echo '    $.ajax({ '.PHP_EOL;
+echo '        url: "/edit-book-language/", '.PHP_EOL;
+echo '        method: "POST",         '.PHP_EOL;
+echo '        data: JSON.stringify({ Data: jsondata }), '.PHP_EOL;
+echo '        contentType: "json", '.PHP_EOL;
+echo '        success: function(data){ '.PHP_EOL;
+echo '        }, '.PHP_EOL;
+echo '        error: function(errMsg) { '.PHP_EOL;
+echo '            alert(errMsg);'.PHP_EOL;
+echo '        } '.PHP_EOL;
+echo '    }); '.PHP_EOL;
+echo ' };'.PHP_EOL;
+echo '</script>'.PHP_EOL;
+echo '<script>'.PHP_EOL;
+echo 'function set_delivery_place(){'.PHP_EOL;
+echo 'var jsondata = { '.PHP_EOL;
+echo '        "id": '.$bfs['id'].', '.PHP_EOL;
+echo '        "titleForUrl": document.getElementById("delivery_place_box").value '.PHP_EOL;
+echo '    };   '.PHP_EOL;
+echo '    $.ajax({ '.PHP_EOL;
+echo '        url: "/edit-delivery-place/", '.PHP_EOL;
+echo '        method: "POST",         '.PHP_EOL;
+echo '        data: JSON.stringify({ Data: jsondata }), '.PHP_EOL;
+echo '        contentType: "json", '.PHP_EOL;
+echo '        success: function(data){ '.PHP_EOL;
+echo '        }, '.PHP_EOL;
+echo '        error: function(errMsg) { '.PHP_EOL;
+echo '            alert(errMsg);'.PHP_EOL;
+echo '        } '.PHP_EOL;
+echo '    }); '.PHP_EOL;
+echo ' };'.PHP_EOL;
+echo '</script>'.PHP_EOL;
+echo '<script>'.PHP_EOL;
+echo 'function set_book_publisher(){'.PHP_EOL;
+echo 'var jsondata = { '.PHP_EOL;
+echo '        "id": '.$bfs['id'].', '.PHP_EOL;
+echo '        "titleForUrl": document.getElementById("book_publisher_box").value '.PHP_EOL;
+echo '    };   '.PHP_EOL;
+echo '    $.ajax({ '.PHP_EOL;
+echo '        url: "/edit-book-publisher/", '.PHP_EOL;
+echo '        method: "POST",         '.PHP_EOL;
+echo '        data: JSON.stringify({ Data: jsondata }), '.PHP_EOL;
+echo '        contentType: "json", '.PHP_EOL;
+echo '        success: function(data){ '.PHP_EOL;
+echo '        }, '.PHP_EOL;
+echo '        error: function(errMsg) { '.PHP_EOL;
+echo '            alert(errMsg);'.PHP_EOL;
+echo '        } '.PHP_EOL;
+echo '    }); '.PHP_EOL;
+echo ' };'.PHP_EOL;
+echo '</script>'.PHP_EOL;
+echo '<script>'.PHP_EOL;
+echo 'function set_book_condition(){'.PHP_EOL;
+echo 'var jsondata = { '.PHP_EOL;
+echo '        "id": '.$bfs['id'].', '.PHP_EOL;
+echo '        "titleForUrl": document.getElementById("book_condition_box").value '.PHP_EOL;
+echo '    };   '.PHP_EOL;
+echo '    $.ajax({ '.PHP_EOL;
+echo '        url: "/edit-book-condition/", '.PHP_EOL;
+echo '        method: "POST",         '.PHP_EOL;
+echo '        data: JSON.stringify({ Data: jsondata }), '.PHP_EOL;
+echo '        contentType: "json", '.PHP_EOL;
+echo '        success: function(data){ '.PHP_EOL;
+echo '        }, '.PHP_EOL;
+echo '        error: function(errMsg) { '.PHP_EOL;
+echo '            alert(errMsg);'.PHP_EOL;
+echo '        } '.PHP_EOL;
+echo '    }); '.PHP_EOL;
+echo ' };'.PHP_EOL;
+echo '</script>'.PHP_EOL;
+echo '<script>'.PHP_EOL;
+echo 'function set_book_page_number(){'.PHP_EOL;
+echo 'var jsondata = { '.PHP_EOL;
+echo '        "id": '.$bfs['id'].', '.PHP_EOL;
+echo '        "titleForUrl": document.getElementById("book_page_number_box").value '.PHP_EOL;
+echo '    };   '.PHP_EOL;
+echo '    $.ajax({ '.PHP_EOL;
+echo '        url: "/edit-book-page-number/", '.PHP_EOL;
+echo '        method: "POST",         '.PHP_EOL;
+echo '        data: JSON.stringify({ Data: jsondata }), '.PHP_EOL;
+echo '        contentType: "json", '.PHP_EOL;
+echo '        success: function(data){ '.PHP_EOL;
+echo '        }, '.PHP_EOL;
+echo '        error: function(errMsg) { '.PHP_EOL;
+echo '            alert(errMsg);'.PHP_EOL;
+echo '        } '.PHP_EOL;
+echo '    }); '.PHP_EOL;
+echo ' };'.PHP_EOL;
+echo '</script>'.PHP_EOL;
+echo '<script>'.PHP_EOL;
+echo 'function set_book_isbn(){'.PHP_EOL;
+echo 'var jsondata = { '.PHP_EOL;
+echo '        "id": '.$bfs['id'].', '.PHP_EOL;
+echo '        "titleForUrl": document.getElementById("book_isbn_box").value '.PHP_EOL;
+echo '    };   '.PHP_EOL;
+echo '    $.ajax({ '.PHP_EOL;
      echo '        url: "/edit-book-isbn/", '.PHP_EOL;
      echo '        method: "POST",         '.PHP_EOL;
      echo '        data: JSON.stringify({ Data: jsondata }), '.PHP_EOL;
@@ -4648,10 +4569,7 @@ if(preg_match('/edit-book-for-sale\//', $request)){
         echo '});'.PHP_EOL;
         echo '});'.PHP_EOL;
         echo '</script>'.PHP_EOL;
-	
-
-
-     get_foot();
+        get_foot();
 }
 if(preg_match('/edit\//', $request)){
 
