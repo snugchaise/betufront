@@ -1476,7 +1476,7 @@ function get_head($has_section,$logged_in,$articles,$meta_content){
      echo ''.PHP_EOL;
      echo '		input[type="checkbox"]:checked + label:before,'.PHP_EOL;
      echo '		input[type="radio"]:checked + label:before {'.PHP_EOL;
-     echo '			content: '\f00c';'.PHP_EOL;
+     echo '			content: \'\f00c\';'.PHP_EOL;
      echo '		}'.PHP_EOL;
      echo ''.PHP_EOL;
      echo '	input[type="checkbox"] + label:before {'.PHP_EOL;
