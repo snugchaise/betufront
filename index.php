@@ -4048,8 +4048,8 @@ $id = $json->Data->id;
 
 $bfs = $handler->conditional_select_from("books_for_sale",array("id" => $id ))[0];
 
-$book_title = rtrim(ltrim($bfs['book_title'])):
-$book_author = rtrim(ltrim($bfs['book_author'])):
+$book_title = rtrim(ltrim($bfs['book_title']));
+$book_author = rtrim(ltrim($bfs['book_author']));
 
  $titleForUrl = preg_replace('/\s+/', '-', $book_title + $book_author);
 
