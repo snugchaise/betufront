@@ -4317,7 +4317,6 @@ echo '<input type="file" id="advert_image" name="advert_image_form[]" class="for
 echo '<input  type="hidden" name="post_id" value="'.$bfs['id'].'"/>'.PHP_EOL;
 echo '<input  type="hidden" name="book_unique_hash" value="'.$bfs['book_unique_hash'].'"/>'.PHP_EOL;
 echo '</form>'.PHP_EOL;
-echo "</div>".PHP_EOL;
 
 $images = $handler->conditional_select_from("books_for_sale_images",array("book_unique_hash" => $bfs['book_unique_hash'] ));
 
@@ -4332,6 +4331,8 @@ echo '</tr>'.PHP_EOL;
 }
 
 echo '</table>'.PHP_EOL;
+
+echo "</div>".PHP_EOL;
 
 	 
 echo '<script>'.PHP_EOL;
