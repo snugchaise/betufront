@@ -2146,7 +2146,9 @@ echo '</table>'.PHP_EOL;
      echo '    <li> <span style="text-decoration: underline">Kiadó:</span> '.$bfs['book_publisher'].'</li>'.PHP_EOL;
      echo '    <li> <span style="text-decoration: underline">Oldalak száma:</span> '.$bfs['book_page_numbers'].'</li>'.PHP_EOL;
      echo '    <li> <span style="text-decoration: underline">Kiadás éve:</span> '.$bfs['book_publish_date'].'</li>'.PHP_EOL;
-     echo '    <li> <span style="text-decoration: underline">ISBN:</span> '.$bfs['book_isbn'].'</li>'.PHP_EOL;
+     if(count($bfs['book_isbn']) > 5){
+      echo '    <li> <span style="text-decoration: underline">ISBN:</span> '.$bfs['book_isbn'].'</li>'.PHP_EOL;
+     }
      echo '   </ul>'.PHP_EOL;
      echo '   </div>'.PHP_EOL;
      echo '   <div>'.PHP_EOL;
