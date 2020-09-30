@@ -2187,6 +2187,34 @@ get_head(False,$logged_in,array(),$meta_content);
  echo '</div>';
  get_foot();
 }
+if(preg_match('/remove-book-image/', $request)){
+
+     $book_image_name  = $json->Data->book_image_name;
+     $book_unique_hash  = $json->Data->book_unique_hash;
+
+     $auth  = explode("/",$request)[4];
+
+     $logged_in = False;
+
+     if(strcmp($auth, "057a39a1cf79eb4625c16c51eadd3283") == 0){
+      $logged_in = True;
+     }
+     $bfs = $handler->conditional_select_from("books_for_sale",array("book_unique_hash" => $book_unique_hash))[0];
+
+     $file_to_unlink = '/images/books/'.$bfs['id'].'/'.$book_image_name;
+     unlink($file_to_unlink);
+
+     $handler = new DatabaseHandler;
+     $table_name = "books_for_sale";
+     $field = "book_image_name";
+     $value = $book_image_name;
+
+     $bfs = $handler->delete_entry_from_table($table_name,$field,$value);
+     header("HTTP/1.1 200 OK");
+
+     echo "REMOVED";
+
+}
 if(preg_match('/hasznalt-konyv/', $request)){
 
      $titleForUrl  = explode("/",$request)[2];
@@ -4610,7 +4638,7 @@ echo ' <td>'.PHP_EOL;
 echo ' <img width="150px" height="150px" src="/images/books/'.$bfs['id'].'/'.$image['book_image_name'].'"/>'.PHP_EOL;
 echo ' </td>'.PHP_EOL;
 echo ' <td>'.PHP_EOL;
-echo ' <button type="submit" class="btn-warning" onclick="delete_book_image()">Törlés</button>'.PHP_EOL;
+echo ' <button type="submit" class="btn-warning" onclick="delete_book_image(\''.$image['book_image_name'].'\')">Törlés</button>'.PHP_EOL;
 echo ' </td>'.PHP_EOL;
 
 echo '</tr>'.PHP_EOL;
@@ -4621,6 +4649,27 @@ echo '</table>'.PHP_EOL;
 echo "</div>".PHP_EOL;
 
 	 
+echo '<script>'.PHP_EOL;
+echo 'function delete_book_image(book_image_name){'.PHP_EOL;
+echo 'var jsondata = { '.PHP_EOL;
+echo '        "book_unique_hash": '.$bfs['book_unique_hash'].', '.PHP_EOL;
+echo '        "book_image_name": book_image_name '.PHP_EOL;
+echo '    };   '.PHP_EOL;
+echo ' '.PHP_EOL;
+echo '    $.ajax({ '.PHP_EOL;
+echo '        url: "/remove-book-image/", '.PHP_EOL;
+echo '        method: "POST",         '.PHP_EOL;
+echo '        data: JSON.stringify({ Data: jsondata }), '.PHP_EOL;
+echo '        contentType: "json", '.PHP_EOL;
+echo '        success: function(data){ '.PHP_EOL;
+echo '         location.reload();'.PHP_EOL;
+echo '        }, '.PHP_EOL;
+echo '        error: function(errMsg) { '.PHP_EOL;
+echo '            alert(errMsg);'.PHP_EOL;
+echo '        } '.PHP_EOL;
+echo '    }); '.PHP_EOL;
+echo ' };'.PHP_EOL;
+echo '</script>'.PHP_EOL;
 echo '<script>'.PHP_EOL;
 echo 'function set_initial(){'.PHP_EOL;
 echo 'var jsondata = { '.PHP_EOL;
