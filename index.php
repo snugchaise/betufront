@@ -4049,7 +4049,7 @@ echo '<div style="width: 1080px; padding: 0;position: relative; max-width: 1080p
  echo '<textarea id="book_title_box" onchange="set_book_title();" style="width: 100%;height: 4em;" >'.$bfs['book_title'].'</textarea>';
  echo '<textarea id="book_summary_box" onchange="set_book_summary();" style="width: 100%;" >'.$bfs['book_summary'].'</textarea>';
  echo '<textarea id="book_price_box" onchange="set_book_price();" style="width: 100%;height: 4em;" >'.$bfs['book_price'].'</textarea>';
- echo '<textarea id="book_page_number_box" onchange="set_book_page_number();" style="width: 100%;height: 4em;" >'.$bfs['book_page_number'].'</textarea>';
+ echo '<textarea id="book_page_number_box" onchange="set_book_page_number();" style="width: 100%;height: 4em;" >'.$bfs['book_page_numbers'].'</textarea>';
  echo '<textarea id="book_isbn_box" onchange="set_book_isbn();" style="width: 100%;height: 4em;" >'.$bfs['book_isbn'].'</textarea>';
  echo '<textarea id="book_language_box" onchange="set_book_language();" style="width: 100%;height: 4em;" >'.$bfs['book_language'].'</textarea>';
  echo '<textarea id="book_condition_box" onchange="set_book_condition();" style="width: 100%;height: 4em;" >'.$bfs['book_condition'].'</textarea>';
