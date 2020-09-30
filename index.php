@@ -1769,7 +1769,7 @@ function get_head($has_section,$logged_in,$articles,$meta_content){
      echo '<div style="float: left;margin-top: 25px;">'.PHP_EOL;
      echo '<ul class="atc-primary-nav" role="menubar">'.PHP_EOL;
      echo '<li class="atc-primary-nav__item" style="margin-right: 50px;">'.PHP_EOL;
-     echo '<a role="menuitem" class="tracking-navigation-link atc-primary-nav__top-level" href="/add-book-for-sale">'.PHP_EOL;
+     echo '<a role="menuitem" class="tracking-navigation-link atc-primary-nav__top-level" href="/add-book-for-sale/">'.PHP_EOL;
      echo 'Eladom könyvem'.PHP_EOL;
      echo '</a>'.PHP_EOL;
      echo '</li>'.PHP_EOL;
