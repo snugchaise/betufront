@@ -3735,7 +3735,7 @@ $handler = new DatabaseHandler;
 $json = json_decode(file_get_contents("php://input"));
 $titleForUrl = $json->Data->titleForUrl;
 $id = $json->Data->id;
-$updates = array("book_page_number" => $titleForUrl);
+$updates = array("book_page_numbers" => $titleForUrl);
 $handler->update_in_table("books_for_sale",$updates,"id",$id);
 return;
 }
