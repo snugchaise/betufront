@@ -2060,10 +2060,10 @@ switch ($request) {
 
      echo '<div style="width: 1080px; padding: 0;position: relative; max-width: 1080px; margin: 0 auto; box-sizing: border-box;">'.PHP_EOL;
 
-     echo ' <div style="margin-top: 2%; width: 34%; float: left">'.PHP_EOL;
+     echo ' <div style="margin-top: 2%; width: 20%; float: left">'.PHP_EOL;
      echo '</div>'.PHP_EOL;
 
-     echo ' <div style="margin-top: 2%; width: 65%; float: left">'.PHP_EOL;
+     echo ' <div style="margin-top: 2%; width: 71%; float: left">'.PHP_EOL;
       
      $bfs_array = array_reverse($handler->conditional_select_from("books_for_sale",array("active_book" => 1)));
 
