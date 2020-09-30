@@ -2178,7 +2178,7 @@ echo '</table>'.PHP_EOL;
      echo '    <div style="text-align: center">'.PHP_EOL;
      echo '    <h4 style="margin-bottom: 5px;padding-top: 15px;">Hirdető</h4>'.PHP_EOL;
      echo '     <div style="text-align: center;">'.PHP_EOL;
-     echo '     <img src="no_image.png" alt="Felhasználó" title="" height="60px" width="90px" height="auto">'.PHP_EOL;
+     echo '     <img src="/no_image.png" alt="Felhasználó" title="" height="60px" width="90px" height="auto">'.PHP_EOL;
      echo '     </div>'.PHP_EOL;
      echo '    </div>'.PHP_EOL;
      echo '    <div>'.PHP_EOL;
