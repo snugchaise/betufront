@@ -1302,82 +1302,6 @@ function get_page_with_articles($has_section,$logged_in,$articles,$has_banner){
 
 }
 function get_head($has_section,$logged_in,$articles,$meta_content){
-
-     echo '<!DOCTYPE HTML>'.PHP_EOL;
-     echo '<html>'.PHP_EOL;
-     echo '<head>'.PHP_EOL;
-     echo '<link rel="icon" type="image/png" href="/logo.png"/>'.PHP_EOL;
-
-     echo '<script data-ad-client="ca-pub-8309045325480204" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>'.PHP_EOL;
-     echo '<!-- Global site tag (gtag.js) - Google Analytics -->'.PHP_EOL;
-     echo '<script async src="https://www.googletagmanager.com/gtag/js?id=UA-67190643-17"></script>'.PHP_EOL;
-     echo '<script>'.PHP_EOL;
-     echo '  window.dataLayer = window.dataLayer || [];'.PHP_EOL;
-     echo '  function gtag(){dataLayer.push(arguments);}'.PHP_EOL;
-     echo "  gtag('js', new Date());".PHP_EOL;
-     echo "  gtag('config', 'UA-67190643-17');".PHP_EOL;
-     echo '</script>'.PHP_EOL;
-
-     echo '<title>'.$GLOBALS['page_title'].'</title>'.PHP_EOL;
-     echo '<meta charset="utf-8" />'.PHP_EOL;
-     echo '<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />'.PHP_EOL;
-     echo '<link rel="stylesheet" href="/css/main.css" />'.PHP_EOL;
-     echo '<link rel="stylesheet" href="/style.css" />'.PHP_EOL;
-     echo '<link rel="stylesheet" href="/bootstrap.css" />'.PHP_EOL;
-     echo '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">'.PHP_EOL;
-     echo '<script async defer crossorigin="anonymous" src="https://connect.facebook.net/hu_HU/sdk.js#xfbml=1&version=v6.0&appId=301829433804854&autoLogAppEvents=1"></script>'.PHP_EOL;
-     echo $meta_content;
-     echo '</head>'.PHP_EOL;
-     echo '<body>'.PHP_EOL;
-
-     echo '<header id="header">'.PHP_EOL;
-     echo '<div class="inner">'.PHP_EOL;
-     echo '<a href="/"><img src="/logo.png" style="width: 100px;height: 80px;float: left;"/></a>'.PHP_EOL;
-
-     echo '<nav style="float: left;" id="nav">'.PHP_EOL;
-     echo '<a href="/category/alapok">Alapok</a>'.PHP_EOL;
-     echo '<a href="/spanyol-mondatok-magyar-forditassal/1">Spanyol mondatok</a>'.PHP_EOL;
-     echo '<a href="/category/nyelvtan">Nyelvtan</a>'.PHP_EOL;
-     if($_COOKIE['LOGGED_IN']){
-      echo '<a href="/my-profile/" >Fiókom</a>'.PHP_EOL;
-      echo '<a href="/logout/" >Kijelentkezés</a>'.PHP_EOL;
-     }
-     else{
-      echo '<a data-toggle="modal" data-target="#exampleModal" href="#" >Bejelentkezés</a>'.PHP_EOL;
-     }
-     echo '</nav>'.PHP_EOL;
-
-     echo '<div style="float: left;" class="nav_mobile">'.PHP_EOL;
-     echo '<a href="/category/alapok">Alapok</a>'.PHP_EOL;
-     if($_COOKIE['LOGGED_IN']){
-      echo '<a href="/my-profile/" >Fiókom</a>'.PHP_EOL;
-      echo '<a href="/logout/" >Kijelentkezés</a>'.PHP_EOL;
-     }
-     else{
-      echo '<a data-toggle="modal" data-target="#exampleModal" href="#" >Bejelentkezés</a>'.PHP_EOL;
-     }
-     echo '</div>'.PHP_EOL;
-
-     echo '</div>'.PHP_EOL;
-     echo '</header>'.PHP_EOL;
-     echo '<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>'.PHP_EOL;
-}
-
-switch ($request) {
-    case '/' :
-     $articles = array_reverse($handler->conditional_select_from("article",array("active_article" => 1)));
-
-     $auth  = explode("/",$request)[3];
-     $logged_in = False;
-     if(strcmp($auth, "057a39a1cf79eb4625c16c51eadd3283") == 0){
-      $logged_in = True;
-     }
-     $handler = new DatabaseHandler;
-     $articles = array_reverse($handler->conditional_select_from("article",array("active_article" => 1)));
-#     get_head(False,$logged_in,array(),$meta_content);
-
-     $useragent=$_SERVER['HTTP_USER_AGENT'];
-
      echo '<!DOCTYPE html>'.PHP_EOL;
      echo '<html lang="hu">'.PHP_EOL;
      echo '<head>'.PHP_EOL;
@@ -1879,7 +1803,26 @@ switch ($request) {
      echo '</div>'.PHP_EOL;
      echo '</div>'.PHP_EOL;
      echo '<!-- head end --!>'.PHP_EOL;
-     echo ''.PHP_EOL;
+}
+
+switch ($request) {
+    case '/' :
+     $articles = array_reverse($handler->conditional_select_from("article",array("active_article" => 1)));
+
+     $auth  = explode("/",$request)[3];
+     $logged_in = False;
+     if(strcmp($auth, "057a39a1cf79eb4625c16c51eadd3283") == 0){
+      $logged_in = True;
+     }
+     $handler = new DatabaseHandler;
+     $articles = array_reverse($handler->conditional_select_from("article",array("active_article" => 1)));
+#     get_head(False,$logged_in,array(),$meta_content);
+
+     $useragent=$_SERVER['HTTP_USER_AGENT'];
+
+     $meta_content = ''.PHP_EOL;
+     get_head(False,$logged_in,array(),$meta_content);
+
      echo '<div style="width: 1080px; padding: 0;position: relative; max-width: 1080px; margin: 0 auto; box-sizing: border-box;">'.PHP_EOL;
      echo '<!-- news start -->'.PHP_EOL;
      echo ' <div style="margin-top: 2%; width: 54%; float: left">'.PHP_EOL;
@@ -4130,7 +4073,6 @@ if(preg_match('/edit-book-for-sale\//', $request)){
      echo '<textarea id="delivery_place_box" onchange="set_delivery_place();" style="width: 100%;height: 4em;" >'.$bfs['delivery_place'].'</textarea>';
 
      echo '<textarea id="type_box" onchange="set_type();" style="width: 100%;height: 4em;" >'.$bfs['book_publish_date'].'</textarea>';
-     echo '<textarea id="title_for_url_box" onchange="set_title_for_url();" style="width: 100%;height: 4em;" >'.$bfs['delivery_place'].'</textarea>';
 
 
         $articles = array_reverse($handler->select_all_from("article"));
