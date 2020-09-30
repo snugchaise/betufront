@@ -2210,7 +2210,7 @@ if(preg_match('/remove-book-image/', $request)){
      $field = "book_image_name";
      $value = $book_image_name;
 
-     $message - $handler->delete_entry_from_table($table_name,$field,$value);
+     $message = $handler->delete_entry_from_table($table_name,$field,$value);
 
      error_log(print_r($message,true));
 
