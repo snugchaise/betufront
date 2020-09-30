@@ -2009,11 +2009,21 @@ function get_head($has_section,$logged_in,$articles,$meta_content){
      echo 'Eladom könyvem'.PHP_EOL;
      echo '</a>'.PHP_EOL;
      echo '</li>'.PHP_EOL;
+
      echo '<li class="atc-primary-nav__item" role="none">'.PHP_EOL;
      echo '<a role="menuitem" class="tracking-navigation-link atc-primary-nav__top-level" href="/blog">'.PHP_EOL;
      echo 'Blog'.PHP_EOL;
      echo '</a>'.PHP_EOL;
+
      echo '</li>'.PHP_EOL;
+
+     echo '<li class="atc-primary-nav__item" role="none">'.PHP_EOL;
+     echo '<a data-toggle="modal" data-target="#exampleModal" role="menuitem" class="tracking-navigation-link atc-primary-nav__top-level" href="#">'.PHP_EOL;
+     echo 'Bejelentkezés'.PHP_EOL;
+     echo '</a>'.PHP_EOL;
+
+     echo '</li>'.PHP_EOL;
+
      echo '</ul>'.PHP_EOL;
      echo '</div>'.PHP_EOL;
      echo ''.PHP_EOL;
@@ -2033,7 +2043,6 @@ function get_head($has_section,$logged_in,$articles,$meta_content){
      echo '<input name="q" type="hidden" value="">'.PHP_EOL;
      echo '<input name="ie" type="hidden" value="UTF-8">'.PHP_EOL;
      echo '</form>'.PHP_EOL;
-     echo '<a data-toggle="modal" data-target="#exampleModal" href="#">Bejelentkezés</a>'.PHP_EOL;
      echo '</div>'.PHP_EOL;
      echo '</div>'.PHP_EOL;
      echo '</div>'.PHP_EOL;
