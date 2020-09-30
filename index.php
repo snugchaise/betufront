@@ -3631,10 +3631,10 @@ if(!check_user_exists($email)){
 
  $handler->insert_into_table("website_user",$register_array ,$register_content);
  ########## Send confirmation email ##################
- $confirmation_link = "http://www.".$GLOBALS['project_name'].".com/confirm-registration/".$confirmation_hash;
- $mail_content = "<h1>Üdvözlünk!</h1><div>Kedves ".$name.", <br><br> Köszönöm a regisztrációt!<br> A betufront.hu örül, hogy a tagjai között tudhat téged!</div><br> <div>A regisztrációd megerősítéséhez kattints a következő linkre: <a href='".$confirmation_link."'>".$confirmation_link."</a></div><div><br> Ha nem működne, közvetlenül másold ki a linket és egy új lapon nyisd meg azt! <br> Jó spanyol tanulást kívánok! <br> Facebook oldalunkat megtalálod a következő linken: <a href='https://bit.ly/2BsKqtJ'>https://bit.ly/2BsKqtJ</a>. <br> Ne felejtsd el az oldalt like-olni! </div>";
+ $confirmation_link = "http://www.".$GLOBALS['project_name'].".hu/confirm-registration/".$confirmation_hash;
+ $mail_content = "<h1>Üdvözlünk!</h1><div>Kedves ".$name.", <br><br> Köszönöm a regisztrációt!<br> A betufront.hu örül, hogy a tagjai között tudhat téged!</div><br> <div>A regisztrációd megerősítéséhez kattints a következő linkre: <a href='".$confirmation_link."'>".$confirmation_link."</a></div><div><br> Ha nem működne, közvetlenül másold ki a linket és egy új lapon nyisd meg azt! <br> Jó könyv kereskedést kívánok! <br> Facebook oldalunkat megtalálod a következő linken: <a href='https://bit.ly/3kZaldt'>https://bit.ly/3kZaldt</a>. <br> Ne felejtsd el az oldalt like-olni! </div>";
  
- $subject = 'Megerősítő email a spanyoltanulás.com-ról [felhasználónév: '.$username.']';
+ $subject = 'Megerősítő email a '.$GLOBALS['project_name'].'.com-ról [felhasználónév: '.$username.']';
  
  $headers = "From: " . strip_tags('info@betufront.hu') . "\r\n";
  $headers .= "Reply-To: ". strip_tags('info@betufront.hu') . "\r\n";
