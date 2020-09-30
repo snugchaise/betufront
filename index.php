@@ -2071,7 +2071,7 @@ switch ($request) {
 
       echo '<div>'.PHP_EOL;
       echo '<h3>'.$bfs['book_author'].'</h3>'.PHP_EOL;
-      echo '<h4>'.$bfs['book_title'].' <a href="http://www.betufront.hu/hasznalt-konyv/'.$bfs['titleForUrl'].'">Megtekintem</a></h4>'.PHP_EOL;
+      echo '<h4>'.$bfs['book_title'].' <a style="color: blue" href="http://www.betufront.hu/hasznalt-konyv/'.$bfs['titleForUrl'].'">Megtekintem</a></h4>'.PHP_EOL;
       echo '<h5>'.$bfs['book_publisher'].' '.'['.$bfs['book_publish_date'].']</h5>'.PHP_EOL;
       echo '<div><p>'.$bfs['book_summary'].'</p></div>'.PHP_EOL;
       echo '</div>'.PHP_EOL;
