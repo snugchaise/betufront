@@ -2253,20 +2253,34 @@ echo 'OK';
 }
 if(preg_match('/handle_image_upload/', $request)){
 $id = $_POST['post_id'];
+$book_unique_hash = $_POST['book_unique_hash'];
+
 $file_name = serialize($_POST);
 $fileTmpPath = $_FILES['advert_image_form']['tmp_name'][0];
 $fileName = $_FILES['advert_image_form']['name'][0];
 $fileSize = $_FILES['advert_image_form']['size'][0];
 $fileType = $_FILES['advert_image_form']['type'][0];
+
 $uploadFileDir = '/home/animefil/betufront/images/books/'.$id.'/';
+
 if(!file_exists($uploadFileDir)){
 mkdir($uploadFileDir);
 }
-$newFileName = "1.jpg";
+$random_title = md5(microtime());
+$newFileName = $random_title.".jpg";
+
 $dest_path = $uploadFileDir . $newFileName;
+
 move_uploaded_file($fileTmpPath, $dest_path);
 
-echo 'OK';
+$handler = new DatabaseHandler;
+
+$results_content = array("book_unique_hash" => $book_unique_hash, "book_image_name" => $newFileName);
+$results_array   = array("book_unique_hash" , "book_image_name" );
+
+$handler->insert_into_table("books_for_sale_images",$results_array ,$results_content);
+
+echo $newFileName;
 }
 
 if(preg_match('/handle_additional_image_upload/', $request)){
@@ -4293,21 +4307,16 @@ echo '<button style="margin-top: 10px; margin-bottom: 10px;float: right" type="s
 #echo '<button type="submit" class="btn btn-primary" onclick="add_url_address()">URL cím</button>'.PHP_EOL;
 #echo '<button type="submit" class="btn btn-primary" onclick="deactivate()">Deactivate</button>'.PHP_EOL;
 #echo '<button type="submit" class="btn btn-primary" onclick="activate()">Activate</button>'.PHP_EOL;
-echo '<button type="submit" class="btn btn-primary" onclick="document.getElementById(\'advert_image\').click();" >Főkép feltöltése </button>'.PHP_EOL;
-echo '<button type="submit" class="btn btn-primary" onclick="document.getElementById(\'additional_advert_image\').click();" >Továbbiak feltöltése</button>'.PHP_EOL;
+echo '<button type="submit" class="btn btn-primary" onclick="document.getElementById(\'advert_image\').click();" >Kép feltöltése</button>'.PHP_EOL;
 
 echo '<div id="advert_image_loader"></div>'.PHP_EOL;
 
 echo '<form method="post" id="advert_image_form" enctype="multipart/form-data">'.PHP_EOL;
 echo '<input type="file" id="advert_image" name="advert_image_form[]" class="form-control" style="display: none;" multiple/>'.PHP_EOL;
 echo '<input  type="hidden" name="post_id" value="'.$bfs['id'].'"/>'.PHP_EOL;
+echo '<input  type="hidden" name="book_unique_hash" value="'.$bfs['book_unique_hash'].'"/>'.PHP_EOL;
 echo '</form>'.PHP_EOL;
 
-echo '<form method="post" id="additional_advert_image_form" enctype="multipart/form-data">'.PHP_EOL;
-echo '<input type="file" id="additional_advert_image" name="additional_advert_image_form[]" class="form-control" style="display: none;" multiple/>'.PHP_EOL;
-echo '<input  type="hidden" name="post_id" value="'.$bfs['id'].'"/>'.PHP_EOL;
-echo '</form>'.PHP_EOL;
-echo '</div>'.PHP_EOL;
 	 
 echo '<script>'.PHP_EOL;
 echo 'function set_initial(){'.PHP_EOL;
