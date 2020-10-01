@@ -1435,7 +1435,7 @@ function get_head($has_section,$logged_in,$articles,$meta_content){
      echo '	}'.PHP_EOL;
      echo ''.PHP_EOL;
      echo '	textarea {'.PHP_EOL;
-     echo '		padding: 0.75em 1em;'.PHP_EOL;
+#     echo '		padding: 0.75em 1em;'.PHP_EOL;
      echo '	}'.PHP_EOL;
      echo ''.PHP_EOL;
      echo ''.PHP_EOL;
