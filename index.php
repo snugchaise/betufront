@@ -4557,6 +4557,9 @@ if(preg_match('/add-book-for-sale\//', $request)){
 
         $random_title = md5(microtime());
 
+        $current_user = $handler->conditional_select_from("books_for_sale",array("email" => $_COOKIE['login_email'] ))[0];
+        $user_id = $current_user['id'];
+
         $handler->insert_into_table("books_for_sale",array(
 	     "titleForUrl",
 	     "book_summary",
@@ -4573,7 +4576,8 @@ if(preg_match('/add-book-for-sale\//', $request)){
 	     "book_price",
 	     "book_author",
 	     "book_title",
-	     "book_unique_hash"),
+	     "book_unique_hash",
+	     "book_user_id"),
           array(
              "titleForUrl" => $random_title,
 	     "book_summary" => "",
@@ -4590,7 +4594,8 @@ if(preg_match('/add-book-for-sale\//', $request)){
 	     "book_price" => "",
 	     "book_author" => "",
 	     "book_title" => "",
-	     "book_unique_hash" => $random_title
+	     "book_unique_hash" => $random_title,
+	     "book_user_id" => $user_id
              )
            );
 
