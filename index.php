@@ -1378,7 +1378,7 @@ function get_head($has_section,$logged_in,$articles,$meta_content){
      echo '		appearance: none;'.PHP_EOL;
      echo '		border-radius: 0;'.PHP_EOL;
      echo '		border: none;'.PHP_EOL;
-     echo '		border: solid 3px;'.PHP_EOL;
+     echo '		border: solid 1px;'.PHP_EOL;
      echo '		color: inherit;'.PHP_EOL;
      echo '		display: block;'.PHP_EOL;
      echo '		outline: 0;'.PHP_EOL;
