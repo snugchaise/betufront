@@ -4642,8 +4642,10 @@ $title = explode("/",$request)[2];
 $bfs = $handler->conditional_select_from("books_for_sale",array("titleForUrl" => $title ))[0];
     
 $width_data = "width: 1080px;";
+$float_data = "float: right";
 if(is_mobile_browser()){
 $width_data = "width: 100%;";
+$float_data = "";
 }
 
 echo '<div style="'.$width_data.' padding: 0;position: relative; max-width: 1080px; margin: 0 auto; box-sizing: border-box;">'.PHP_EOL;
@@ -4684,7 +4686,7 @@ echo '<textarea id="book_publisher_box" onchange="set_book_publisher();" style="
 echo '<h4>Hol tudod átadni? (Írj minnél részletesebben)?</h4>'.PHP_EOL;
 echo '<textarea id="delivery_place_box" onchange="set_delivery_place();" style="width: 100%;height: 2em;" >'.$bfs['delivery_place'].'</textarea>';
 
-echo '<button style="margin-top: 10px; margin-bottom: 10px;float: right" type="submit" class="btn btn-primary" onclick="upload_book_advert()">Feltöltöm <i class="fa fa-envelope-open-o"></i></button>'.PHP_EOL;
+echo '<button style="margin-top: 10px; margin-bottom: 10px;'.$float_data.'" type="submit" class="btn btn-primary" onclick="upload_book_advert()">Feltöltöm <i class="fa fa-envelope-open-o"></i></button>'.PHP_EOL;
 
 
 #echo '<br>';
