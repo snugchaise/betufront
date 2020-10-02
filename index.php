@@ -1999,7 +1999,14 @@ function get_head($has_section,$logged_in,$articles,$meta_content){
      echo '<script async defer crossorigin="anonymous" src="https://connect.facebook.net/hu_HU/sdk.js#xfbml=1&version=v8.0&appId=301829433804854&autoLogAppEvents=1" nonce="3N6fus67"></script>'.PHP_EOL;
      echo '<!-- head start --!>'.PHP_EOL;
      echo '<div style="background-color: #313c53; box-shadow: 0px 5px 5px rgba(0,0,0,0.1);">'.PHP_EOL;
-     echo '<div style="padding-bottom: 0px; text-align: left; width: 1080px; position: relative; max-width: 1080px; margin: 0 auto; box-sizing: border-box;height: 100px">'.PHP_EOL;
+
+$width_data = "width: 1080px;";
+$float_data = "float: right";
+if(is_mobile_browser()){
+$width_data = "width: 100%;";
+$float_data = "";
+}
+     echo '<div style="padding-bottom: 0px; text-align: left; '.$width_data.' position: relative; max-width: 1080px; margin: 0 auto; box-sizing: border-box;height: 100px">'.PHP_EOL;
      echo ''.PHP_EOL;
      echo '<div style="display: inline-block; box-sizing: border-box; width: 15%; float: left; margin-top: 15px;">'.PHP_EOL;
      echo '<a href="/"><img src="/logo.png" alt="Használt könyvek piactere" title="" height="65px" width="133px" height="auto"></a>'.PHP_EOL;
