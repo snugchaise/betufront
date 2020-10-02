@@ -2003,8 +2003,10 @@ function get_head($has_section,$logged_in,$articles,$meta_content){
 $width_data = "width: 1080px;";
 $float_data = "float: right";
 $margin_data = "margin-top: 28px;";
+$width_data_2 = "width: 50%;";
 if(is_mobile_browser()){
 $width_data = "width: 100%;";
+$width_data_2 = "width: 76%;";
 $float_data = "";
 $margin_data = "";
 }
@@ -2040,7 +2042,7 @@ $margin_data = "";
      echo '</ul>'.PHP_EOL;
      echo '</div>'.PHP_EOL;
 
-     echo '<div style="border: 4px solid #D1D1D1; height: 46px; float: right; box-shadow: none; box-sizing: border-box; border-radius: 4px; background-color: #D1D1D1; width: 50%; '.$margin_data.'">'.PHP_EOL;
+     echo '<div style="border: 4px solid #D1D1D1; height: 46px; float: right; box-shadow: none; box-sizing: border-box; border-radius: 4px; background-color: #D1D1D1; '.$width_data_2.' '.$margin_data.'">'.PHP_EOL;
      echo '<div style="position: relative; padding-right: 70px;">'.PHP_EOL;
      echo ''.PHP_EOL;
      echo '<form id="fm1" name="fm1" action="#" onsubmit="return goF1(\'fm1\')">'.PHP_EOL;
