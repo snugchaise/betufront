@@ -477,24 +477,28 @@ $width_data = "max-width: 90px";
 $width_data_2 = "min-width: 704px";
 $width_data_3 = "min-width: 992px";
 $height_data = "height: 500px;";
+$float_data = "float: left;";
 if(is_mobile_browser()){
 $width_data = "width: 100%";
 $width_data_2 = "min-width: 100%";
 $width_data_3 = "width: 100%";
 $height_data = "height: 670px;";
+$float_data = "";
 }
      echo '<section style="clear: both; width: 100%; border-top: solid 1px #666; background-color: #313c53; padding-top: 20px; padding-bottom: 30px; font-size: 120%; bottom: 0;">'.PHP_EOL;
      echo '    <div class="footermenu" style="width: 100%;">'.PHP_EOL;
      echo '      <div style="    background-color: #313c53; padding: 30px 0; overflow: hidden; width: 1100px; margin: 0 auto;">'.PHP_EOL;
      echo '  <div style="clear:both"></div>'.PHP_EOL;
-     echo '        <div style="width: 220px; float: left; overflow: hidden; margin: 35px 0 35px 40px;">'.PHP_EOL;
-     echo '          <p style="display: block; padding: 0 0 5px; font-size: 14px; color: #FFFFFF; font-weight: bold; border-bottom: solid 1px #FFFFFF; margin-bottom: 15px;">Az oldalról</p>'.PHP_EOL;
-     echo '          <ul style="width: 220px; list-style: none;line-height: 2em;">'.PHP_EOL;
-     echo '            <li><a href="/terms-and-conditions">Feltételek</a></li>'.PHP_EOL;
-     echo '            <li><a href="/cookie-policy">Sütik</a></li>'.PHP_EOL;
-     echo '          </ul>'.PHP_EOL;
-     echo '        </div>'.PHP_EOL;
-     echo '        <div style="width: 220px; float: left; overflow: hidden; margin: 35px 0 35px 40px;">'.PHP_EOL;
+
+     echo '   <div style="width: 220px; '.$float_data.' overflow: hidden; margin: 35px 0 35px 40px;">'.PHP_EOL;
+     echo '     <p style="display: block; padding: 0 0 5px; font-size: 14px; color: #FFFFFF; font-weight: bold; border-bottom: solid 1px #FFFFFF; margin-bottom: 15px;">Az oldalról</p>'.PHP_EOL;
+     echo '     <ul style="width: 220px; list-style: none;line-height: 2em;">'.PHP_EOL;
+     echo '       <li><a href="/terms-and-conditions">Feltételek</a></li>'.PHP_EOL;
+     echo '       <li><a href="/cookie-policy">Sütik</a></li>'.PHP_EOL;
+     echo '     </ul>'.PHP_EOL;
+     echo '   </div>'.PHP_EOL;
+
+     echo '        <div style="width: 220px; '.$float_data.' overflow: hidden; margin: 35px 0 35px 40px;">'.PHP_EOL;
      echo '          <p style="display: block; padding: 0 0 5px; font-size: 14px; color: #FFFFFF; font-weight: bold; border-bottom: solid 1px #FFFFFF; margin-bottom: 15px;">Együttműködés</p>'.PHP_EOL;
      echo '          <ul style="width: 220px; list-style: none; line-height: 2em;" >'.PHP_EOL;
      echo '            <li><a href="/advertisement">Hirdetések</a></li>'.PHP_EOL;
