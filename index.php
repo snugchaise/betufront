@@ -4641,7 +4641,12 @@ get_head(False,$logged_in,array(),$meta_content);
 $title = explode("/",$request)[2];
 $bfs = $handler->conditional_select_from("books_for_sale",array("titleForUrl" => $title ))[0];
     
-echo '<div style="width: 1080px; padding: 0;position: relative; max-width: 1080px; margin: 0 auto; box-sizing: border-box;">'.PHP_EOL;
+$width_data = "width: 1080px;";
+if(is_mobile_browser()){
+$width_data = "width: 100%;";
+}
+
+echo '<div style="'.$width_data.' padding: 0;position: relative; max-width: 1080px; margin: 0 auto; box-sizing: border-box;">'.PHP_EOL;
 
 echo '<h4>A könyved szerzője</h4>'.PHP_EOL;
 echo '<textarea id="book_author_box" onchange="set_book_author();" style="width: 100%;height: 2em;" >'.$bfs['book_author'].'</textarea>';
