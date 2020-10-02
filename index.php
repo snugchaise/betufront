@@ -2004,13 +2004,15 @@ $width_data = "width: 1080px;";
 $float_data = "float: right";
 $margin_data = "margin-top: 28px;";
 $width_data_2 = "width: 50%;";
+$height_data = "height: 100px";
 if(is_mobile_browser()){
 $width_data = "width: 100%;";
 $width_data_2 = "width: 76%;";
 $float_data = "";
 $margin_data = "";
+$height_data = "height: 140px";
 }
-     echo '<div style="padding-bottom: 0px; text-align: left; '.$width_data.' position: relative; max-width: 1080px; margin: 0 auto; box-sizing: border-box;height: 100px">'.PHP_EOL;
+     echo '<div style="padding-bottom: 0px; text-align: left; '.$width_data.' position: relative; max-width: 1080px; margin: 0 auto; box-sizing: border-box;'.$height_data.'">'.PHP_EOL;
      echo ''.PHP_EOL;
      echo '<div style="display: inline-block; box-sizing: border-box; width: 15%; float: left; margin-top: 15px;">'.PHP_EOL;
      echo '<a href="/"><img src="/logo.png" alt="Használt könyvek piactere" title="" height="65px" width="133px" height="auto"></a>'.PHP_EOL;
