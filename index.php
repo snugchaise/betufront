@@ -4673,6 +4673,11 @@ $width_data = "width: 100%;";
 $float_data = "";
 }
 
+$bfs['ad_text'] =        "Eladom használt könyvemet.";
+$bfs['delivery_place'] = "Fővám tér";
+$bfs['book_language'] =  "magyar";
+$bfs['book_condition'] =  "jó";
+
 echo '<div style="'.$width_data.' padding: 0;position: relative; max-width: 1080px; margin: 0 auto; box-sizing: border-box;">'.PHP_EOL;
 
 echo '<h4>A könyved szerzője</h4>'.PHP_EOL;
