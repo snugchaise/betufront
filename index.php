@@ -4605,7 +4605,7 @@ if(preg_match('/add-book-for-sale\//', $request)){
 	     "book_summary" => "",
 	     "ad_text" => "",
 	     "category" => "",
-	     "active_book" => 0,
+	     "active_book" => 1,
 	     "book_language" => "",
 	     "book_condition" => "",
 	     "book_publisher" => "",
