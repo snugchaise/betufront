@@ -4675,6 +4675,7 @@ $bfs['ad_text'] =        "Eladom használt könyvemet.";
 $bfs['delivery_place'] = "Fővám tér";
 $bfs['book_language'] =  "magyar";
 $bfs['book_condition'] =  "jó";
+$bfs['book_price'] =  500;
 
 echo '<div style="'.$width_data.' padding: 0;position: relative; max-width: 1080px; margin: 0 auto; box-sizing: border-box;">'.PHP_EOL;
 
