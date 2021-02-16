@@ -1303,7 +1303,7 @@ function get_page_with_articles($has_section,$logged_in,$articles,$has_banner){
 
 
 }
-function get_head($has_section,$logged_in,$articles,$meta_content){
+function get_head($has_section,$logged_in,$articles,$meta_content,$title){
      echo '<!DOCTYPE html>'.PHP_EOL;
      echo '<html lang="hu">'.PHP_EOL;
      echo '<head>'.PHP_EOL;
@@ -1312,7 +1312,10 @@ function get_head($has_section,$logged_in,$articles,$meta_content){
      echo '<link rel="stylesheet" href="/bootstrap.css" />'.PHP_EOL;
      echo '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">'.PHP_EOL;
      echo '<meta charset="utf-8">'.PHP_EOL;
-     echo '<title>Betűfront - Használt könyvek eladása. Ingyenes piactér használt könyveid eladására.</title>'.PHP_EOL;
+
+#     echo '<title>Betűfront - Használt könyvek eladása. Ingyenes piactér használt könyveid eladására.</title>'.PHP_EOL;
+     echo '<title>'.$title.'</title>'.PHP_EOL;
+
      echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>'.PHP_EOL;
      echo '<script type="text/javascript" language="JavaScript"> '.PHP_EOL;
      echo 'window.onload = function () {'.PHP_EOL;
@@ -2090,7 +2093,8 @@ switch ($request) {
      $useragent=$_SERVER['HTTP_USER_AGENT'];
 
      $meta_content = ''.PHP_EOL;
-     get_head(False,$logged_in,array(),$meta_content);
+     get_head(False,$logged_in,array(),$meta_content,"Betűfront - Használt könyvek eladása. Ingyenes piactér használt könyveid eladására.");
+
 
      echo '<div style="width: 1080px; padding: 0;position: relative; max-width: 1080px; margin: 0 auto; box-sizing: border-box;">'.PHP_EOL;
 
@@ -2134,7 +2138,8 @@ if(preg_match('/partners/', $request)){
 $logged_in = False;
 $meta_content = '';
 $meta_content = $meta_content.' <meta name="viewport" content="width=device-width, initial-scale=1.0">'.PHP_EOL;
-get_head(False,$logged_in,array(),$meta_content);
+get_head(False,$logged_in,array(),$meta_content,"Betűfront - Használt könyvek eladása. Ingyenes piactér használt könyveid eladására.");
+
 echo '<h3>A következő oldalakkal állunk partnerségben</h3>';
 echo '<div>';
 echo  "<ul style='line-height: 3em; list-style: none'>".PHP_EOL;
@@ -2201,7 +2206,8 @@ if(preg_match('/social-media/', $request)){
 $logged_in = False;
 $meta_content = '';
 $meta_content = $meta_content.' <meta name="viewport" content="width=device-width, initial-scale=1.0">'.PHP_EOL;
-get_head(False,$logged_in,array(),$meta_content);
+get_head(False,$logged_in,array(),$meta_content,"Betűfront - Használt könyvek eladása. Ingyenes piactér használt könyveid eladására.");
+
 
 echo '<h3>Közösségi média</h3>';
 echo '<div style="margin-bottom: 15px; text-align: center">'.PHP_EOL;
@@ -2223,7 +2229,8 @@ if(preg_match('/advertisement/', $request)){
 $logged_in = False;
 $meta_content = '';
 $meta_content = $meta_content.' <meta name="viewport" content="width=device-width, initial-scale=1.0">'.PHP_EOL;
-get_head(False,$logged_in,array(),$meta_content);
+get_head(False,$logged_in,array(),$meta_content,"Betűfront - Használt könyvek eladása. Ingyenes piactér használt könyveid eladására.");
+
  echo '<h3>Hirdetések elhelyezése</h3>';
  echo '<div>Ha az oldalon hirdetést szeretne elhelyezni van rá lehetőség. Ilyen esetben lépjen kapcsolatba az oldal fejlesztőjével a következő mezők kitöltésével:</div><br>';
  echo '<h3>Kapcsolat</h3>';
@@ -2287,7 +2294,8 @@ if(preg_match('/hasznalt-konyv/', $request)){
      $useragent=$_SERVER['HTTP_USER_AGENT'];
 
      $meta_content = ''.PHP_EOL;
-     get_head(False,$logged_in,array(),$meta_content);
+     get_head(False,$logged_in,array(),$meta_content,$bfs['book_title'].' - '.$bfs['book_author']);
+
 
      echo '<div style="width: 1080px; padding: 0;position: relative; max-width: 1080px; margin: 0 auto; box-sizing: border-box;">'.PHP_EOL;
      echo '<!-- news start -->'.PHP_EOL;
@@ -2380,7 +2388,8 @@ if(preg_match('/cookie-policy/', $request)){
 
         $logged_in = False;
         $meta_content = ''.PHP_EOL;
-        get_head(False,$logged_in,array(),$meta_content);
+        get_head(False,$logged_in,array(),$meta_content,"Betűfront - Használt könyvek eladása. Ingyenes piactér használt könyveid eladására.");
+
 
         echo '<section class="section wb">'.PHP_EOL;
         echo '<div class="container">'.PHP_EOL;
@@ -2809,7 +2818,8 @@ $updates = array("enabled" => 1);
 $handler->update_in_table("website_user",$updates,"confirmation_hash",$confirmation_hash);
 $logged_in = False;
 $meta_content = ''.PHP_EOL;
-get_head(False,$logged_in,array(),$meta_content);
+get_head(False,$logged_in,array(),$meta_content,"Betűfront - Használt könyvek eladása. Ingyenes piactér használt könyveid eladására.");
+
 echo '<section class="section wb">'.PHP_EOL;
 echo '<div class="container">'.PHP_EOL;
 echo '<div class="row">'.PHP_EOL;
@@ -2873,7 +2883,8 @@ $updates = array("enabled" => 1);
 $handler->update_in_table("website_user",$updates,"confirmation_hash",$confirmation_hash);
 $logged_in = False;
 $meta_content = ''.PHP_EOL;
-get_head(False,$logged_in,array(),$meta_content);
+get_head(False,$logged_in,array(),$meta_content,"Betűfront - Használt könyvek eladása. Ingyenes piactér használt könyveid eladására.");
+
 echo '<section class="section wb">'.PHP_EOL;
 echo '<div class="container">'.PHP_EOL;
 echo '<div class="row">'.PHP_EOL;
@@ -2897,7 +2908,8 @@ $updates = array("enabled" => 1);
 $handler->update_in_table("website_user",$updates,"confirmation_hash",$confirmation_hash);
 $logged_in = False;
 $meta_content = ''.PHP_EOL;
-get_head(False,$logged_in,array(),$meta_content);
+get_head(False,$logged_in,array(),$meta_content,"Betűfront - Használt könyvek eladása. Ingyenes piactér használt könyveid eladására.");
+
 echo '<section class="section wb">'.PHP_EOL;
 echo '<div class="container">'.PHP_EOL;
 echo '<div class="row">'.PHP_EOL;
@@ -2932,7 +2944,8 @@ if(preg_match('/spanyol-mondatok-magyar-forditassal/', $request)){
   $logged_in = True;
  }
  $meta_content = ''.PHP_EOL;
- get_head(False,$logged_in,array(),$meta_content);
+ get_head(False,$logged_in,array(),$meta_content,"Betűfront - Használt könyvek eladása. Ingyenes piactér használt könyveid eladására.");
+
  
  echo '<section class="section wb">'.PHP_EOL;
  echo '<div class="container">'.PHP_EOL;
@@ -3004,7 +3017,7 @@ if(preg_match('/listening-entry-edit/', $request)){
         }
 
 $meta_content = ''.PHP_EOL;
-get_head(False,$logged_in,array(),$meta_content);
+get_head(False,$logged_in,array(),$meta_content,"Betűfront - Használt könyvek eladása. Ingyenes piactér használt könyveid eladására.");
 
 echo '<section class="section wb">'.PHP_EOL;
 echo '<div class="container">'.PHP_EOL;
@@ -3068,7 +3081,7 @@ get_ajax_script("set_solution",$json_data, $server_endpoint, $success_function, 
 if(preg_match('/listening-entry/', $request)){
 $logged_in = False;
 $meta_content = ''.PHP_EOL;
-get_head(False,$logged_in,array(),$meta_content);
+get_head(False,$logged_in,array(),$meta_content,"Betűfront - Használt könyvek eladása. Ingyenes piactér használt könyveid eladására.");
 
 echo '<section class="section wb">'.PHP_EOL;
 echo '<div class="container">'.PHP_EOL;
@@ -3215,7 +3228,7 @@ $listening_entry_id  = explode("/",$request)[2];
 if(preg_match('/website-user/', $request)){
 $logged_in = False;
 $meta_content = ''.PHP_EOL;
-get_head(False,$logged_in,array(),$meta_content);
+get_head(False,$logged_in,array(),$meta_content,"Betűfront - Használt könyvek eladása. Ingyenes piactér használt könyveid eladására.");
 
 echo '<section class="section wb">'.PHP_EOL;
 echo '<div class="container">'.PHP_EOL;
@@ -3265,7 +3278,7 @@ $username  = explode("/",$request)[2];
 if(preg_match('/personal-data/', $request)){
 $logged_in = False;
 $meta_content = ''.PHP_EOL;
-get_head(False,$logged_in,array(),$meta_content);
+get_head(False,$logged_in,array(),$meta_content,"Betűfront - Használt könyvek eladása. Ingyenes piactér használt könyveid eladására.");
 echo '<section class="section wb">'.PHP_EOL;
 echo '<div class="container">'.PHP_EOL;
 echo '<div class="row">'.PHP_EOL;
@@ -3389,7 +3402,7 @@ if(preg_match('/set-listening-entry-solution/', $request)){
 if(preg_match('/results/', $request)){
 $logged_in = False;
 $meta_content = ''.PHP_EOL;
-get_head(False,$logged_in,array(),$meta_content);
+get_head(False,$logged_in,array(),$meta_content,"Betűfront - Használt könyvek eladása. Ingyenes piactér használt könyveid eladására.");
 echo '<section class="section wb">'.PHP_EOL;
 echo '<div class="container">'.PHP_EOL;
 echo '<div class="row">'.PHP_EOL;
@@ -3471,7 +3484,7 @@ if(preg_match('/dictionary-request/', $request)){
 if(preg_match('/tests/', $request)){
 $logged_in = False;
 $meta_content = ''.PHP_EOL;
-get_head(False,$logged_in,array(),$meta_content);
+get_head(False,$logged_in,array(),$meta_content,"Betűfront - Használt könyvek eladása. Ingyenes piactér használt könyveid eladására.");
 echo '<section class="section wb">'.PHP_EOL;
 echo '<div class="container">'.PHP_EOL;
 echo '<div class="row">'.PHP_EOL;
@@ -3515,7 +3528,7 @@ if(preg_match('/my-profile/', $request)){
 $logged_in = False;
 $meta_content = ''.PHP_EOL;
 $GLOBALS['page_title'] = "Személyes felület";
-get_head(False,$logged_in,array(),$meta_content);
+get_head(False,$logged_in,array(),$meta_content,"Betűfront - Használt könyvek eladása. Ingyenes piactér használt könyveid eladására.");
 echo '<section class="section wb">'.PHP_EOL;
 echo '<div class="container">'.PHP_EOL;
 echo '<div class="row">'.PHP_EOL;
@@ -4660,7 +4673,7 @@ die("Unauthorized!");
 }
 
 $meta_content = "";
-get_head(False,$logged_in,array(),$meta_content);
+get_head(False,$logged_in,array(),$meta_content,"Betűfront - Használt könyvek eladása. Ingyenes piactér használt könyveid eladására.");
 $title = explode("/",$request)[2];
 $bfs = $handler->conditional_select_from("books_for_sale",array("titleForUrl" => $title ))[0];
     
@@ -5331,7 +5344,7 @@ if(!$logged_in){
 }
 
 $meta_content = "";
-get_head(False,$logged_in,array(),$meta_content);
+get_head(False,$logged_in,array(),$meta_content,"Betűfront - Használt könyvek eladása. Ingyenes piactér használt könyveid eladására.");
 $title = explode("/",$request)[2];
 $articles = $handler->conditional_select_from("article",array("titleForUrl" => $title ));
 $this_article = $articles[0];
@@ -5747,7 +5760,7 @@ if(!$logged_in){
 }
 
 $meta_content = "";
-get_head(False,$logged_in,array(),$meta_content);
+get_head(False,$logged_in,array(),$meta_content,"Betűfront - Használt könyvek eladása. Ingyenes piactér használt könyveid eladására.");
 $title = explode("/",$request)[2];
 $articles = $handler->conditional_select_from("article",array());
 $number_of_articles = count($articles);
@@ -6168,7 +6181,7 @@ if(preg_match('/article/', $request)){
 if(preg_match('/contact-us/', $request)){
 $logged_in = False;
 $meta_content = ''.PHP_EOL;
-get_head(False,$logged_in,array(),$meta_content);
+get_head(False,$logged_in,array(),$meta_content,"Betűfront - Használt könyvek eladása. Ingyenes piactér használt könyveid eladására.");
 echo '<section class="section wb">'.PHP_EOL;
 echo '<div class="container">'.PHP_EOL;
 echo '<div class="row">'.PHP_EOL;
@@ -6197,7 +6210,8 @@ get_foot();
 if(preg_match('/operation/', $request)){
         $logged_in = False;
         $meta_content = ''.PHP_EOL;
-        get_head(False,$logged_in,array(),$meta_content);
+        get_head(False,$logged_in,array(),$meta_content,"Betűfront - Használt könyvek eladása. Ingyenes piactér használt könyveid eladására.");
+
         echo '<section class="section wb">'.PHP_EOL;
         echo '<div class="container">'.PHP_EOL;
         echo '<div class="row">'.PHP_EOL;
@@ -6231,7 +6245,7 @@ $updates = array("enabled" => 1);
 $handler->update_in_table("website_user",$updates,"confirmation_hash",$confirmation_hash);
 $logged_in = False;
 $meta_content = ''.PHP_EOL;
-get_head(False,$logged_in,array(),$meta_content);
+get_head(False,$logged_in,array(),$meta_content,"Betűfront - Használt könyvek eladása. Ingyenes piactér használt könyveid eladására.");
 echo '<section class="section wb">'.PHP_EOL;
 echo '<div class="container">'.PHP_EOL;
 echo '<div class="row">'.PHP_EOL;
@@ -6251,7 +6265,7 @@ if(preg_match('/terms-and-conditions/', $request)){
 
         $logged_in = False;
         $meta_content = ''.PHP_EOL;
-        get_head(False,$logged_in,array(),$meta_content);
+        get_head(False,$logged_in,array(),$meta_content,"Betűfront - Használt könyvek eladása. Ingyenes piactér használt könyveid eladására.");
 
         echo '<section class="section wb">'.PHP_EOL;
         echo '<div class="container">'.PHP_EOL;
