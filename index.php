@@ -6289,15 +6289,19 @@ if(preg_match('/xml_sitemap/', $request)){
      $handler = new DatabaseHandler;
      header('Content-type: text/xml');
 
-     $articles = array_reverse($handler->select_all_from("article"));
+     $bfs_array = array_reverse($handler->conditional_select_from("books_for_sale",array("active_book" => 1)));
+
+
      echo '<?xml version="1.0" encoding="UTF-8"?>'.PHP_EOL;
      echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> '.PHP_EOL;
-     foreach($articles as $article){
+
+     foreach( $bfs_array as $bfs ){
       echo '  <url>'.PHP_EOL;
-      echo '    <loc>http://www.'.$GLOBALS['project_name'].'.com/article/'.$article['titleForUrl'].'</loc>'.PHP_EOL;
-      echo '    <lastmod>'.date_format(date_create($article['created']), 'Y-m-d').'</lastmod>'.PHP_EOL;
+      echo '    <loc>http://www.betufront.hu/hasznalt-konyv/'.$bfs['titleForUrl'].'</loc>'.PHP_EOL;
+      echo '    <lastmod>'.date_format(date_create($bfs['created']), 'Y-m-d').'</lastmod>'.PHP_EOL;
       echo '  </url>'.PHP_EOL;
      }
+
      echo '</urlset>'.PHP_EOL;
 
 }
