@@ -2139,8 +2139,8 @@ if(preg_match('/search-result\//', $request)){
       $image = $handler->conditional_select_from("books_for_sale_images",array("book_unique_hash" => $bfs['book_unique_hash'] ))[0];
 
       $show_results = preg_match("/".$keyword."/", ltrim(rtrim($bfs['book_summary'])));
-      $show_results = $show_results.or.preg_match("/".$keyword."/", ltrim(rtrim($bfs['book_author'])));
-      $show_results = $show_results.or.preg_match("/".$keyword."/", ltrim(rtrim($bfs['book_title'])));
+      $show_results = ( $show_results or preg_match("/".$keyword."/", ltrim(rtrim($bfs['book_author']))));
+      $show_results = ( $show_results or preg_match("/".$keyword."/", ltrim(rtrim($bfs['book_title']))));
 if($show_results){
       echo ' <tr> '.PHP_EOL;
       echo '   <th scope="row">'.$counter.'</th> '.PHP_EOL;
