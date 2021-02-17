@@ -2138,7 +2138,10 @@ if(preg_match('/search-result\//', $request)){
   
       $image = $handler->conditional_select_from("books_for_sale_images",array("book_unique_hash" => $bfs['book_unique_hash'] ))[0];
 
-if(preg_match("/".$keyword."/", ltrim(rtrim($bfs['book_summary'])))){
+      $show_results = preg_match("/".$keyword."/", ltrim(rtrim($bfs['book_summary'])));
+      $show_results = $show_results.or.preg_match("/".$keyword."/", ltrim(rtrim($bfs['book_author'])));
+      $show_results = $show_results.or.preg_match("/".$keyword."/", ltrim(rtrim($bfs['book_title'])));
+if($show_results){
       echo ' <tr> '.PHP_EOL;
       echo '   <th scope="row">'.$counter.'</th> '.PHP_EOL;
       echo '   <td><div style="float: left;  padding: 0px"> <a style="color: blue" href="http://www.betufront.hu/hasznalt-konyv/'.$bfs['titleForUrl'].'"><img width="100px" height="100px" src="/images/books/'.$bfs['id'].'/'.$image['book_image_name'].'"/></a></div></td> '.PHP_EOL;
