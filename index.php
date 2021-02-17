@@ -1921,14 +1921,14 @@ function get_head($has_section,$logged_in,$articles,$meta_content,$title){
      echo '.btn {'.PHP_EOL;
      echo '    background-color: #111111;'.PHP_EOL;
      echo '    border: 0 none;'.PHP_EOL;
-     echo '    border-radius: 0;'.PHP_EOL;
+     echo '    border-radius: 1px;'.PHP_EOL;
      echo '    font-size: 14px;'.PHP_EOL;
      echo '    font-weight: bold;'.PHP_EOL;
      echo '    padding: 0.8rem 2rem;'.PHP_EOL;
      echo '    text-transform: none;'.PHP_EOL;
      echo '	color:#ffffff !important;'.PHP_EOL;
-     echo '	background-color: #74a044 !important;'.PHP_EOL;
-     echo '	border-color: #74a044 !important;'.PHP_EOL;
+     echo '	background-color: #313c53 !important;'.PHP_EOL;
+     echo '	border-color: #313c53 !important;'.PHP_EOL;
      echo '}'.PHP_EOL;
 
      echo 'a {'.PHP_EOL;
