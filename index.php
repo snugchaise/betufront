@@ -2107,16 +2107,16 @@ switch ($request) {
       
      $bfs_array = array_reverse($handler->conditional_select_from("books_for_sale",array("active_book" => 1)));
 
-     echo '<div style="display: block; background: #ffffff; color: black; width: 100%; margin: 0 0 15px 0; padding: 10px 25px 0 25px;  box-shadow: none; box-sizing: border-box; font-size: 1.3rem; text-align: left;" >'.PHP_EOL;
+     echo '<div style="display: block; background: #ffffff; color: black; width: 100%; margin: 0 0 15px 0; padding: 10px 25px 0 25px;  box-shadow: none; box-sizing: border-box; font-size: 0.9rem; text-align: left;" >'.PHP_EOL;
 
      echo '<table class="table">'.PHP_EOL;
      echo '  <thead>'.PHP_EOL;
      echo '    <tr>'.PHP_EOL;
      echo '      <th scope="col">#</th>'.PHP_EOL;
      echo '      <th scope="col">First</th>'.PHP_EOL;
-     echo '      <th scope="col">Last</th>'.PHP_EOL;
-     echo '      <th scope="col">Handle</th>'.PHP_EOL;
-     echo '      <th scope="col">Handle</th>'.PHP_EOL;
+     echo '      <th scope="col">Szerző</th>'.PHP_EOL;
+     echo '      <th scope="col">Kiadó</th>'.PHP_EOL;
+     echo '      <th scope="col">Ár</th>'.PHP_EOL;
      echo '    </tr>'.PHP_EOL;
      echo '  </thead>'.PHP_EOL;
      echo '  <tbody>'.PHP_EOL;
@@ -2131,7 +2131,7 @@ switch ($request) {
       echo '   <td>'.$bfs['book_author'].'</td> '.PHP_EOL;
       echo '   <td><a style="color: blue" href="http://www.betufront.hu/hasznalt-konyv/'.$bfs['titleForUrl'].'">'.$bfs['book_title'].'</a></td> '.PHP_EOL;
       echo '   <td>'.$bfs['book_publisher'].' '.'['.$bfs['book_publish_date'].']</td> '.PHP_EOL;
-      echo '   <td><p>'.$bfs['book_price'].' Forint / <span style="font-size: 0.75em"> '.full_date($bfs['created']).'</span> </p></td> '.PHP_EOL;
+      echo '   <td>'.$bfs['book_price'].' Forint </td> '.PHP_EOL;
       echo ' </tr> '.PHP_EOL;
      $counter = $counter + 1;
      }
