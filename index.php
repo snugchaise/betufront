@@ -2232,12 +2232,6 @@ switch ($request) {
 
      echo '<script>'.PHP_EOL;
      echo 'function handle_search(){'.PHP_EOL;
-     echo 'var jsondata = { '.PHP_EOL;
-     echo '        "email_address": document.getElementById("email_address").value, '.PHP_EOL;
-     echo '        "user_message": document.getElementById("user_message").value, '.PHP_EOL;
-     echo '        "user_name": document.getElementById("user_name").value, '.PHP_EOL;
-     echo '        "data_type_from_site": 1 '.PHP_EOL;
-     echo '    };   '.PHP_EOL;
      echo 'window.location.replace("http://www.'.$GLOBALS['project_name'].'.hu/search-result/keyword");'.PHP_EOL;
      echo ' };'.PHP_EOL;
      echo '</script>'.PHP_EOL;
