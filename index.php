@@ -139,6 +139,15 @@ echo '<a style="color: black" href="/personal-data/">Személyes adatok</a> / '.P
 echo '<a style="color: black" href="/tests/">Tesztek</a> / '.PHP_EOL;
 echo '<a style="color: black" href="/results/">Erdeményeim</a>'.PHP_EOL;
 }
+
+function get_searchbar(){
+
+     echo ' <div class="nativetext input-wrapper"><label class="label" title="Kulcsszó">Keresés</label><div class="text" id="jfgsb_q_holder"><i class="material-icons close"></i><input class="text" id="jfgsb_q" name="q" type="text" placeholder="Kulcsszó" autocomplete="off"><div class="body"></div></div>'.PHP_EOL;
+     echo '  <div style="float: right;margin-top: 10px;">'.PHP_EOL;
+     echo '  <button type="submit" class="btn btn-primary" onclick="handle_search()" >Keresés</button>'.PHP_EOL;
+     echo '  </div>'.PHP_EOL;
+     echo ' </div>'.PHP_EOL;
+}
 function get_ajax_script($function_name, $json_data, $server_endpoint, $success_function, $error_function){
 
 echo '<script>'.PHP_EOL;
@@ -898,6 +907,11 @@ $float_data = "";
      echo '<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>';
      echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>';
      echo '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>';
+     echo '<script>'.PHP_EOL;
+     echo 'function handle_search(){'.PHP_EOL;
+     echo 'window.location.replace("http://www.'.$GLOBALS['project_name'].'.hu/search-result/"+document.getElementById("jfgsb_q").value);'.PHP_EOL;
+     echo ' };'.PHP_EOL;
+     echo '</script>'.PHP_EOL;
 
 
      echo '<script>';
@@ -2097,11 +2111,7 @@ if(preg_match('/search-result\//', $request)){
      echo '<div style="width: 1080px; padding: 0;position: relative; max-width: 1080px; margin: 0 auto; box-sizing: border-box;">'.PHP_EOL;
 
      echo ' <div style="margin-top: 2%; width: 20%; min-height: 550px; float: left">'.PHP_EOL;
-     echo '<div class="nativetext input-wrapper"><label class="label" title="Kulcsszó">Keresés</label><div class="text" id="jfgsb_q_holder"><i class="material-icons close"></i><input class="text" id="jfgsb_q" name="q" type="text" placeholder="Kulcsszó" autocomplete="off"><div class="body"></div></div>'.PHP_EOL;
-     echo '<div style="float: right;margin-top: 10px;">'.PHP_EOL;
-     echo '<button type="submit" class="btn btn-primary" >Keresés</button>'.PHP_EOL;
-     echo '</div>'.PHP_EOL;
-     echo '</div>'.PHP_EOL;
+     get_searchbar();
      echo '</div>'.PHP_EOL;
 
      echo ' <div style="margin-top: 2%; min-height: 550px; width: 71%; float: left">'.PHP_EOL;
@@ -2181,11 +2191,7 @@ switch ($request) {
      echo '<div style="width: 1080px; padding: 0;position: relative; max-width: 1080px; margin: 0 auto; box-sizing: border-box;">'.PHP_EOL;
 
      echo ' <div style="margin-top: 2%; width: 20%; min-height: 550px; float: left">'.PHP_EOL;
-     echo '<div class="nativetext input-wrapper"><label class="label" title="Kulcsszó">Keresés</label><div class="text" id="jfgsb_q_holder"><i class="material-icons close"></i><input class="text" id="jfgsb_q" name="q" type="text" placeholder="Kulcsszó" autocomplete="off"><div class="body"></div></div>'.PHP_EOL;
-     echo '<div style="float: right;margin-top: 10px;">'.PHP_EOL;
-     echo '<button type="submit" class="btn btn-primary" onclick="handle_search()" >Keresés</button>'.PHP_EOL;
-     echo '</div>'.PHP_EOL;
-     echo '</div>'.PHP_EOL;
+     get_searchbar();
      echo '</div>'.PHP_EOL;
 
      echo ' <div style="margin-top: 2%; min-height: 550px; width: 71%; float: left">'.PHP_EOL;
@@ -2231,12 +2237,6 @@ switch ($request) {
 
      echo '</div>'.PHP_EOL;
 
-     echo '<script>'.PHP_EOL;
-     echo 'function handle_search(){'.PHP_EOL;
-
-     echo 'window.location.replace("http://www.'.$GLOBALS['project_name'].'.hu/search-result/"+document.getElementById("jfgsb_q").value);'.PHP_EOL;
-     echo ' };'.PHP_EOL;
-     echo '</script>'.PHP_EOL;
 
  
      get_foot();
