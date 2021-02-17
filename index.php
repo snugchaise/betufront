@@ -2177,7 +2177,7 @@ switch ($request) {
      get_head(False,$logged_in,array(),$meta_content,"Betűfront - Használt könyvek eladása. Ingyenes piactér használt könyveid eladására.");
 
 
-     echo '<div style="background: grey;height: 100%;width: 100%;z-index: 1000;position: fixed;">'.PHP_EOL;
+     echo '<div style="background: #676767;height: 100%;width: 100%;z-index: 1000;position: fixed;">'.PHP_EOL;
 
      echo '<div style="width: 1080px; padding: 0;position: relative; max-width: 1080px; margin: 0 auto; box-sizing: border-box;">'.PHP_EOL;
 
