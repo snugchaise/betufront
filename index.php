@@ -2076,6 +2076,88 @@ else{
 }
 
 ###############################################################
+#############  SEARCH-RESULT ENDPOINT #################################
+###############################################################
+switch ($request) {
+    case '/search-result/' :
+
+     $keyword  = explode("/",$request)[4];
+     $auth  = explode("/",$request)[3];
+     $logged_in = False;
+     if(strcmp($auth, "057a39a1cf79eb4625c16c51eadd3283") == 0){
+      $logged_in = True;
+     }
+     $handler = new DatabaseHandler;
+#     get_head(False,$logged_in,array(),$meta_content);
+
+     $useragent=$_SERVER['HTTP_USER_AGENT'];
+
+     $meta_content = ''.PHP_EOL;
+     get_head(False,$logged_in,array(),$meta_content,"Betűfront - Használt könyvek eladása. Ingyenes piactér használt könyveid eladására.");
+
+
+     echo '<div style="width: 1080px; padding: 0;position: relative; max-width: 1080px; margin: 0 auto; box-sizing: border-box;">'.PHP_EOL;
+
+     echo ' <div style="margin-top: 2%; width: 20%; min-height: 550px; float: left">'.PHP_EOL;
+     echo '<div class="nativetext input-wrapper"><label class="label" title="Kulcsszó">Keresés</label><div class="text" id="jfgsb_q_holder"><i class="material-icons close"></i><input class="text" id="jfgsb_q" name="q" type="text" placeholder="Kulcsszó" autocomplete="off"><div class="body"></div></div>'.PHP_EOL;
+     echo '<div style="float: right;margin-top: 10px;">'.PHP_EOL;
+     echo '<button type="submit" class="btn btn-primary" >Keresés</button>'.PHP_EOL;
+     echo '</div>'.PHP_EOL;
+     echo '</div>'.PHP_EOL;
+     echo '</div>'.PHP_EOL;
+
+     echo ' <div style="margin-top: 2%; min-height: 550px; width: 71%; float: left">'.PHP_EOL;
+      
+     $bfs_array = array_reverse($handler->conditional_select_from("books_for_sale",array("active_book" => 1)));
+
+     echo '<div style="display: block; background: #ffffff; color: black; width: 100%; margin: 0 0 15px 0; padding: 10px 25px 0 25px;  box-shadow: none; box-sizing: border-box; font-size: 0.9rem; text-align: left;" >'.PHP_EOL;
+     echo '<h4>Eredmények</h4>'.PHP_EOL;
+
+     echo '<table class="table">'.PHP_EOL;
+     echo '  <thead>'.PHP_EOL;
+     echo '    <tr>'.PHP_EOL;
+     echo '      <th scope="col">#</th>'.PHP_EOL;
+     echo '      <th scope="col">Illusztráció</th>'.PHP_EOL;
+     echo '      <th scope="col">Szerző</th>'.PHP_EOL;
+     echo '      <th scope="col">Cím</th>'.PHP_EOL;
+     echo '      <th scope="col">Kiadó</th>'.PHP_EOL;
+     echo '      <th scope="col">Ár</th>'.PHP_EOL;
+     echo '    </tr>'.PHP_EOL;
+     echo '  </thead>'.PHP_EOL;
+     echo '  <tbody>'.PHP_EOL;
+     $counter = 1;
+     foreach( $bfs_array as $bfs ){
+  
+      $image = $handler->conditional_select_from("books_for_sale_images",array("book_unique_hash" => $bfs['book_unique_hash'] ))[0];
+
+      echo ' <tr> '.PHP_EOL;
+      echo '   <th scope="row">'.$counter.'</th> '.PHP_EOL;
+      echo '   <td><div style="float: left;  padding: 0px"> <a style="color: blue" href="http://www.betufront.hu/hasznalt-konyv/'.$bfs['titleForUrl'].'"><img width="100px" height="100px" src="/images/books/'.$bfs['id'].'/'.$image['book_image_name'].'"/></a></div></td> '.PHP_EOL;
+      echo '   <td>'.$bfs['book_author'].'</td> '.PHP_EOL;
+      echo '   <td><a style="color: blue" href="http://www.betufront.hu/hasznalt-konyv/'.$bfs['titleForUrl'].'">'.$bfs['book_title'].'</a></td> '.PHP_EOL;
+      echo '   <td>'.$bfs['book_publisher'].' '.'['.$bfs['book_publish_date'].']</td> '.PHP_EOL;
+      echo '   <td>'.$bfs['book_price'].' Forint </td> '.PHP_EOL;
+      echo ' </tr> '.PHP_EOL;
+     $counter = $counter + 1;
+     }
+
+     echo '  </tbody>'.PHP_EOL;
+     echo '</table>'.PHP_EOL;
+
+     echo '</div>'.PHP_EOL;
+     echo '</div>'.PHP_EOL;
+
+
+     echo '</div>'.PHP_EOL;
+
+ 
+     get_foot();
+
+     echo '</body>'.PHP_EOL;
+     echo '</html>'.PHP_EOL;
+     break;
+}
+###############################################################
 #############  INDEX ENDPOINT #################################
 ###############################################################
 switch ($request) {
@@ -2100,7 +2182,7 @@ switch ($request) {
      echo ' <div style="margin-top: 2%; width: 20%; min-height: 550px; float: left">'.PHP_EOL;
      echo '<div class="nativetext input-wrapper"><label class="label" title="Kulcsszó">Keresés</label><div class="text" id="jfgsb_q_holder"><i class="material-icons close"></i><input class="text" id="jfgsb_q" name="q" type="text" placeholder="Kulcsszó" autocomplete="off"><div class="body"></div></div>'.PHP_EOL;
      echo '<div style="float: right;margin-top: 10px;">'.PHP_EOL;
-     echo '<button type="submit" class="btn btn-primary" >Keresés</button>'.PHP_EOL;
+     echo '<button type="submit" class="btn btn-primary" onclick="handle_search()" >Keresés</button>'.PHP_EOL;
      echo '</div>'.PHP_EOL;
      echo '</div>'.PHP_EOL;
      echo '</div>'.PHP_EOL;
@@ -2147,6 +2229,18 @@ switch ($request) {
 
 
      echo '</div>'.PHP_EOL;
+
+     echo '<script>'.PHP_EOL;
+     echo 'function handle_search(){'.PHP_EOL;
+     echo 'var jsondata = { '.PHP_EOL;
+     echo '        "email_address": document.getElementById("email_address").value, '.PHP_EOL;
+     echo '        "user_message": document.getElementById("user_message").value, '.PHP_EOL;
+     echo '        "user_name": document.getElementById("user_name").value, '.PHP_EOL;
+     echo '        "data_type_from_site": 1 '.PHP_EOL;
+     echo '    };   '.PHP_EOL;
+     echo 'window.location.replace("http://www.'.$GLOBALS['project_name'].'.hu/search-result/keyword");'.PHP_EOL;
+     echo ' };'.PHP_EOL;
+     echo '</script>'.PHP_EOL;
 
  
      get_foot();
