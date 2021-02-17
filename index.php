@@ -2127,7 +2127,7 @@ switch ($request) {
 
       echo ' <tr> '.PHP_EOL;
       echo '   <th scope="row">'.$counter.'</th> '.PHP_EOL;
-      echo '   <td><div style="float: left;  padding: 30px"> <a style="color: blue" href="http://www.betufront.hu/hasznalt-konyv/'.$bfs['titleForUrl'].'"><img width="300px" height="400px" src="/images/books/'.$bfs['id'].'/'.$image['book_image_name'].'"/></a></div></td> '.PHP_EOL;
+      echo '   <td><div style="float: left;  padding: 30px"> <a style="color: blue" href="http://www.betufront.hu/hasznalt-konyv/'.$bfs['titleForUrl'].'"><img width="100px" height="100px" src="/images/books/'.$bfs['id'].'/'.$image['book_image_name'].'"/></a></div></td> '.PHP_EOL;
       echo '   <td>'.$bfs['book_author'].'</td> '.PHP_EOL;
       echo '   <td><a style="color: blue" href="http://www.betufront.hu/hasznalt-konyv/'.$bfs['titleForUrl'].'">'.$bfs['book_title'].'</a></td> '.PHP_EOL;
       echo '   <td>'.$bfs['book_publisher'].' '.'['.$bfs['book_publish_date'].']</td> '.PHP_EOL;
