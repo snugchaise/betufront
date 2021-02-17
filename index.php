@@ -2111,8 +2111,9 @@ switch ($request) {
      echo '  <thead>'.PHP_EOL;
      echo '    <tr>'.PHP_EOL;
      echo '      <th scope="col">#</th>'.PHP_EOL;
-     echo '      <th scope="col">First</th>'.PHP_EOL;
+     echo '      <th scope="col"></th>'.PHP_EOL;
      echo '      <th scope="col">Szerző</th>'.PHP_EOL;
+     echo '      <th scope="col">Cím</th>'.PHP_EOL;
      echo '      <th scope="col">Kiadó</th>'.PHP_EOL;
      echo '      <th scope="col">Ár</th>'.PHP_EOL;
      echo '    </tr>'.PHP_EOL;
