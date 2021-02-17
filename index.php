@@ -1525,6 +1525,7 @@ function get_head($has_section,$logged_in,$articles,$meta_content,$title){
      echo '	select,'.PHP_EOL;
      echo '	textarea {'.PHP_EOL;
      echo '		background: none;'.PHP_EOL;
+     echo '             border-radius: 5px;'.PHP_EOL;
      echo '	}'.PHP_EOL;
      echo ''.PHP_EOL;
      echo '		input[type="text"]:focus,'.PHP_EOL;
