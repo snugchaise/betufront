@@ -2109,7 +2109,7 @@ if(preg_match('/search-result\//', $request)){
      $bfs_array = array_reverse($handler->conditional_select_from("books_for_sale",array("active_book" => 1)));
 
      echo '<div style="display: block; background: #ffffff; color: black; width: 100%; margin: 0 0 15px 0; padding: 10px 25px 0 25px;  box-shadow: none; box-sizing: border-box; font-size: 0.9rem; text-align: left;" >'.PHP_EOL;
-     echo '<h4>Eredmények</h4>'.PHP_EOL;
+     echo '<h4>Eredmények ('.$keyword.')</h4>'.PHP_EOL;
 
      echo '<table class="table">'.PHP_EOL;
      echo '  <thead>'.PHP_EOL;
