@@ -1308,6 +1308,8 @@ function get_head($has_section,$logged_in,$articles,$meta_content,$title){
      echo '<html lang="hu">'.PHP_EOL;
      echo '<head>'.PHP_EOL;
 #     echo '<link rel="stylesheet" href="/css/main.css" />'.PHP_EOL;
+
+     echo '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">'.PHP_EOL;
      echo '<link rel="stylesheet" href="/style.css" />'.PHP_EOL;
      echo '<link rel="stylesheet" href="/bootstrap.css" />'.PHP_EOL;
      echo '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">'.PHP_EOL;
@@ -2106,20 +2108,37 @@ switch ($request) {
      $bfs_array = array_reverse($handler->conditional_select_from("books_for_sale",array("active_book" => 1)));
 
      echo '<div style="display: block; background: #ffffff; color: black; width: 100%; margin: 0 0 15px 0; padding: 10px 25px 0 25px;  box-shadow: none; box-sizing: border-box; font-size: 1.3rem; text-align: left;" >'.PHP_EOL;
+
+     echo '<table class="table">'.PHP_EOL;
+     echo '  <thead>'.PHP_EOL;
+     echo '    <tr>'.PHP_EOL;
+     echo '      <th scope="col">#</th>'.PHP_EOL;
+     echo '      <th scope="col">First</th>'.PHP_EOL;
+     echo '      <th scope="col">Last</th>'.PHP_EOL;
+     echo '      <th scope="col">Handle</th>'.PHP_EOL;
+     echo '      <th scope="col">Handle</th>'.PHP_EOL;
+     echo '    </tr>'.PHP_EOL;
+     echo '  </thead>'.PHP_EOL;
+     echo '  <tbody>'.PHP_EOL;
+     $counter = 1;
      foreach( $bfs_array as $bfs ){
   
       $image = $handler->conditional_select_from("books_for_sale_images",array("book_unique_hash" => $bfs['book_unique_hash'] ))[0];
 
-      echo ' <div style="float: left;  padding: 30px"> <a style="color: blue" href="http://www.betufront.hu/hasznalt-konyv/'.$bfs['titleForUrl'].'"><img width="300px" height="400px" src="/images/books/'.$bfs['id'].'/'.$image['book_image_name'].'"/></a></div>'.PHP_EOL;
-
-      echo '<div style="border-bottom: 1px solid #004A1D;min-height: 470px;">'.PHP_EOL;
-      echo '<h3>'.$bfs['book_author'].'</h3>'.PHP_EOL;
-      echo '<h4>'.$bfs['book_title'].' <a style="color: blue" href="http://www.betufront.hu/hasznalt-konyv/'.$bfs['titleForUrl'].'">Megtekintem</a></h4>'.PHP_EOL;
-      echo '<h5>'.$bfs['book_publisher'].' '.'['.$bfs['book_publish_date'].']</h5>'.PHP_EOL;
-      echo '<div><p>'.$bfs['book_summary'].'</p></div>'.PHP_EOL;
-      echo '<div><p>'.$bfs['book_price'].' Forint / <span style="font-size: 0.75em"> '.full_date($bfs['created']).'</span> </p></div>'.PHP_EOL;
-      echo '</div>'.PHP_EOL;
+      echo ' <tr> '.PHP_EOL;
+      echo '   <th scope="row">'.$counter.'</th> '.PHP_EOL;
+      echo '   <td><div style="float: left;  padding: 30px"> <a style="color: blue" href="http://www.betufront.hu/hasznalt-konyv/'.$bfs['titleForUrl'].'"><img width="300px" height="400px" src="/images/books/'.$bfs['id'].'/'.$image['book_image_name'].'"/></a></div></td> '.PHP_EOL;
+      echo '   <td>'.$bfs['book_author'].'</td> '.PHP_EOL;
+      echo '   <td><a style="color: blue" href="http://www.betufront.hu/hasznalt-konyv/'.$bfs['titleForUrl'].'">'.$bfs['book_title'].'</a></td> '.PHP_EOL;
+      echo '   <td>'.$bfs['book_publisher'].' '.'['.$bfs['book_publish_date'].']</td> '.PHP_EOL;
+      echo '   <td><p>'.$bfs['book_price'].' Forint / <span style="font-size: 0.75em"> '.full_date($bfs['created']).'</span> </p></td> '.PHP_EOL;
+      echo ' </tr> '.PHP_EOL;
+     $counter = $counter + 1;
      }
+
+     echo '  </tbody>'.PHP_EOL;
+     echo '</table>'.PHP_EOL;
+
      echo '</div>'.PHP_EOL;
      echo '</div>'.PHP_EOL;
 
