@@ -2128,6 +2128,7 @@ if(preg_match('/search-result\//', $request)){
   
       $image = $handler->conditional_select_from("books_for_sale_images",array("book_unique_hash" => $bfs['book_unique_hash'] ))[0];
 
+if (strpos($$bfs['book_author'], $keyword !== false) {
       echo ' <tr> '.PHP_EOL;
       echo '   <th scope="row">'.$counter.'</th> '.PHP_EOL;
       echo '   <td><div style="float: left;  padding: 0px"> <a style="color: blue" href="http://www.betufront.hu/hasznalt-konyv/'.$bfs['titleForUrl'].'"><img width="100px" height="100px" src="/images/books/'.$bfs['id'].'/'.$image['book_image_name'].'"/></a></div></td> '.PHP_EOL;
@@ -2137,6 +2138,7 @@ if(preg_match('/search-result\//', $request)){
       echo '   <td>'.$bfs['book_price'].' Forint </td> '.PHP_EOL;
       echo ' </tr> '.PHP_EOL;
      $counter = $counter + 1;
+}
      }
 
      echo '  </tbody>'.PHP_EOL;
@@ -2230,7 +2232,8 @@ switch ($request) {
 
      echo '<script>'.PHP_EOL;
      echo 'function handle_search(){'.PHP_EOL;
-     echo 'window.location.replace("http://www.'.$GLOBALS['project_name'].'.hu/search-result/keyword");'.PHP_EOL;
+
+     echo 'window.location.replace("http://www.'.$GLOBALS['project_name'].'.hu/search-result/"+document.getElementById("jfgsb_q").value);'.PHP_EOL;
      echo ' };'.PHP_EOL;
      echo '</script>'.PHP_EOL;
 
