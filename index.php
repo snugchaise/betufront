@@ -2079,7 +2079,7 @@ else{
 #############  SEARCH-RESULT ENDPOINT #################################
 ###############################################################
 if(preg_match('/search-result\//', $request)){
-     $keyword  = explode("/",$request)[4];
+     $keyword  = explode("/",$request)[3];
      $auth  = explode("/",$request)[3];
      $logged_in = False;
      if(strcmp($auth, "057a39a1cf79eb4625c16c51eadd3283") == 0){
