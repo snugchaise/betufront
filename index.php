@@ -2079,7 +2079,7 @@ else{
 #############  SEARCH-RESULT ENDPOINT #################################
 ###############################################################
 switch ($request) {
-    case '/search-result/' :
+    case '/search-result' :
 
      $keyword  = explode("/",$request)[4];
      $auth  = explode("/",$request)[3];
