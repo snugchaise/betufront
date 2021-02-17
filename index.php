@@ -1921,7 +1921,7 @@ function get_head($has_section,$logged_in,$articles,$meta_content,$title){
      echo '.btn {'.PHP_EOL;
      echo '    background-color: #111111;'.PHP_EOL;
      echo '    border: 0 none;'.PHP_EOL;
-     echo '    border-radius: 1px;'.PHP_EOL;
+     echo '    border-radius: 7px;'.PHP_EOL;
      echo '    font-size: 14px;'.PHP_EOL;
      echo '    font-weight: bold;'.PHP_EOL;
      echo '    padding: 0.8rem 2rem;'.PHP_EOL;
@@ -2099,7 +2099,9 @@ switch ($request) {
 
      echo ' <div style="margin-top: 2%; width: 20%; min-height: 550px; float: left">'.PHP_EOL;
      echo '<div class="nativetext input-wrapper"><label class="label" title="Kulcsszó">Keresés</label><div class="text" id="jfgsb_q_holder"><i class="material-icons close"></i><input class="text" id="jfgsb_q" name="q" type="text" placeholder="Kulcsszó" autocomplete="off"><div class="body"></div></div>'.PHP_EOL;
+     echo '<div style="float: right;margin-top: 10px;">'.PHP_EOL;
      echo '<button type="submit" class="btn btn-primary" >Keresés</button>'.PHP_EOL;
+     echo '</div>'.PHP_EOL;
      echo '</div>'.PHP_EOL;
      echo '</div>'.PHP_EOL;
 
