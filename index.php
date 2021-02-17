@@ -2107,7 +2107,7 @@ switch ($request) {
 
      echo '<div style="display: block; background: #ffffff; color: black; width: 100%; margin: 0 0 15px 0; padding: 10px 25px 0 25px;  box-shadow: none; box-sizing: border-box; font-size: 0.9rem; text-align: left;" >'.PHP_EOL;
 
-     echo '<table class="table">'.PHP_EOL;
+     echo '<table class="table-responsive">'.PHP_EOL;
      echo '  <thead>'.PHP_EOL;
      echo '    <tr>'.PHP_EOL;
      echo '      <th scope="col">#</th>'.PHP_EOL;
