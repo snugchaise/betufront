@@ -2098,7 +2098,7 @@ switch ($request) {
      echo '<div style="width: 1080px; padding: 0;position: relative; max-width: 1080px; margin: 0 auto; box-sizing: border-box;">'.PHP_EOL;
 
      echo ' <div style="margin-top: 2%; width: 20%; min-height: 550px; float: left">'.PHP_EOL;
-     echo '     <div class="nativetext input-wrapper"><label class="label" title="Kulcsszó">Kulcsszó</label><div class="text" id="jfgsb_q_holder"><i class="material-icons close"></i><input class="text" id="jfgsb_q" name="q" type="text" placeholder="Kulcsszó" autocomplete="off"><div class="body"></div><div class="placeholder-label" id="jfgsb_q_placeholder_label"><span class="sub">Kulcsszó</span></div></div></div>'.PHP_EOL;
+     echo '<div class="nativetext input-wrapper"><label class="label" title="Kulcsszó">Keresés</label><div class="text" id="jfgsb_q_holder"><i class="material-icons close"></i><input class="text" id="jfgsb_q" name="q" type="text" placeholder="Kulcsszó" autocomplete="off"><div class="body"></div></div></div>'.PHP_EOL;
      echo '</div>'.PHP_EOL;
 
      echo ' <div style="margin-top: 2%; min-height: 550px; width: 71%; float: left">'.PHP_EOL;
