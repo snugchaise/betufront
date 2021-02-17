@@ -1369,7 +1369,6 @@ function get_head($has_section,$logged_in,$articles,$meta_content,$title){
      echo '	label {'.PHP_EOL;
      echo '		display: block;'.PHP_EOL;
      echo '		font-size: 0.9em;'.PHP_EOL;
-     echo '		text-transform: uppercase;'.PHP_EOL;
      echo '		font-weight: 700;'.PHP_EOL;
      echo '		margin: 0 0 1em 0;'.PHP_EOL;
      echo '	}'.PHP_EOL;
@@ -1517,7 +1516,7 @@ function get_head($has_section,$logged_in,$articles,$meta_content,$title){
      echo '	}'.PHP_EOL;
      echo ''.PHP_EOL;
      echo '	label {'.PHP_EOL;
-     echo '		color: #F1BF00;'.PHP_EOL;
+     echo '		color: #676767;'.PHP_EOL;
      echo '	}'.PHP_EOL;
      echo ''.PHP_EOL;
      echo '	input[type="text"],'.PHP_EOL;
@@ -2099,7 +2098,7 @@ switch ($request) {
      echo '<div style="width: 1080px; padding: 0;position: relative; max-width: 1080px; margin: 0 auto; box-sizing: border-box;">'.PHP_EOL;
 
      echo ' <div style="margin-top: 2%; width: 20%; min-height: 550px; float: left">'.PHP_EOL;
-     echo '     <div class="nativetext input-wrapper"><label class="label" for="jfgsb_q" title="Kulcsszó">Kulcsszó</label><div class="text" id="jfgsb_q_holder"><i class="material-icons close"></i><input class="text" id="jfgsb_q" name="q" type="text" placeholder="Kulcsszó" autocomplete="off"><div class="body"></div><div class="placeholder-label" id="jfgsb_q_placeholder_label"><span class="sub">Kulcsszó</span><span class="main">angol</span></div></div></div>'.PHP_EOL;
+     echo '     <div class="nativetext input-wrapper"><label class="label" title="Kulcsszó">Kulcsszó</label><div class="text" id="jfgsb_q_holder"><i class="material-icons close"></i><input class="text" id="jfgsb_q" name="q" type="text" placeholder="Kulcsszó" autocomplete="off"><div class="body"></div><div class="placeholder-label" id="jfgsb_q_placeholder_label"><span class="sub">Kulcsszó</span></div></div></div>'.PHP_EOL;
      echo '</div>'.PHP_EOL;
 
      echo ' <div style="margin-top: 2%; min-height: 550px; width: 71%; float: left">'.PHP_EOL;
